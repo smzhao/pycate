@@ -7,7 +7,9 @@
                 xxxxxx
 </div>
 {% end %}
+
 {% block infonav %}
+<br>
 <div class="row">
     <div class="col-sm-7">
     <span class="catname">{{ widget_info['catname'] }}</span>
@@ -24,13 +26,14 @@
 
 {% block infolist %}
 <div class="list_house">
-    <ul>
+    <ul class="list-group">
     <span id="resultSpan">
 
     </span>
     </ul>
 </div>
 {% end %}
+
 {% block footer %}
 <p>{{ footer_text }}</p>
 {% end %}

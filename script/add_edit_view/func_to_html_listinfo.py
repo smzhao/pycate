@@ -5,8 +5,8 @@
 
 def gen_input_view(sig):
     out_str = '''
-    <div class="pure-u-1-4 iga_view_rec"><span class="des">{1}</span></div>
-    <div class="pure-u-3-4 iga_view_rec"><span class="iga_pd_val">{{{{ post_info['{0}'][0] }}}} {2}</span></div>
+    <div class="col-sm-4"><span class="des">{1}</span></div>
+    <div class="col-sm-8"><span class="iga_pd_val">{{{{ post_info['{0}'][0] }}}} {2}</span></div>
     '''.format(sig['en'], sig['zh'], sig['dic'][1])
     return (out_str)
 

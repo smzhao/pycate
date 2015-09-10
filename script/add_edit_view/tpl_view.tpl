@@ -8,6 +8,7 @@
 
 
 {% end %}
+
 {% block extrainfo %}
 
 <div id="iga_view_rec_box">
@@ -15,6 +16,7 @@ xxxxxx
 </div>
 
 {% end %}
+
 {% block footer %}
 <p>{{ footer_text }}</p>
 {% end %}

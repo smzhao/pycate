@@ -55,11 +55,11 @@ class PublishHandler(base_handler.BaseHandler):
         for rec in dbdata:
             if vip == 1:
                 outstr += '''
-                <li class="list-group-item"><a href="/add/{0}/vip">{1}</a></li>
+                <a href="/add/{0}/vip" class="btn btn-primary" style="display: inline-block;margin:3px;" >{1}</a>
                 '''.format(rec.catid, rec.catname)
             else:
                 outstr += '''
-                <li class="list-group-item"><a href="/add/{0}">{1}</a></li>
+                <a href="/add/{0}" class="btn btn-primary" style="display: inline-block;margin:3px;" >{1}</a>
                 '''.format(rec.catid, rec.catname)
         outstr += '</ul>'
         return (outstr)
@@ -70,7 +70,7 @@ class PublishHandler(base_handler.BaseHandler):
         class1str = ''
         for rec in dbdata:
             class1str += '''
-            <li class="list-group-item"><a onclick="select('/publish/2{0}');" >{1}</a></li>
+             <a onclick="select('/publish/2{0}');" class="btn btn-primary" style="display: inline-block;margin:3px;" >{1}</a>
             '''.format(rec.catid, rec.catname)
 
         kwd = {

@@ -8,113 +8,115 @@
 
 
 {% end %}
+
 {% block extrainfo %}
 
 <div id="iga_view_rec_box">
 
-    <div class="pure-u-1-4 iga_view_rec"><span class="des">学科</span></div>
-    <div class="pure-u-3-4 iga_view_rec">
+    <div class="col-sm-4"><span class="des">学科</span></div>
+    <div class="col-sm-8">
     
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_subject"][0] %}
           {% if tmp_var == "1" %}
           海洋
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_subject"][0] %}
           {% if tmp_var == "2" %}
           地球物理
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_subject"][0] %}
           {% if tmp_var == "3" %}
           地质
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_subject"][0] %}
           {% if tmp_var == "4" %}
           天文
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_subject"][0] %}
           {% if tmp_var == "5" %}
           地理
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_subject"][0] %}
           {% if tmp_var == "6" %}
           大气
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_subject"][0] %}
           {% if tmp_var == "7" %}
           测绘
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_subject"][0] %}
           {% if tmp_var == "8" %}
           生态
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_subject"][0] %}
           {% if tmp_var == "9" %}
           农业
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_subject"][0] %}
           {% if tmp_var == "10" %}
           环境
           {% end %}
          </span>
          </div>
-    <div class="pure-u-1-4 iga_view_rec"><span class="des">存储内容</span></div>
-    <div class="pure-u-3-4 iga_view_rec">
+    <div class="col-sm-4"><span class="des">存储内容</span></div>
+    <div class="col-sm-8">
     
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_media_type"][0] %}
           {% if tmp_var == "1" %}
           文档
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_media_type"][0] %}
           {% if tmp_var == "2" %}
           数据
           {% end %}
          </span>
          
-         <span class="val">
+         <span>
           {% set tmp_var = post_info["extra_media_type"][0] %}
           {% if tmp_var == "3" %}
           程序
           {% end %}
          </span>
          </div>
-    <div class="pure-u-1-4 iga_view_rec"><span class="des">文件大小</span></div>
-    <div class="pure-u-3-4 iga_view_rec"><span class="val">{{ post_info['extra_size'][0] }} Mb</span></div>
+    <div class="col-sm-4"><span class="des">文件大小</span></div>
+    <div class="col-sm-8"><span class="val">{{ post_info['extra_size'][0] }} Mb</span></div>
     
 </div>
 
 {% end %}
+
 {% block footer %}
 <p>{{ footer_text }}</p>
 {% end %}

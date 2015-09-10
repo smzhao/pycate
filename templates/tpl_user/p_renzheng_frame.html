@@ -1,25 +1,56 @@
 
-
-<div class="panel-heading">
+<div class="panel panel-info">
+    <div class="panel-heading">
         {% module user_info(wuserinfo, wusernum) %}
-</div>
-<div class="panel-body">
+    </div>
+    <div class="panel-body">
 
 
-    <div class="pbody" style="margin:10px auto;">
+        <div class="row">
+            <div class="col-sm-6">
+                <form id="formId" action="/user/renzheng" method="post" enctype="multipart/form-data"
+                      class="form-horizontal" role="form">
 
 
-    <iframe src="/user/p_renzheng" width="800" height="300" border="1"></iframe>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">输入身份证号</label>
+
+                            <div class="col-sm-8">
+                                <input id="imageId" type="text" name="imageName" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">附件：</label>
+
+                            <div class="col-sm-8">
+                                <input id="imageId" type="file" name="imageName"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label"></label>
+
+                            <div class="col-sm-8">
+                                <button type="submit" class="btn btn-primary">认证</button>
+                            </div>
+                        </div>
+
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <img id="img" src="{{ static_url(wuserinfo.img_credit) }}" width="80" height="80"
+                     style="display:block;"/>
+
+            </div>
+        </div>
 
 
     </div>
 
+    <div class="panel-footer">
 
-</div>
-
-<div class="panel-footer"
-     style=" background: #eee; border:1px solid #ddd;width: 92%; padding:1% 2%;  margin:15px 2%;  ">
-    你可以收藏他人所发布的信息，不可收藏自己发布的信息。
+        你可以收藏他人所发布的信息，不可收藏自己发布的信息。
+    </div>
 </div>
 
 

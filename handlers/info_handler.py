@@ -88,7 +88,7 @@ class InfoHandler(base_handler.BaseHandler):
         parent_catname = self.mcat.get_by_id(parent_id).catname
         catname = self.mcat.get_by_id(cat_id).catname
 
-        daohang_str = '<a href="/">吉合营</a>'
+        daohang_str = '<a href="/">数据中心</a>'
         daohang_str += ' &gt; <a href="/list/{0}">{1}</a>'.format(parent_id, parent_catname)
         daohang_str += ' &gt; <a href="/list/{0}">{1}</a>'.format(cat_id, catname)
 
