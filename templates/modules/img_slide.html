@@ -1,0 +1,18 @@
+<div class="iga_lb_box">
+    <div class="iga_lb_cont">
+        <a><img src="{{ static_url(post_info['mymps_img'][0]) }}" width="300px"/></a>
+        {% for x in post_info['mymps_img'][1:] %}
+        <a class="iga_lb_hide"><img src="{{static_url(x)}}" width="300px"/></a>
+        {% end %}
+
+    </div>
+    <div class="iga_lb_item">
+        <a class="iga_lb_seld"><img
+                src="{{ static_url(post_info['mymps_img'][0]) }}"
+                width="60px"/></a>
+        {% for x in post_info['mymps_img'][1:] %}
+        <a><img src="{{static_url(x)}}" width="60px" /></a>
+        {% end %}
+
+    </div>
+</div>

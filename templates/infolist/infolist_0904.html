@@ -1,0 +1,43 @@
+<div class="iga_hover">
+    <div class="pure-g">
+        <div class="pure-u-1-4">
+
+            <div class="left">
+                <a href="/view/{{ post_info['def_uid'] }}" >
+                    <img src="{{ static_url(widget_info['imgname'] ) }}" align="absmiddle"
+                         style="width: 150px;height:100px;overflow: hidden;"/></a>
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="mid">
+                <div class="listinfo_title">
+                    <a href="/info/{{ post_info['def_uid'] }}">
+                        {{ post_info['title'][0] }}{% raw widget_info['zhiding'] %}{% raw widget_info['tuiguang'] %}
+                    </a>
+                </div>
+
+                <div class="listinfo_content">
+                    <a href="/info/{{ post_info['def_uid'] }}" >
+                        <nobr> {% raw post_info['content'][0] %}</nobr>
+                    </a>
+                </div>
+                <div class="listinfo_time">
+                    发布时间: {{ post_info['def_update_time_str'] }}
+                </div>
+                <div class="listinfo_extra">
+                    <span> <span class="iga_pd_val">     {% if post_info["extra_leibie21"][0] == "1" %} 厨师 {% end %}  {% if post_info["extra_leibie21"][0] == "2" %} 服务员 {% end %}  {% if post_info["extra_leibie21"][0] == "3" %} 领班 {% end %}  {% if post_info["extra_leibie21"][0] == "4" %} 大堂经理 {% end %}  {% if post_info["extra_leibie21"][0] == "5" %} 配菜 {% end %}  {% if post_info["extra_leibie21"][0] == "6" %} 面点师 {% end %}  {% if post_info["extra_leibie21"][0] == "7" %} 吧台 {% end %}  {% if post_info["extra_leibie21"][0] == "8" %} 调酒师 {% end %}  {% if post_info["extra_leibie21"][0] == "9" %} 迎宾/接待 {% end %}  {% if post_info["extra_leibie21"][0] == "10" %} 洗碗工 {% end %}  {% if post_info["extra_leibie21"][0] == "11" %} 传菜员 {% end %} </span><span class="iga_pd_val">     {% if post_info["extra_gongzuojingyan"][0] == "1" %} 无经验 {% end %}  {% if post_info["extra_gongzuojingyan"][0] == "2" %} 1-3年 {% end %}  {% if post_info["extra_gongzuojingyan"][0] == "3" %} 3-5年 {% end %}  {% if post_info["extra_gongzuojingyan"][0] == "4" %} 5-10年 {% end %}  {% if post_info["extra_gongzuojingyan"][0] == "5" %} 10年以上 {% end %} </span><span class="iga_pd_val">    {% if post_info['extra_xingbie'][0] == "1" %} 男 {% end %}{% if post_info['extra_xingbie'][0] == "2" %} 女 {% end %}</span><span class="iga_pd_val">     {% if post_info["extra_gongzuoxingzhi"][0] == "1" %} 全职 {% end %}  {% if post_info["extra_gongzuoxingzhi"][0] == "2" %} 兼职 {% end %} </span><span class="iga_pd_val">     {% if post_info["extra_shifouyingjie"][0] == "1" %} 应届 {% end %}  {% if post_info["extra_shifouyingjie"][0] == "2" %} 非应届 {% end %} </span><span class="iga_pd_val">     {% if post_info["extra_xueli"][0] == "1" %} 高中以下 {% end %}  {% if post_info["extra_xueli"][0] == "2" %} 高中 {% end %}  {% if post_info["extra_xueli"][0] == "3" %} 中专/技校 {% end %}  {% if post_info["extra_xueli"][0] == "4" %} 大专 {% end %}  {% if post_info["extra_xueli"][0] == "5" %} 本科 {% end %}  {% if post_info["extra_xueli"][0] == "6" %} 硕士 {% end %}  {% if post_info["extra_xueli"][0] == "7" %} 博士 {% end %}  {% if post_info["extra_xueli"][0] == "8" %} MBA/EMBA {% end %} </span><span class="iga_pd_val">     {% if post_info["extra_xinjin"][0] == "1" %} 面议 {% end %}  {% if post_info["extra_xinjin"][0] == "2" %} 1k以下 {% end %}  {% if post_info["extra_xinjin"][0] == "3" %} 1k~1.5k {% end %}  {% if post_info["extra_xinjin"][0] == "4" %} 1.5k~2k {% end %}  {% if post_info["extra_xinjin"][0] == "5" %} 2k~3k {% end %}  {% if post_info["extra_xinjin"][0] == "6" %} 3k~4k {% end %}  {% if post_info["extra_xinjin"][0] == "7" %} 4k~6k {% end %}  {% if post_info["extra_xinjin"][0] == "8" %} 6k~8k {% end %}  {% if post_info["extra_xinjin"][0] == "9" %} 8k以上 {% end %} </span></span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="pure-u-1-4">
+            <div class="right">
+                {% raw widget_info['html_right_top'] %} <br/>
+            </div>
+            <div class="right">
+                {% raw widget_info['html_right_bottom'] %} <br/>
+            </div>
+        </div>
+    </div>
+</div>

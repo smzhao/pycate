@@ -1,0 +1,74 @@
+<script>
+
+    // 提交修改密码的动作
+    function submit_form() {
+
+        // 模拟Form提交
+        $.ajax({
+            type: "POST",
+            url: "/admin/getuser/",
+            data: "oldpass=" + $("#old_pwd").val() + '&newpass=' + $("#new_pwd").val(),
+
+            success: function (msg) {
+                alert('密码修改成功');
+                $('#showCnt').load('/user/page_status');
+            },
+            error: function () {
+                alert('修改密码不成功');
+                // $('#showCnt').load('/user/page_password')
+            }
+        })
+
+    }
+
+    // jquery.validate.js 验证
+    $().ready(function () {
+
+        $("#form_find_user").validate({
+            rules: {
+                user_name: "required"
+            },
+            messages: {
+                user_name: "<span class='red'>请输入用户名</span>"
+            }
+        });
+    });
+
+    $('#asubmit').click(function () {
+        if ($("#form_find_user").valid()) {
+            // submit_form()
+            $('#showCnt').load('/admin/user/' + $("#user_name").val() );
+        }
+        else {
+            // just show validation errors, dont post
+        }
+    });
+</script>
+
+
+<div class="pure-g">
+
+    <div class="pure-u-1">
+        <form id="form_find_user">
+
+            <legend>输入用户名</legend>
+            <fieldset style="font-size: 14px">
+
+                <div class="pure-control-group">
+
+                    <label for="user_name">输入用户名</label>
+                    <input type="text" id="user_name" name="user_name"/>
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="cb" class="pure-checkbox"> </label>
+
+
+                    <a class="pure-button pure-button-primary" id="asubmit">
+                        查找
+                    </a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

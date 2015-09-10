@@ -1,0 +1,82 @@
+<html>
+    <style>
+        .unchecked{
+          border: 1px solid gray;
+        padding: 6px 6px 6px 6px;
+    }
+    .checked{
+      border: 2px solid #c00;
+    padding: 6px 6px 6px 6px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.4.2.min.js" ></script>
+<script type="text/javascript">
+    var obj={
+         colorSpan:"",
+          sizeSpan:""
+      };
+      function change(span)
+      {
+          $('span[name="'+$(span).attr('name')+'"]').each(function(){
+              if(this.checked&&this!=span)
+              {
+                      this.className="unchecked";
+                          this.checked=false;
+                        }               
+                    });
+                    obj[$(span).attr('name')]=$(span).attr('value');
+                    span.className="checked";
+                    span.checked=true;
+                    tt = span.value;
+                    select();
+                }
+                function select()
+                {
+                    var html='';
+                    var html2 = window.location.href;
+                     for(var i in obj)
+                     {
+                         if(obj[i]!='')
+                         {
+                             html+='<font color=orange>"'+  obj[i]+'"</font> 、';
+                             html2 +='/' + i + '/'+  obj[i];
+
+                            }
+                        }
+                        html='<b>已选择:</b> '+html.slice(0,html.length-1);
+                        // $('#resultSpan').html(html);
+                        $('#resultinfo').html(html2);
+
+                        // $("form").submit();
+                        $('#resultSpan').load(html2);
+                }
+                    
+                </script>
+                <body>
+                    <br />
+                    <form action='post' action=''>
+                        <a href=''>  <span id='resultinfo'></span></a>
+                    <div>
+                        收入范围:&nbsp;&nbsp;
+                         <span class='unchecked'  name='colorSpan' checked='false' onclick='change(this);' value="0">不限</span>&nbsp;
+                        <span class='unchecked'  name='colorSpan' checked='false' onclick='change(this);' value="1">保密</span>&nbsp;
+                        <span class='unchecked' name='colorSpan' checked='false' onclick='change(this);' value="2">800以上</span>
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        星座:&nbsp;&nbsp;<span class='unchecked'  name='sizeSpan'  checked='false' onclick='change(this);' value="1">白羊</span>&nbsp;
+                        <span class='unchecked' name='sizeSpan' checked='false' onclick='change(this);' value="2">金牛</span>&nbsp;
+                        <span class='unchecked' name='sizeSpan' checked='false' onclick='change(this);' value="3">双子</span>
+                    </div>
+                      <input type="submit" value="Submit" />
+                    
+                    </form>
+                    <br />
+                    <br />
+                    <div>
+                        <b>提示:</b>&nbsp;&nbsp;<span id='resultSpan'></span>
+                    </div>
+
+                </body>
+                </html>

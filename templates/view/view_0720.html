@@ -1,0 +1,340 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">工人类别</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "1" %}
+          保洁员
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "2" %}
+          电工
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "3" %}
+          电焊工
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "4" %}
+          铣工
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "5" %}
+          钳工
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "6" %}
+          工电器维修
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "7" %}
+          工电子技工
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "8" %}
+          木工
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "9" %}
+          搬运工
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "10" %}
+          瓦工水泥工
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "11" %}
+          设备维修
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongrenleibie"][0] %}
+          {% if tmp_var == "12" %}
+          其他技工
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">工作经验</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongzuojingyan"][0] %}
+          {% if tmp_var == "1" %}
+          无经验
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongzuojingyan"][0] %}
+          {% if tmp_var == "2" %}
+          1-3年
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongzuojingyan"][0] %}
+          {% if tmp_var == "3" %}
+          3-5年
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongzuojingyan"][0] %}
+          {% if tmp_var == "4" %}
+          5-10年
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongzuojingyan"][0] %}
+          {% if tmp_var == "5" %}
+          10年以上
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">性　　别</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+         {% if post_info['extra_xingbie'][0] == "1" %}
+         男
+         {% end %}
+         </span>
+        
+         <span class="val">
+         {% if post_info['extra_xingbie'][0] == "2" %}
+         女
+         {% end %}
+         </span>
+        </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">学　　历</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_xueli"][0] %}
+          {% if tmp_var == "1" %}
+          高中以下
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xueli"][0] %}
+          {% if tmp_var == "2" %}
+          高中
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xueli"][0] %}
+          {% if tmp_var == "3" %}
+          中专/技校
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xueli"][0] %}
+          {% if tmp_var == "4" %}
+          大专
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xueli"][0] %}
+          {% if tmp_var == "5" %}
+          本科
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xueli"][0] %}
+          {% if tmp_var == "6" %}
+          硕士
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xueli"][0] %}
+          {% if tmp_var == "7" %}
+          博士
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xueli"][0] %}
+          {% if tmp_var == "8" %}
+          MBA/EMBA
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">薪　　金</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjin"][0] %}
+          {% if tmp_var == "1" %}
+          面议
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjin"][0] %}
+          {% if tmp_var == "2" %}
+          1k以下
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjin"][0] %}
+          {% if tmp_var == "3" %}
+          1k~1.5k
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjin"][0] %}
+          {% if tmp_var == "4" %}
+          1.5k~2k
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjin"][0] %}
+          {% if tmp_var == "5" %}
+          2k~3k
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjin"][0] %}
+          {% if tmp_var == "6" %}
+          3k~4k
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjin"][0] %}
+          {% if tmp_var == "7" %}
+          4k~6k
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjin"][0] %}
+          {% if tmp_var == "8" %}
+          6k~8k
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjin"][0] %}
+          {% if tmp_var == "9" %}
+          8k以上
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">工作性质</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongzuoxingzhi"][0] %}
+          {% if tmp_var == "1" %}
+          全职
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongzuoxingzhi"][0] %}
+          {% if tmp_var == "2" %}
+          兼职
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">年　　龄</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_nianling"][0] %}
+          {% if tmp_var == "1" %}
+          25岁以下
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_nianling"][0] %}
+          {% if tmp_var == "2" %}
+          25-30岁
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_nianling"][0] %}
+          {% if tmp_var == "3" %}
+          30-35岁
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_nianling"][0] %}
+          {% if tmp_var == "4" %}
+          35-40岁
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_nianling"][0] %}
+          {% if tmp_var == "5" %}
+          40岁以上
+          {% end %}
+         </span>
+         </div>
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

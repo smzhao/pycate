@@ -1,0 +1,219 @@
+<script type="text/javascript" src="{{ static_url('jslib/validate/jquery.validate.min.js') }}"></script>
+<script type="text/javascript" src="{{ static_url('jslib/validate/message_cn.js') }}"></script>
+<script type="text/javascript">
+
+    jQuery.validator.addMethod("req1", function (value, element) {
+        var length = value.length;
+        var mobile = /^(((13[0-9]{1})|(15[0-9]{1}))+\d{8})$/;
+        return this.optional(element) || (length == 11 && mobile.test(value));
+    }, "请正确填写您的手机号码");
+
+
+    function tijiao2() {
+        $.ajaxSetup({cache: false});
+        // 预约刷新
+        // 模拟Form提交
+        $.ajax({
+            type: "POST",
+            url: "operate",
+            data: "link_image=" + "#elink_image"+ "&link_url=" + "#elink_url",
+            success: function (msg) {
+                //alert('修改成功');
+                alert("elink_image")
+                $('#showCnt').load('/link/list');
+            },
+            error: function () {
+                alert('修改失败');
+                // $('#showCnt').load('/user/page_password')
+                $('#showCnt').load('/link/list');
+            }
+
+        });
+        jQuery().colorbox.close();
+    }
+
+
+    $(document).ready(function () {
+        $(".inline").colorbox({inline: true, width: "50%"});
+    });
+
+    $().ready(function () {
+        $("#linkup").validate(
+                {
+                    rules: {
+                        catid: "required",
+                        link_image: "required",
+                        link_url: {
+                            required: true,
+                            url: true
+                        }
+                    },
+                    messages: {
+                        catid: "<span class='red'>请选择类别</span>",
+                        link_image: "<span class='red'>请选择要上传的图片</span>",
+                        link_url: {
+                            required: "<span class='red'>请输入网址</span>",
+                            url: "<span class='red'>请输入正确的网址</span>"
+                        }
+                    }
+                }
+        );
+    });
+
+</script>
+
+
+{% block bodyinfo %}
+<div class="panel-heading">
+    <span id="userInfo"
+          style="color:#000000;border-bottom:1px solid #005065;font-size:0.8em;width: 95%;">
+        {% module vip_info(wuserinfo, wuservip) %}
+    </span>
+</div>
+
+<div class="pure-form pure-form-aligned">
+    <div class="pure-u-1">
+        <a href="#gg" target="_blank"
+           style="margin-bottom: 5px;color: #fff"
+           class="inline pure-button btn-primary  pure-button-primary" id="Button1">添加图片广告</a>
+
+    </div>
+
+
+    <div style="display: none;">
+        <div id="gg">
+            <form id="linkup" class="pure-form pure-form-aligned" action="/link/add" method="post"
+                  enctype="multipart/form-data">
+                <legend>添加图片外链信息</legend>
+                <fieldset>
+
+                    <input type="hidden" name="cityid1" value="{{ kwd['cityid'] }}"/>
+
+
+                    <div class="pure-control-group">
+                        <label for="catid">选择类别：</label>
+                        <select id="catid" name="catid">
+                            {% raw kwd['cat_str'] %}</select><span id="tipcatid"></span>
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label for="linkt">上传图片：</label>
+                        <label id="linkt" style="width:400px;text-align: left;">图片格式为 .png .jpg等。</label>
+                    </div>
+
+
+                    <div class="pure-control-group">
+                        <label for="link_i"></label>
+                        <label id="link_i">
+                            <input class="text" type="file" name='link_image' id="link_image"
+                                   style="margin:2px 0 2px 0;height: 35px;">
+                        </label>
+                    </div>
+
+
+                    <div class="pure-control-group">
+                        <label for="link_url">链接：</label>
+                        <input type="text" name="link_url" id="link_url" class="required url"/>
+                    </div>
+
+
+                    <div class="pure-control-group">
+                        <label for="sub1"></label>
+                        <input class="pure-button pure-button-primary" type="submit" id="sub1" value="提交"/>
+                    </div>
+
+                </fieldset>
+            </form>
+
+
+        </div>
+    </div>
+
+
+    {% for x in infos %}
+    <div class="pure-g" style="border-bottom: 1px #536a81 dashed;padding: 15px 0; ">
+
+        <div class="pure-u-1-5">
+            <img src="{{ static_url(x.img) }}" width="100px"/>
+        </div>
+
+        <div class="pure-u-4-5">
+            <div>分类：{{ x.catid }} 链接：{{ x.url }}</div>
+            <div style="margin: 10px 0 15px 0">文件名：{{ x.img }}</div>
+            <div><span>
+                <a class="pure-button pure-button-primary" onclick="js_show_page('/link/delete/{{ x.uid }}')">
+                    删除
+                </a>
+
+
+            <a href="#edgg{{x.uid}}" target="_blank"
+               style="margin-bottom: 5px;color: #fff"
+               class="inline pure-button btn-primary  pure-button-primary" id="Button1">修改</a>
+
+            </span>
+            </div>
+
+
+            <div style="display: none;">
+                <div id="edgg{{x.uid}}">
+                    <form class="pure-form pure-form-aligned" action="/link/edit" enctype="multipart/form-data"
+                          name="formx">
+                        <fieldset>
+
+                            <legend>修改图片外链信息</legend>
+                            <input type="hidden" name="uid" value="{{ x.uid }}"/>
+                            <input type="hidden" name="old_img" value="{{ x.img }}"/>
+
+                            <div class="pure-control-group">
+                                <label for="ecatid">选择类别：</label>
+                                <select id="ecatid" name="ecatid">
+                                    {% raw kwd['cat_str'] %} </select>
+                            </div>
+
+
+                            <div class="pure-control-group">
+                                <label for="link_image1">现在图片：</label>
+                                <label id="link_image1" style="margin:2px 0 2px 0;">
+                                    <img src="{{ static_url(x.img) }}" width="100px"/>
+                                </label>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="elink_image">上传图片：</label>
+                                <label id="elink_image">
+                                    <input class="text pure-text" type="file" name='elink_image'
+                                           style="margin:2px 0 2px 0;height: 30px;"/>
+                                </label>
+                            </div>
+
+
+                            <div class="pure-control-group">
+                                <label for="elink_url">链接：</label>
+                                <input type="text" name="elink_url" id="elink_url" value="{{ x.url }}"/>
+                            </div>
+
+
+                            <div class="pure-control-group">
+                                <label for="esub1"></label>
+                                <!--
+                                <input class="pure-button pure-button-primary" type="submit" id="esub1" value="提交"/>
+                                -->
+                                <a class="pure-button pure-button-primary" onclick="tijiao2();"
+                                   id="esub1">
+                                    提交
+                                </a>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    {% end %}
+
+
+</div>
+{% end %}

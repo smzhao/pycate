@@ -1,0 +1,65 @@
+{% extends "../tpl_plain.html" %}
+
+
+{% block bodyinfo %}
+
+<div class="pure-g">
+    <div class="pure-u-3-5">
+
+        <div style="margin:50px auto; width:80%;text-align:left;">
+
+            <form action="/link/update" id="linkup" class="pure-form pure-form-aligned" method="post"
+                  enctype="multipart/form-data">
+                <fieldset>
+
+                    <legend>修改图片外链信息</legend>
+
+                    <input type="hidden" name="uid" value="{{ linkinfo.uid }}"/>
+                    <input type="hidden" name="cityid1" value="{{ kwd['cityid'] }}"/>
+                    <input type="hidden" name="parentid" value="{{ kwd['parentid'] }}"/>
+
+                    <div class="pure-control-group">
+                        <label for="linkt">上传图片：</label>
+                        <label id="linkt" style="width:180px;text-align: left;" name="linkt">图片格式为 .png .jpg等。</label>
+                    </div>
+
+
+                    <div class="pure-control-group">
+                        <label for="link_i"></label>
+                        <label id="link_i">
+                            <input class="text" type="file" name='link_image' id="link_image"
+                                   style="margin:2px 0 2px 0;height: 35px;">
+                        </label>
+                    </div>
+
+
+                    <div class="pure-control-group">
+                        <label for="link_url">链接：</label>
+                        <input type="text" name="link_url" id="link_url" class="required url"
+                               value="{{ linkinfo.url }}"/>
+                    </div>
+
+
+                    <div class="pure-control-group">
+                        <label for="sub1"></label>
+                        <input class="pure-button pure-button-primary" type="submit" id="sub1" value="提交"/>
+                    </div>
+
+
+                </fieldset>
+            </form>
+        </div>
+
+
+    </div>
+    <div class="pure-u-2-5">
+        <img src="{{ static_url(linkinfo.img) }}" width="200"/>
+    </div>
+
+    <div class="pure-u-1">
+        每个城市每个推广类别下，只能发布一条外链信息。
+    </div>
+</div>
+
+{% end %}
+

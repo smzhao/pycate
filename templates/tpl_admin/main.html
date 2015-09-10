@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" href="{{ static_url('stylesheets/pure-min.css') }}">
+
+    <link href="{{ static_url('tass/css/style.css') }}" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="{{ static_url('jslib/jquery-1.11.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ static_url('jslib/validate/jquery.validate.min.js') }}"></script>
+    <script type="text/javascript" src="{{ static_url('jslib/validate/message_cn.js') }}"></script>
+
+
+    <title>吉合营 后台管理工作平台</title>
+
+    <script type="text/javascript">
+        function js_show_page(html_url) {
+            $('#showCnt').load(html_url);
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            //导航切换
+            $(".menuson li").click(function () {
+                $(".menuson li.active").removeClass("active");
+                $(this).addClass("active");
+            });
+
+            $('.title').click(function () {
+                var $ul = $(this).next('ul');
+                $('dd').find('ul').slideUp();
+                if ($ul.is(':visible')) {
+                    $(this).next('ul').slideUp();
+                } else {
+                    $(this).next('ul').slideDown();
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+
+<div class="pure-g">
+
+    <div class="pure-u-1 top">
+
+
+        <div class="topleft">
+            <a href="main.html" target="_parent"><img src="../../static/tass/images/logo.png" title="系统首页"/></a>
+        </div>
+
+        <ul class="nav">
+            <li><a href="#" target="rightFrame" class="selected"><img
+                    src="../../static/tass/images/ico01.png" title="用户管理"/>
+
+                <h2>用户管理</h2></a></li>
+            <li><a href="#" target="rightFrame"><img src="../../static/tass/images/ico02.png"
+                                                     title="信息管理"/>
+
+                <h2>信息管理</h2></a></li>
+        </ul>
+        <div class="topright">
+            <ul>
+                <li><span><img src="../../static/tass/images/help.png" title="帮助" class="helpimg"/></span>
+                    <a href="#">帮助</a></li>
+                <li><a href="#">关于</a></li>
+                <li><a href="login.html" target="_parent">退出</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-1-5">
+        <dl class="leftmenu">
+
+            <dd>
+                <div class="title">
+                    <span><img src="../../static/tass/images/leftico01.png"/></span>用户管理
+                </div>
+                <ul class="menuson">
+                    <li class="active"><cite></cite>
+                        <a  onclick="js_show_page('/admin/list_renzheng')">用户认证</a><i></i></li>
+                    <li><cite></cite>
+                        <a onclick="js_show_page('/admin/p_set_vip')">设置用户VIP</a>
+                        <i></i></li>
+                </ul>
+            </dd>
+
+
+            <dd>
+                <div class="title">
+                    <span><img src="../../static/tass/images/leftico02.png"/></span>信息管理
+                </div>
+                <ul class="menuson">
+                    <li><cite></cite><a href="#" target="rightFrame">人工审核</a><i></i></li>
+                </ul>
+            </dd>
+        </dl>
+
+    </div>
+    <div class="pure-u-4-5" style="text-align: left">
+        <div id="showCnt">
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-1">
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<script>
+
+    // 首先使用jquery.validate.js进行验证
+    // 然后模拟提交，验证原始密码。
+    // 原始密码无问题，则模拟提交，修改密码。
+
+    // 提交修改密码的动作
+    function js_post_data() {
+        // 模拟Form提交
+        $.ajax({
+            type: "POST",
+            url: "/member/buy_zhiding",
+            data: "amount=" + $("#jinbi_amount").val(),
+
+            success: function (msg) {
+                alert('购买置顶次数成功');
+                $('#showCnt').load('/user/p_finance_buy_zhiding');
+            },
+            error: function () {
+                alert('购买置顶次数失败');
+                // $('#showCnt').load('/user/page_password')
+            }
+        })
+    }
+
+
+    // jquery.validate.js 验证
+    $().ready(function () {
+
+        $("#chPassForm").validate({
+            rules: {
+                jinbi_amount: "required"
+
+            },
+            messages: {
+                jinbi_amount: "<span class='red'>请输入充值金额</span>"
+            }
+        });
+
+        $('#password_submit').click(function () {
+            if ($("#chPassForm").valid()) {
+                // do some stuff
+                js_post_data()
+            }
+            else {
+                // just show validation errors, dont post
+            }
+        });
+    });
+</script>
+
+<div class="panel-heading">
+        {% module user_info(wuserinfo, wusernum) %}
+</div>
+
+<div class="panel-body">
+    <div class="pure-g" style="padding-top: 10px; width: 96%; margin: 0 auto">
+        <div class="pure-u-1">
+
+            <form id="chPassForm" method="post" class="pure-form pure-form-aligned">
+                <legend>购买置顶次数</legend>
+                <fieldset>
+
+                    <div class="pure-control-group">
+                        <label for="jinbi_amount">金币数目</label>
+                        <input id="jinbi_amount" name="jinbi_amount" type="text" value=""/>
+
+                    </div>
+
+
+                    <div class="pure-controls">
+                        <!--
+                        <label for="cb" class="pure-checkbox">
+                            <input id="cb" type="checkbox"> I've read the terms and conditions
+                        </label>
+                        -->
+
+                        <a class="pure-button pure-button-primary" id="password_submit">
+                            确定购买
+                        </a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div class="panel-footer"
+     style=" background: #eee; border:1px solid #ddd;width: 92%; padding:1% 2%; margin:15px 2%;  ">
+    说明：一金币可以购买3次置顶机会。
+</div>

@@ -1,0 +1,62 @@
+{% extends "../tpl_admin.html" %}
+
+
+{% block bodyinfo %}
+<div class="content">
+    <div class="clearfix content-inner">
+        <div class="content-main">
+            <div class="content-main-inner">
+                <div class="pwrap setting-userinfo">
+                    <div class="phead">
+                        <div class="phead-inner">
+                            <div class="phead-inner">
+                                <h3 class="ptitle"><span>头像更新</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pbody">
+
+                        <div id="msg_success"></div>
+                        <div id="msg_error"></div>
+                        <div id="msg_alert"></div>
+
+                        <form method="post" name="form1" action="?m=avatar" enctype="multipart/form-data"
+                              onSubmit="return AvatarSubmit();">
+                            <div class="formgroup section-setting">
+                                <div class="formrow">
+                                    <h3 class="label">选择文件：</h3>
+
+                                    <div class="form-enter">
+                                        <input type=file name="mymps_member_logo" size=45 id="litpic"
+                                               onChange="SeePic(document.picview,document.form1.litpic);"><br/>
+                                        支持上传的类型：png,jpg,gif,jpeg，图片尺寸：180 * 150
+                                    </div>
+                                </div>
+
+                                <div class="formrow">
+                                    <h3 class="label">预览区：</h3>
+
+                                    <div class="form-enter">
+                                        <img src="images/mpview.gif" width="150" id="picview" name="picview"/>
+                                    </div>
+                                </div>
+
+                                <div class="formrow formrow-action"><span class="minbtn-wrap"><span class="btn">
+
+                                    <button onclick="sub_refresh('{{ post_info['def_uid'] }}', '{{ kwd['action'] }}' )">
+
+                                        更 新
+                                    </button>
+
+                                        </span></span></div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="pfoot"><p><b>-</b></p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% end %}

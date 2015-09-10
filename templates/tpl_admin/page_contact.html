@@ -1,0 +1,144 @@
+{% extends "../tpl_admin.html" %}
+{% block headinfo %}
+<style type="text/css">
+
+    body {
+        margin-left: 3px;
+        margin-top: 0px;
+        margin-right: 3px;
+        margin-bottom: 0px;
+    }
+
+    .STYLE1 {
+        color: #e1e2e3;
+        font-size: 12px;
+    }
+
+    .STYLE6 {
+        color: #000000;
+        font-size: 12;
+    }
+
+    .STYLE10 {
+        color: #000000;
+        font-size: 12px;
+    }
+
+    .STYLE19 {
+        color: #344b50;
+        font-size: 12px;
+    }
+
+    .STYLE21 {
+        font-size: 12px;
+        color: #3b6375;
+    }
+
+    .STYLE22 {
+        font-size: 12px;
+        color: #295568;
+    }
+
+</style>
+
+{% end %}
+
+{% block bodyinfo %}
+
+        <div class="content-main">
+            <div class="content-main-inner">
+                <div class="pwrap setting-userinfo">
+                    <div class="phead">
+                        <div class="phead-inner">
+                            <div class="phead-inner">
+                                <h3 class="ptitle"><span>联系方式</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pbody">
+
+                        <div class="formcaption-note">
+                            填写完善的联系方式, 可以帮助用户更容易找到你.
+                        </div>
+
+                        <div id="msg_success"></div>
+                        <div id="msg_error"></div>
+                        <div id="msg_alert"></div>
+
+                        <form action="?m=base" method="post">
+                            <div class="formgroup">
+                                <div class="formrow">
+                                    <h3 class="label"><label>用户名</label></h3>
+
+                                    <div class="form-enter">
+                                        <input type="text" class="text" value="gislite" disabled="disabled"/>
+                                    </div>
+                                </div>
+
+                                <div class="formrow">
+                                    <h3 class="label">真实姓名</h3>
+
+                                    <div class="form-enter">
+                                        <input type="text" name="cname" class="text" value=""/>
+                                    </div>
+                                </div>
+
+                                <div class="formrow">
+                                    <h3 class="label">性别</h3>
+
+                                    <div class="form-enter">
+                                        <label for="gender1"><input type="radio" value="男" name="sex" id="gender1"
+                                                                    checked/>男</label>
+                                        <label for="gender2"><input type="radio" value="女" name="sex"
+                                                                    id="gender2"/>女</label>
+                                    </div>
+                                </div>
+
+                                <div class="formrow">
+                                    <h3 class="label">联系电话</h3>
+
+                                    <div class="form-enter">
+
+                                        <input type="text" class="text" name="tel" value="" maxlength=""/> <label
+                                            for="istel"><input type="checkbox" name="istel" value="1" id="istel">同步更新全部信息的联系电话</label>
+                                    </div>
+                                    <div class="form-note">前面为区号,如: 0592-1111111</div>
+
+                                </div>
+
+                                <div class="formrow">
+                                    <h3 class="label">QQ </h3>
+
+                                    <div class="form-enter">
+                                        <input type="text" class="text" name="qq" value="" maxlength=""/>
+                                        <label for="isqq"><input type="checkbox" name="isqq" value="1" id="isqq">同步更新全部信息的QQ号码</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="formrow">
+                                    <h3 class="label">EMAIL</h3>
+
+                                    <div class="form-enter">
+                                        <input type="text" class="text" name="email" value="gislite@live.com"
+                                               maxlength=""/>
+                                        <label for="isemail"><input type="checkbox" name="isemail" value="1"
+                                                                    id="isemail">同步更新全部信息的EMAIL</label></div>
+                                </div>
+
+                                <div class="formrow formrow-action">
+                                    <span class="minbtn-wrap"><span class="btn"><input type="submit" value="提交"
+                                                                                       class="button"
+                                                                                       name="base_submit"/></span></span>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="pfoot"><p><b>-</b></p></div>
+                </div>
+            </div>
+        </div>
+
+
+{% end %}

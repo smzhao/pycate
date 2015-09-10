@@ -1,0 +1,56 @@
+{% extends "../tpl_add.html" %}
+{% block headinfo %}
+
+<script type="text/javascript">
+    function select(html2) {
+        $('#showCnt').load(html2);
+    }
+</script>
+
+{% end %}
+{% block typebody %}
+
+<div id="main">
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            {% module BreadcrumbPublish(1) %}
+        </div>
+    </div>
+
+    <div class="panel panel-info" style="margin: 8px;">
+
+        <div class="panel-heading">
+            <h2>选择大类</h2>
+        </div>
+
+        <div class="panel-body">
+            <div id="fenlei2">
+                <ul id="menu_fabu_1" class="list-group">
+                    <!--  htmlstr -->
+                    {% raw kwd['class1str'] %}
+                </ul>
+
+            </div>
+
+            <i class="lines"></i>
+
+            <div id="subcontent">
+
+                <span id='showCnt'></span>
+
+            </div>
+        </div>
+        <div class="panel-footer">
+            注意：上面为一级分类，下面为二级分类
+        </div>
+    </div>
+</div>
+
+
+{% end %}
+
+
+{% block footinfo %}
+
+{% end %}

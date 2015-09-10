@@ -1,0 +1,26 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">活动人数</span></div>
+    <div class="pure-u-3-4 iga_view_rec"><span class="val">{{ post_info['extra_huodongrenshu'][0] }} 人</span></div>
+    
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">人均消费</span></div>
+    <div class="pure-u-3-4 iga_view_rec"><span class="val">{{ post_info['extra_renjunxiaofei'][0] }} 元</span></div>
+    
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

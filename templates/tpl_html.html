@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-Hans" lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content="长春吉合营，一看就知道,分类信息网,免费发布信息,免费信息发布,分类信息,生活信息"/>
+    <meta name="description" content="吉合营,免费发布信息网,免费发布供求信息、租房、合租、二手房、招聘、交友、跳蚤市场、家政、培训等生活分类信息,致力成为最实用免费的分类信息服务网络平台."/>
+    <title>吉合营分类信息网站</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ static_url('stylesheets/pure-min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ static_url('tass/css/style.css') }}"/>
+
+    <script type="text/javascript" src="{{ static_url('jslib/jquery-1.11.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ static_url('jslib/validate/jquery.validate.min.js') }}"></script>
+    <script type="text/javascript" src="{{ static_url('jslib/validate/message_cn.js') }}"></script>
+
+    <script type="text/javascript" src="{{ static_url('colorbox/jquery.colorbox.js') }}"></script>
+    <link href="{{ static_url('colorbox/colorbox.css') }}" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript">
+
+        // $().ready(function () {
+        //    $("#searchForm").validate();
+        // });
+    </script>
+    {% block headinfo %}
+
+    {% end %}
+
+
+</head>
+
+<body>
+
+{% module Topline() %}
+
+<div id="iga_wrap">
+    <div id="iga_logobanner">
+        <div class="pure-g">
+
+            <div class="pure-u-5-24">
+                <a href="/">
+                    <img src="{{ static_url('images/jhy_logo.png') }}">
+                </a></div>
+            <div class="pure-u-1-12" id="cityinfo">
+
+
+            </div>
+
+            <div class="pure-u-13-24">
+                <div style="">
+                    <form method="post" action="/search/" id="searchForm" target="_blank" class="pure-form">
+
+                        <!--  -->
+                        <fieldset>
+                            <input type="text" name="keywords" id="searchheader" placeholder="请输入关键词"
+                                   class="pure-text" style="float: left;"/>
+                            <button type="submit" class="pure-button pure-button-primary" style="float:left">搜索
+                            </button>
+
+                        </fieldset>
+
+                    </form>
+
+                </div>
+                <div class="topmenu2">
+
+                </div>
+            </div>
+
+            <div class="pure-u-1-6">
+                <div id="publicBtnxcv" style="">
+
+                    <form method="post" action="/publish/" id="seasdfrchForm" target="_blank" class="pure-form">
+                        <fieldset>
+
+                            <button class="pure-button pure-button-primary"
+                                    style="">免费发布信息
+                            </button>
+
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <ul id="iga_topmenu">
+
+        <li class="curmenu">
+
+            <a href="/">首页</a></li>
+
+
+    </ul>
+    <div style="margin:50px 50px 50px 50px;padding: 50px 50px 50px 50px;font-size:2em;">
+        {% block bodyinfo %}
+
+
+        {% end %}
+    </div>
+</div>
+
+
+</body>
+
+</html>

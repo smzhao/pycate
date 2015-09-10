@@ -1,0 +1,121 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">新旧程度</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjiuchengdu"][0] %}
+          {% if tmp_var == "1" %}
+          全新
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjiuchengdu"][0] %}
+          {% if tmp_var == "2" %}
+          9成新
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjiuchengdu"][0] %}
+          {% if tmp_var == "3" %}
+          8成新
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjiuchengdu"][0] %}
+          {% if tmp_var == "4" %}
+          7成新
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjiuchengdu"][0] %}
+          {% if tmp_var == "5" %}
+          6成新以下
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">价　　格</span></div>
+    <div class="pure-u-3-4 iga_view_rec"><span class="val">{{ post_info['extra_jiage'][0] }} 元</span></div>
+    
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">供需</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+         {% if post_info['extra_gongxu'][0] == "1" %}
+         转让
+         {% end %}
+         </span>
+        
+         <span class="val">
+         {% if post_info['extra_gongxu'][0] == "2" %}
+         求购
+         {% end %}
+         </span>
+        </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">提供服务</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+         {% if "1" in post_info["extra_tigongfuwu"] %}
+         住宅搬家
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "2" in post_info["extra_tigongfuwu"] %}
+         办公室搬家
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "3" in post_info["extra_tigongfuwu"] %}
+         长途搬家
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "4" in post_info["extra_tigongfuwu"] %}
+         搬迁/搬运
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "5" in post_info["extra_tigongfuwu"] %}
+         短途拉货/搬家
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "6" in post_info["extra_tigongfuwu"] %}
+         钢琴搬运
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "7" in post_info["extra_tigongfuwu"] %}
+         其他搬家
+         {% end %}
+         </span>
+         </div>
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

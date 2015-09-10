@@ -1,0 +1,196 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">面　　积</span></div>
+    <div class="pure-u-3-4 iga_view_rec"><span class="val">{{ post_info['extra_mianji1'][0] }} 平方米</span></div>
+    
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">屋内设施</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+         {% if "1" in post_info["extra_wuneisheshi"] %}
+         水电
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "2" in post_info["extra_wuneisheshi"] %}
+         宽带
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "3" in post_info["extra_wuneisheshi"] %}
+         管道气
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "4" in post_info["extra_wuneisheshi"] %}
+         有线电视
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "5" in post_info["extra_wuneisheshi"] %}
+         电梯
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "6" in post_info["extra_wuneisheshi"] %}
+         电话
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "7" in post_info["extra_wuneisheshi"] %}
+         冰箱
+         {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">租赁形式</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_zulinxingshi"][0] %}
+          {% if tmp_var == "1" %}
+          短租房
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_zulinxingshi"][0] %}
+          {% if tmp_var == "2" %}
+          日租房
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_zulinxingshi"][0] %}
+          {% if tmp_var == "3" %}
+          全部
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">租　　金</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_zujin"][0] %}
+          {% if tmp_var == "1" %}
+          600元以下
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_zujin"][0] %}
+          {% if tmp_var == "2" %}
+          600-1k元
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_zujin"][0] %}
+          {% if tmp_var == "3" %}
+          1k-1.5k元
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_zujin"][0] %}
+          {% if tmp_var == "4" %}
+          1.5-2k元
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_zujin"][0] %}
+          {% if tmp_var == "5" %}
+          2k-2.5k元
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_zujin"][0] %}
+          {% if tmp_var == "6" %}
+          2.5k-3k元
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_zujin"][0] %}
+          {% if tmp_var == "7" %}
+          3k-5k元
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_zujin"][0] %}
+          {% if tmp_var == "8" %}
+          5k元以上
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">房屋类型</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_fangwuleixing"][0] %}
+          {% if tmp_var == "1" %}
+          写字楼
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_fangwuleixing"][0] %}
+          {% if tmp_var == "2" %}
+          公寓
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_fangwuleixing"][0] %}
+          {% if tmp_var == "3" %}
+          小区
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_fangwuleixing"][0] %}
+          {% if tmp_var == "4" %}
+          平房
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_fangwuleixing"][0] %}
+          {% if tmp_var == "5" %}
+          别墅
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_fangwuleixing"][0] %}
+          {% if tmp_var == "6" %}
+          地下室
+          {% end %}
+         </span>
+         </div>
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

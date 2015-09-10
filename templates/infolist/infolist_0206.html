@@ -1,0 +1,43 @@
+<div class="iga_hover">
+    <div class="pure-g">
+        <div class="pure-u-1-4">
+
+            <div class="left">
+                <a href="/view/{{ post_info['def_uid'] }}" >
+                    <img src="{{ static_url(widget_info['imgname'] ) }}" align="absmiddle"
+                         style="width: 150px;height:100px;overflow: hidden;"/></a>
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="mid">
+                <div class="listinfo_title">
+                    <a href="/info/{{ post_info['def_uid'] }}">
+                        {{ post_info['title'][0] }}{% raw widget_info['zhiding'] %}{% raw widget_info['tuiguang'] %}
+                    </a>
+                </div>
+
+                <div class="listinfo_content">
+                    <a href="/info/{{ post_info['def_uid'] }}" >
+                        <nobr> {% raw post_info['content'][0] %}</nobr>
+                    </a>
+                </div>
+                <div class="listinfo_time">
+                    发布时间: {{ post_info['def_update_time_str'] }}
+                </div>
+                <div class="listinfo_extra">
+                    <span> <span class="iga_pd_val">     {% if post_info["extra_leixing0204"][0] == "1" %} 婚庆公司 {% end %}  {% if post_info["extra_leixing0204"][0] == "2" %} 婚庆策划 {% end %}  {% if post_info["extra_leixing0204"][0] == "3" %} 新娘化妆 {% end %}  {% if post_info["extra_leixing0204"][0] == "4" %} 婚纱礼服 {% end %}  {% if post_info["extra_leixing0204"][0] == "5" %} 鲜花彩车 {% end %}  {% if post_info["extra_leixing0204"][0] == "6" %} 婚庆主持 {% end %}  {% if post_info["extra_leixing0204"][0] == "7" %} 婚礼跟拍 {% end %}  {% if post_info["extra_leixing0204"][0] == "8" %} 婚庆酒店 {% end %}  {% if post_info["extra_leixing0204"][0] == "9" %} 婚车租赁司仪 {% end %}  {% if post_info["extra_leixing0204"][0] == "10" %} 其他婚庆服务 {% end %} </span></span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="pure-u-1-4">
+            <div class="right">
+                {% raw widget_info['html_right_top'] %} <br/>
+            </div>
+            <div class="right">
+                {% raw widget_info['html_right_bottom'] %} <br/>
+            </div>
+        </div>
+    </div>
+</div>

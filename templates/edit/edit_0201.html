@@ -1,0 +1,159 @@
+{% extends "../tpl_edit.html" %}
+
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+{% end %}
+
+{% block extrainfo %}
+
+<div id="iga_edit_rec_box">
+
+    <div class="pure-control-group">
+    <label for="extra_subject"><span style="color:red">*</span>学科</label>
+    <select id="extra_subject" name="extra_subject" class="required">
+            
+        <option value="1"
+        {% if post_info["extra_subject"][0] == "1" %}
+        selected = "selected"
+        {% end %}
+        >海洋</option>        
+                
+        <option value="2"
+        {% if post_info["extra_subject"][0] == "2" %}
+        selected = "selected"
+        {% end %}
+        >地球物理</option>        
+                
+        <option value="3"
+        {% if post_info["extra_subject"][0] == "3" %}
+        selected = "selected"
+        {% end %}
+        >地质</option>        
+                
+        <option value="4"
+        {% if post_info["extra_subject"][0] == "4" %}
+        selected = "selected"
+        {% end %}
+        >天文</option>        
+                
+        <option value="5"
+        {% if post_info["extra_subject"][0] == "5" %}
+        selected = "selected"
+        {% end %}
+        >地理</option>        
+                
+        <option value="6"
+        {% if post_info["extra_subject"][0] == "6" %}
+        selected = "selected"
+        {% end %}
+        >大气</option>        
+                
+        <option value="7"
+        {% if post_info["extra_subject"][0] == "7" %}
+        selected = "selected"
+        {% end %}
+        >测绘</option>        
+                
+        <option value="8"
+        {% if post_info["extra_subject"][0] == "8" %}
+        selected = "selected"
+        {% end %}
+        >生态</option>        
+                
+        <option value="9"
+        {% if post_info["extra_subject"][0] == "9" %}
+        selected = "selected"
+        {% end %}
+        >农业</option>        
+                
+        <option value="10"
+        {% if post_info["extra_subject"][0] == "10" %}
+        selected = "selected"
+        {% end %}
+        >环境</option>        
+        </select></div>
+    <div class="pure-control-group">
+    <label for="extra_resolution"><span style="color:red">*</span>分辨率</label>
+    <select id="extra_resolution" name="extra_resolution" class="required">
+            
+        <option value="1"
+        {% if post_info["extra_resolution"][0] == "1" %}
+        selected = "selected"
+        {% end %}
+        >低分辨率</option>        
+                
+        <option value="2"
+        {% if post_info["extra_resolution"][0] == "2" %}
+        selected = "selected"
+        {% end %}
+        >中分辨率</option>        
+                
+        <option value="3"
+        {% if post_info["extra_resolution"][0] == "3" %}
+        selected = "selected"
+        {% end %}
+        >高分辨率</option>        
+        </select></div>
+    <div class="pure-control-group">
+    <label for="extra_spatial"><span style="color:red">*</span>范围</label>
+    <select id="extra_spatial" name="extra_spatial" class="required">
+            
+        <option value="1"
+        {% if post_info["extra_spatial"][0] == "1" %}
+        selected = "selected"
+        {% end %}
+        >区域级</option>        
+                
+        <option value="2"
+        {% if post_info["extra_spatial"][0] == "2" %}
+        selected = "selected"
+        {% end %}
+        >国家级</option>        
+                
+        <option value="3"
+        {% if post_info["extra_spatial"][0] == "3" %}
+        selected = "selected"
+        {% end %}
+        >全球区域</option>        
+        </select></div>
+    <div class="pure-control-group">
+    <label for="extra_vectype"><span style="color:red">*</span>矢量类型</label>
+    <select id="extra_vectype" name="extra_vectype" class="required">
+            
+        <option value="1"
+        {% if post_info["extra_vectype"][0] == "1" %}
+        selected = "selected"
+        {% end %}
+        >点</option>        
+                
+        <option value="2"
+        {% if post_info["extra_vectype"][0] == "2" %}
+        selected = "selected"
+        {% end %}
+        >线</option>        
+                
+        <option value="3"
+        {% if post_info["extra_vectype"][0] == "3" %}
+        selected = "selected"
+        {% end %}
+        >面</option>        
+                
+        <option value="4"
+        {% if post_info["extra_vectype"][0] == "4" %}
+        selected = "selected"
+        {% end %}
+        >混合</option>        
+        </select></div>
+    <div class="pure-control-group">
+    <label for='extra_size'><span style="color:red">*</span>文件大小</label>
+    <input id='extra_size' name="extra_size" value="{{ post_info['extra_size'][0] }}" type="text" style="width:350px" class="number"> Mb
+    </div>
+</div>
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

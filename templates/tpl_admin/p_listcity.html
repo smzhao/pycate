@@ -1,0 +1,67 @@
+{% extends "../tpl_admin.html" %}
+
+
+{% block bodyinfo %}
+
+<div class="pbody" style="margin:10px auto;">
+
+    {% for info in user_published_infos %}
+
+
+    <div class="pure-g" style="border-bottom: 1px #536a81 dashed;padding-bottom: 3px;">
+        <div class="pure-u-1-3">
+            <div>{% raw (info['title'][0]) %}</div>
+
+            <div><span class="text-success bg-success">
+                {% if info['def_valid'] == 1 %}
+                审核通过
+                {% else %}
+                未审核
+                {% end %}
+                {% if info['def_zhiding'] == 1 %}
+                已置顶
+                {% end %}
+                {% if info['def_tuiguang'] == 1 %}
+                已推广
+                {% end %}
+                {% if info['def_refresh'] == 1 %}
+                已刷新
+                {% end %}</span>
+                <span class="text-info bg-info">分类：{{ info['catname'] }}</span> 发布时间：{% raw (info['def_create_time_str']) %}
+            </div>
+
+             <div>
+                <a href="/view/{{ info['def_uid']}}" target="_blank">打开</a>
+
+                <a class="btn btn-danger btn-xs"
+                   onclick="select('/operate/{{ kwd['cityid'] }}/delete/{% raw info['def_uid'] %}/{{ kwd['action'] }}')">删除</a>
+            </div>
+
+<div>
+                <a href="/operate_user/valid/{{ info['def_uid']}}" >审核通过</a>
+
+            </div>
+        </div>
+
+
+        <div class="pure-u-2-3" >
+
+<span class="text-info bg-info">{{ info['content'][0] }}</span>
+
+
+
+        </div>
+    </div>
+
+
+    {% end %}
+
+
+    </div>
+
+
+</div>
+
+</div>
+
+{% end %}

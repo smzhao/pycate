@@ -1,0 +1,82 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">工　　艺</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongyi"][0] %}
+          {% if tmp_var == "1" %}
+          艺术
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongyi"][0] %}
+          {% if tmp_var == "2" %}
+          工艺
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_gongyi"][0] %}
+          {% if tmp_var == "3" %}
+          收藏品
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">新旧程度</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjiuchengdu"][0] %}
+          {% if tmp_var == "1" %}
+          全新
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjiuchengdu"][0] %}
+          {% if tmp_var == "2" %}
+          9成新
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjiuchengdu"][0] %}
+          {% if tmp_var == "3" %}
+          8成新
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjiuchengdu"][0] %}
+          {% if tmp_var == "4" %}
+          7成新
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xinjiuchengdu"][0] %}
+          {% if tmp_var == "5" %}
+          6成新以下
+          {% end %}
+         </span>
+         </div>
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

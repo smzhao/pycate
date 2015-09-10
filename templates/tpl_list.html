@@ -1,0 +1,104 @@
+{% extends "./tpl_basic.html" %}
+
+{% block headinfo %}
+
+<script type="text/javascript">
+    var obj = {};
+    function change(span) {
+        $('span[name="' + $(span).attr('name') + '"]').each(function () {
+            if (this.checked && this != span) {
+                this.className = "unchecked";
+                this.checked = false;
+            }
+        });
+        obj[$(span).attr('name')] = $(span).attr('value');
+        span.className = "checked";
+        span.checked = true;
+        tt = span.value;
+        select();
+    }
+    function select() {
+        // 选择之后，将条件放到 url 中，
+        var html_condition = window.location.href + '/con';
+        var html_pagination = window.location.href + '/num';
+        for (var ii in obj) {
+            if (obj[ii] != '') {
+                html_condition += '/' + ii + '/' + obj[ii];
+                html_pagination += '/' + ii + '/' + obj[ii];
+            }
+        }
+        $('#resultSpan').load(html_condition);
+        $('#resultFenye').load(html_pagination);
+    }
+</script>
+
+
+<script type="text/javascript">
+    $(function () {
+        // alert('hello');
+        select();
+    });
+</script>
+
+{% end %}
+
+{% block typebody %}
+<!--头部通栏广告开始-->
+
+<div id="ad_header"></div>
+<!--头部通栏广告结束-->
+
+
+<div class="row">
+
+
+    <div class="col-sm-9">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                {% module BreadCrumb(kwd['daohangstr']) %}
+            </div>
+
+
+            <div class="panel-body">
+
+                {% block infoselect %} {% end %}
+
+                <div class="clearfix"></div>
+                {% block infonav %} {% end %}
+                <div class="clearfix"></div>
+
+                <div id="ad_interlistad_top"></div>
+
+                {% block infolist %} {% end %}
+
+                <div id="ad_interlistad_bottom"></div>
+
+                <div class="clear"></div>
+
+                <div class="iga_pagination">
+                    <span id="resultFenye"></span>
+                </div>
+                <div class="clear"></div>
+                <div>
+                    <a href="/publish/{{ kwd['catid'] }}" target="_blank" class="btn btn-primary" role="button">
+                        马上发布一条{{ kwd['catname'] }}信息&raquo;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+
+
+        {% raw kwd['linkstr'] %}
+    </div>
+
+
+</div>
+
+
+<div id="ad_footerbanner"></div>
+
+
+{% end %}

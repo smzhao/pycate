@@ -1,0 +1,180 @@
+{% extends "./tpl_basic.html" %}
+
+{% block headinfo %}
+
+
+
+<style>
+    .unchecked {
+        color: #000;
+        padding: 3px 5px 0;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    .checked {
+        /* border: 2px solid #c00; */
+        /* padding: 6px 6px 6px 6px; */
+        color: #ffffbb;
+        padding: 3px 5px 0;
+        background-color: #67A54B;
+        cursor: pointer;
+    }
+</style>
+
+<script type="text/javascript">
+    var obj = {
+        // colorSpan: "",
+        // sizeSpan: ""
+    };
+    function change(span) {
+        $('span[name="' + $(span).attr('name') + '"]').each(function () {
+            if (this.checked && this != span) {
+                this.className = "unchecked";
+                this.checked = false;
+            }
+        });
+        obj[$(span).attr('name')] = $(span).attr('value');
+        span.className = "checked";
+        span.checked = true;
+        tt = span.value;
+        select();
+    }
+    function select() {
+
+        // 选择之后，将条件放到 url 中，
+        var html2 = window.location.href + '/con';
+        for (var i in obj) {
+            if (obj[i] != '') {
+                html2 += '/' + i + '/' + obj[i];
+            }
+        }
+
+        $('#resultSpan').load(html2);
+
+    }
+
+</script>
+
+
+{% end %}
+
+{% block typebody %}
+<!--头部通栏广告开始-->
+<div id="ad_header"></div>
+<!--头部通栏广告结束-->
+<div class="location">当前位置：{% raw kwd['daohangstr'] %}</div>
+
+
+<div class="clearfix"></div>
+<div style="width:980px">
+
+    <div class="pure-g">
+        <div class="pure-u-3-4">
+
+            <div class="clearfix"></div>
+
+            {% block infoselect %} {% end %}
+
+            <div class="clearfix"></div>
+            {% block infonav %} {% end %}
+            <div class="clearfix"></div>
+            <!--栏目列表页头部广告开始-->
+            <div id="ad_interlistad_top"></div>
+            <!--栏目列表页头部广告结束-->
+            {% block infolist %} {% end %}
+            <!--栏目列表页尾部广告开始-->
+            <div id="ad_interlistad_bottom"></div>
+            <!--栏目列表页尾部广告结束-->
+            <div class="clear"></div>
+            <div class="pages_sort">
+
+
+                {% raw kwd['fenye_str'] %}
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="totalpost">共有信息<font color="#ff0000">33</font>条，<a
+                    href="http://www.jiheying.com/postinfo.php?catid=229&cityid=2"
+                    target="_blank">马上在长春发布一条生活服务1信息&raquo;</a></div>
+        </div>
+
+        <div class="pure-u-1-4">{% raw kwd['linkstr'] %}</div>
+    </div>
+
+    <!--栏目侧边页广告开始-->
+
+    <!--栏目侧边页广告结束-->
+</div>
+<div class="clearfix"></div>
+<i class="lines"></i>
+<div class="links">长春生活服务1频道为您提供长春生活服务1信息，在此有大量长春生活服务1信息供您选择，您可以免费查看和发布长春生活服务1信息。</div>
+<i class="lines"></i>
+<div class="links">
+    <li><a href='http://www.jiheying.com/city/cc/category.php?catid=229' target="_blank">长春生活服务1</a></li>
+    <li><a href='http://www.jiheying.com/city/jl/category.php?catid=229' target="_blank">吉林生活服务1</a></li>
+</div>
+<div class="clearfix"></div>
+<!-- 页尾通栏广告开始-->
+<div id="ad_footerbanner"></div>
+<!-- 页尾通栏广告结束-->
+
+<!--广告处理部分开始-->
+
+<div style="display: none" id="ad_none">
+    <!--头部通栏广告-->
+
+    <!--首页分类间广告-->
+
+    <!--栏目信息列表间广告-->
+    <div id="ad_interlistad_top_none">
+        <ul class="interlistdiv">
+            <li class="hover "><a href="http://www.ibm.com.cn">IBM 智慧资产时代的服务 www.ibm.com.cn</a><br>IBM服务管理,一切业务尽在掌握.
+                IBM一系列的工具和服务助您一臂之力.
+            </li>
+        </ul>
+    </div>
+
+    <div id="ad_interlistad_bottom_none">
+        <ul class="interlistdiv">
+            <li class="hover "><a href="http://www.mymps.com.cn" target="_blank">二手车摩托车 www.mymps.com.cn</a><br>
+                一淘巨优惠，折扣宝典，教你省钱！免费领 返现金 1折包邮。折扣享不停
+            </li>
+        </ul>
+    </div>
+
+    <!--栏目侧边广告-->
+    <div class="intercatdiv" id="ad_intercatdiv_none">
+        <div class="intercatad">
+            <div class="fjes"><a href="#" target="_blank"><FONT size="1">[AD]</FONT></a></div>
+        </div>
+        <div class="intercatad">
+            <div class="fjes"><a href="#" target="_blank"><FONT size="1">[AD]</FONT></a></div>
+        </div>
+
+        <div class="intercatad">
+            <div class="fjes"><a href="#" target="_blank"><img src="/attachment/other/201405/1401423943cmddl.jpg"
+                                                               border="0"></a></div>
+        </div>
+    </div>
+
+
+</div>
+<!--广告处理部分结束-->
+<!--快速搜索-->
+<div id="footerquicksearch">
+    <form method="get" action="http://www.jiheying.com/search.php" name="FormSearch" id="searchTop" target="_blank">
+        <input name="cityid" value="2" type="hidden">
+        快速搜索 :
+        <input name="keywords" class="input" type="text" id="searchfooter" onmouseover="hiddennotice('searchfooter');">
+        <input name="part" id="type_info" type="radio" value="information" checked><label for="type_info">信息</label>
+        <input name="part" id="type_shop" type="radio" value="shop"><label for="type_shop">商铺</label>
+        <!--<input name="part" id="type_coupon" type="radio" value="shop"><label for="type_coupon">优惠券</label>
+            <input name="part" id="type_group" type="radio" value="group"><label for="type_group">团购</label>
+            <input name="part" id="type_news" type="radio" value="news"><label for="type_news">资讯</label>
+            <input name="part" id="type_goods" type="radio" value="goods"><label for="type_goods">商品</label>-->
+        <input type="submit" value="搜 索" style="cursor:pointer">
+    </form>
+</div>
+<div class="clear"></div>
+{% end %}

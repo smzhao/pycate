@@ -1,0 +1,313 @@
+{% extends "../tpl_basic.html" %}
+
+{% block headinfo %}
+<script type="text/javascript" src="{{ static_url('jslib/validate/jquery.validate.min.js') }}"></script>
+<script type="text/javascript" src="{{ static_url('jslib/validate/message_cn.js') }}"></script>
+
+<script type="text/javascript">
+    $().ready(function () {
+        $("#registerform").validate(
+                {
+                    rules: {
+                        userName: {
+                            required: true
+                        },
+                        password: "required"
+
+                    },
+                    messages: {
+                        userName: {
+                            required: "<span class='red'>请输入用户名</span>"
+                        },
+                        password: "<span class='red'>请输入密码</span>"
+
+                    }
+                }
+        );
+    });
+</script>
+
+
+{% end %}
+
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+{% end %}
+
+{% block typebody %}
+
+<div id="main">
+<div id="crumb">
+    <ol class="pre">
+        注册
+    </ol>
+    <ol class="step fb gray">
+        <li><span class="white">1</span>选择会员类型 <span class="gray">&gt;</span></li>
+        <li class="step_on"><span class="white">2</span>填写注册资料 <span class="blue">&gt;</span></li>
+        <li><span class="white">3</span>注册成功</li>
+    </ol>
+</div>
+<div class="clearfix"></div>
+<div id="subreg" class="apart">
+<div id="reg_box">
+<div style="display:none;">
+    <iframe width=0 height=0 src='' id="iframe_area" name="iframe_area"></iframe>
+    <iframe width=0 height=0 src='' id="iframe_street" name="iframe_street"></iframe>
+    <form method="post" target="iframe_area" id="form_area"></form>
+</div>
+<form method="post" action="login.php" name="registerform" id="registerform">
+<input name="part" value="register" type="hidden"/>
+<input name="reg_corp" value="1" type="hidden"/>
+<input name="mixcode" value="4c9734774f6b40682d35c0ccee0b0845" type="hidden">
+<table class="formlogin" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="tdright"><font color=red>*</font>用户名：</td>
+        <td>
+            <input name="userid" id="reg_username" type="text" class="text" require="true"
+                   datatype="userName|limit|ajax" url="box.php?part=chk_remember" min="5" max="20"
+                   msg="5到20个字母或数字，不能以数字开头||">&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright"><font color=red>*</font>密码：</td>
+        <td>
+            <input id="reg_password" name="userpwd" type="password" class="text" require="true"
+                   datatype="limitB" min="6" max="16" msg="密码不得少于6个字符或超过16个字符！" maxlength="16">
+        </td>
+    </tr>
+    <tr>
+        <td scope="row" class="tdright">密码强度：</td>
+        <td>
+            <div id="pw_check_1" class="pw_check"><span><strong
+                    class="c_orange">弱</strong></span><span>中</span><span>强</span>
+            </div>
+            <div id="pw_check_2" class="pw_check" style="display:none;"><span>弱</span><span><strong
+                    class="c_orange">中</strong></span><span>强</span></div>
+            <div id="pw_check_3" class="pw_check" style="display:none;">
+                <span>弱</span><span>中</span><span><strong class="c_orange">强</strong></span></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright"><font color=red>*</font>确认密码：</td>
+        <td><input name="reuserpwd" type="password" to="userpwd" class="text" msg="两次输入的密码不一致"
+                   id="pwdconfirm" require="true" datatype="repeat">
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright"><font color=red>*</font>电子邮箱：</td>
+        <td><input name="email" type="text" class="text" require="true" datatype="email" id="email"
+                   msg="邮件格式不正确|">
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright">密码问题：</td>
+        <td><select name='safequestion' id='safequestion'>
+            <option value='0'>没安全提示问题</option>
+            <option value='1'>你最喜欢的格言什么？</option>
+            <option value='2'>你家乡的名称是什么？</option>
+            <option value='3'>你读的小学叫什么？</option>
+            <option value='4'>你的父亲叫什么名字？</option>
+            <option value='5'>你的母亲叫什么名字？</option>
+            <option value='6'>你最喜欢的偶像是谁？</option>
+            <option value='7'>你最喜欢的歌曲是什么？</option>
+        </select>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright">密码答案：</td>
+        <td><input type="text" name="safeanswer" class="text"/>
+        </td>
+    </tr>
+</table>
+<div style="clear:both; border-top:1px solid #ddd; height:5px; width:550px; margin-left:10px;"></div>
+<table class="formlogin" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="tdright"><font color=red>*</font>机构名称：</td>
+        <td><input type="text" name="tname" class="text" require="true" datatype="limit" min="1"
+                   msg="机构名称不能为空！"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright"><font color=red>*</font>所属区域：</td>
+        <td><select id='cityid' name='cityid'
+                    onChange="choose_where('getarea',this.options[this.selectedIndex].value,'','1')">
+            <option value='' selected>请选择</option>
+            <option value="2">c.长春</option>
+            <option value="3" selected>t.通化</option>
+            <option value="4">j.吉林</option>
+        </select>
+            <span id="showarea"></span>&nbsp;<span id="showstreet"></span>
+            <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                function choose_where(t, parentid, currentid, delstreet) {
+
+                    if (t == 'getarea') {
+                        url = '/include/selectwhere.php?action=getarea&parentid=' + parentid + '&currentid=' + currentid + '&delstreet=' + delstreet;
+                        target = 'iframe_area';
+                    } else {
+                        url = '/include/selectwhere.php?action=getstreet&parentid=' + parentid + '&currentid=' + currentid;
+                        target = 'iframe_street';
+                    }
+                    document.getElementById('form_area').action = url;
+                    document.getElementById('form_area').target = target;
+                    document.getElementById('form_area').submit();
+                }
+                choose_where("getarea", "3", "", "1");
+                //-->
+            </SCRIPT>
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright"><font color=red>*</font>所属行业：</td>
+        <td><select name="catid[]">
+            <option value="6">├ 休闲娱乐</option>
+            <option value="14">&nbsp;&nbsp;&nbsp;&nbsp;├ 酒吧</option>
+            <option value="15">&nbsp;&nbsp;&nbsp;&nbsp;├ 茶楼</option>
+            <option value="16">&nbsp;&nbsp;&nbsp;&nbsp;├ 咖啡厅</option>
+            <option value="17">&nbsp;&nbsp;&nbsp;&nbsp;├ 俱乐部</option>
+            <option value="18">&nbsp;&nbsp;&nbsp;&nbsp;├ KTV</option>
+            <option value="19">&nbsp;&nbsp;&nbsp;&nbsp;├ 洗浴足疗</option>
+            <option value="20">&nbsp;&nbsp;&nbsp;&nbsp;├ 美容</option>
+            <option value="21">&nbsp;&nbsp;&nbsp;&nbsp;├ 健身</option>
+            <option value="22">&nbsp;&nbsp;&nbsp;&nbsp;├ 运动</option>
+            <option value="23">&nbsp;&nbsp;&nbsp;&nbsp;├ 票务</option>
+            <option value="7">├ 餐饮美食</option>
+            <option value="24">&nbsp;&nbsp;&nbsp;&nbsp;├ 快餐</option>
+            <option value="25">&nbsp;&nbsp;&nbsp;&nbsp;├ 火锅</option>
+            <option value="26">&nbsp;&nbsp;&nbsp;&nbsp;├ 海鲜</option>
+            <option value="27">&nbsp;&nbsp;&nbsp;&nbsp;├ 川菜</option>
+            <option value="28">&nbsp;&nbsp;&nbsp;&nbsp;├ 京菜</option>
+            <option value="29">&nbsp;&nbsp;&nbsp;&nbsp;├ 粤菜</option>
+            <option value="30">&nbsp;&nbsp;&nbsp;&nbsp;├ 湘菜</option>
+            <option value="31">&nbsp;&nbsp;&nbsp;&nbsp;├ 家常</option>
+            <option value="32">&nbsp;&nbsp;&nbsp;&nbsp;├ 西餐</option>
+            <option value="33">&nbsp;&nbsp;&nbsp;&nbsp;├ 风味</option>
+            <option value="8">├ 生活便利</option>
+            <option value="34">&nbsp;&nbsp;&nbsp;&nbsp;├ 家政保洁</option>
+            <option value="35">&nbsp;&nbsp;&nbsp;&nbsp;├ 搬家</option>
+            <option value="36">&nbsp;&nbsp;&nbsp;&nbsp;├ 房产中介</option>
+            <option value="37">&nbsp;&nbsp;&nbsp;&nbsp;├ 快递</option>
+            <option value="38">&nbsp;&nbsp;&nbsp;&nbsp;├ 婚纱影楼</option>
+            <option value="39">&nbsp;&nbsp;&nbsp;&nbsp;├ 婚庆礼仪</option>
+            <option value="40">&nbsp;&nbsp;&nbsp;&nbsp;├ 婚介交友</option>
+            <option value="9">├ 旅游出行</option>
+            <option value="41">&nbsp;&nbsp;&nbsp;&nbsp;├ 旅行社</option>
+            <option value="42">&nbsp;&nbsp;&nbsp;&nbsp;├ 度假村</option>
+            <option value="43">&nbsp;&nbsp;&nbsp;&nbsp;├ 景点</option>
+            <option value="44">&nbsp;&nbsp;&nbsp;&nbsp;├ 酒店宾馆</option>
+            <option value="45">&nbsp;&nbsp;&nbsp;&nbsp;├ 交通票务</option>
+            <option value="10">├ 购物天地</option>
+            <option value="46">&nbsp;&nbsp;&nbsp;&nbsp;├ 商场超市</option>
+            <option value="47">&nbsp;&nbsp;&nbsp;&nbsp;├ 家电数码</option>
+            <option value="48">&nbsp;&nbsp;&nbsp;&nbsp;├ 休闲运动</option>
+            <option value="49">&nbsp;&nbsp;&nbsp;&nbsp;├ 文化艺术</option>
+            <option value="50">&nbsp;&nbsp;&nbsp;&nbsp;├ 保健美容</option>
+            <option value="51">&nbsp;&nbsp;&nbsp;&nbsp;├ 服装皮具</option>
+            <option value="52">&nbsp;&nbsp;&nbsp;&nbsp;├ 眼镜钟表</option>
+            <option value="53">&nbsp;&nbsp;&nbsp;&nbsp;├ 珠宝首饰</option>
+            <option value="11">├ 教育培训</option>
+            <option value="54">&nbsp;&nbsp;&nbsp;&nbsp;├ 外语</option>
+            <option value="55">&nbsp;&nbsp;&nbsp;&nbsp;├ IT</option>
+            <option value="56">&nbsp;&nbsp;&nbsp;&nbsp;├ 家教</option>
+            <option value="57">&nbsp;&nbsp;&nbsp;&nbsp;├ 管理财务</option>
+            <option value="58">&nbsp;&nbsp;&nbsp;&nbsp;├ 艺术影视</option>
+            <option value="59">&nbsp;&nbsp;&nbsp;&nbsp;├ 远程教育</option>
+            <option value="60">&nbsp;&nbsp;&nbsp;&nbsp;├ 技能认证</option>
+            <option value="61">&nbsp;&nbsp;&nbsp;&nbsp;├ 留学移民</option>
+            <option value="12">├ 装饰装修</option>
+            <option value="62">&nbsp;&nbsp;&nbsp;&nbsp;├ 装饰装修</option>
+            <option value="63">&nbsp;&nbsp;&nbsp;&nbsp;├ 设计装修</option>
+            <option value="64">&nbsp;&nbsp;&nbsp;&nbsp;├ 家居广场</option>
+            <option value="65">&nbsp;&nbsp;&nbsp;&nbsp;├ 建材市场</option>
+            <option value="66">&nbsp;&nbsp;&nbsp;&nbsp;├ 门窗</option>
+        </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright"><font color=red>*</font>真实姓名：</td>
+        <td><input type="text" name="cname" class="text" require="true" datatype="limit" min="1"
+                   msg="请输入您的姓名！"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright">QQ号码：</td>
+        <td><input type="text" name="qq" class="text"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright"><font color=red>*</font>固定电话：</td>
+        <td><input type="text" name="tel" class="text" require="true" datatype="limit" min="1"
+                   msg="请输入联系电话"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright"><font color=red>*</font>联系地址：</td>
+        <td><input type="text" name="address" class="text" require="true" datatype="limit" min="1"
+                   msg="请填写机构地址"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="tdright" style="height: 44px"></td>
+        <td style="height: 44px"><input type="submit" name="log_submit" value="同意协议，完成注册"
+                                        onclick="return AllInputCheck();" id="agreereg" class="go_reg"/>
+        </td>
+    </tr>
+</table>
+<div class="xiyi">
+    <div id="xieyi">
+        <div class="xieye_nr">
+            <p>
+                欢迎光临吉合营网站。吉合营致力于为您提供最优质、最便捷的服务。在访问吉合营的同时，也请您仔细阅读我们的协议条款。您需要同意该条款才能注册成为我们的用户。一经注册，将视为接受并遵守该条款的所有约定。<br/>
+            </p>
+
+            <p>
+                1．用户应按照吉合营的注册、登陆程序和相应规则进行注册、登陆，注册信息应真实可靠，信息内容如有变动应及时更新。<br/>
+                <br/>
+                2．用户应在适当的栏目或地区发布信息，所发布信息内容必须真实可靠，不得违反吉合营对发布信息的禁止性规定。用户对其自行发表、上传或传送的内容负全部责任。<br/>
+                <br/>
+                3．遵守中华人民共和国相关法律法规，包括但不限于《中华人民共和国计算机信息系统安全保护条例》、《计算机软件保护条例》、《最高人民法院关于审理涉及计算机网络著作权纠纷案件适用法律若干问题的解释(法释[2004]1号)》、《互联网电子公告服务管理规定》、《互联网新闻信息服务管理规定》、《互联网著作权行政保护办法》和《信息网络传播权保护条例》等有关计算机互联网规定和知识产权的法律和法规、实施办法。<br/>
+                <br/>
+                4．所有用户不得在吉合营任何版块发布、转载、传送含有下列内容之一的信息，否则吉合营有权自行处理并不通知用户：<br/>
+                (1)违反宪法确定的基本原则的； (2)危害国家安全，泄漏国家机密，颠覆国家政权，破坏国家统一的； (3)损害国家荣誉和利益的； (4)煽动民族仇恨、民族歧视，破坏民族团结的；
+                (5)破坏国家宗教政策，宣扬邪教和封建迷信的； (6)散布淫秽、色情、赌博、暴力、恐怖或者教唆犯罪的； (7)侮辱或者诽谤他人，侵害他人合法权益的；
+                (8)含有法律、行政法规禁止的其他内容的。<br/>
+            </p>
+        </div>
+    </div>
+</div>
+</form>
+</div>
+<div id="reg_side">
+    <p>已经注册过帐户了？</p>
+    <a href="/member/login" class="dl_button">立即登录</a>
+    <dl class="mem_can">
+        <dt>只需三步，免费注册商家/机构会员</dt>
+        <dd class="mem_can2">
+            <strong>开通网点</strong>
+            注册商家会员，发布您的机构信息，全面宣传，提高合作机会
+        </dd>
+        <dd class="mem_can3">
+            <strong>进行认证</strong>
+            认证后，能提高信誉，信息排名更靠前，让您获得更高关注
+        </dd>
+    </dl>
+    <p>注册遇到问题，请联系400-6043-112帮您解决。</p>
+
+    <p>
+        <a href="http://www.jihy.com/include/qqlogin/qq_login.php">
+            <img src="include/qqlogin/qq_login.png"
+                 align="absmiddle"></a>
+    </p>
+</div>
+</div>
+</div>
+{% end %}
+
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

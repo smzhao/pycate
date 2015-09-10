@@ -1,0 +1,102 @@
+<script>
+
+    // 提交修改密码的动作
+    function submit_form() {
+
+        // 模拟Form提交
+        $.ajax({
+            type: "POST",
+            url: "/user/renzheng",
+            // data: "renzhengfile=" + $("#renzhengfile").val(),
+            data: $('#form_credit').serialize(),
+            contentType: "multipart/form-data",
+            success: function (msg) {
+                alert('密码修改成功');
+                $('#showCnt').load('/user/page_status');
+            },
+            error: function () {
+                alert('修改密码不成功');
+                // $('#showCnt').load('/user/page_password')
+            }
+        })
+
+    }
+
+    // jquery.validate.js 验证
+    $().ready(function () {
+
+        $("#form_find_user").validate({
+            rules: {
+                user_name: "required"
+            },
+            messages: {
+                user_name: "<span class='red'>请输入用户名</span>"
+            }
+        });
+    });
+
+    $('#asubmit').click(function () {
+        if ($("#form_find_user").valid()) {
+            // submit_form()
+            $('#showCnt').load('/admin/user/' + $("#user_name").val());
+        }
+        else {
+            // just show validation errors, dont post
+        }
+    });
+
+    function tijiao(forid) {
+
+        $(forid).submit();
+        $('#showCnt').load('/user/renzheng');
+
+    }
+</script>
+
+<div class="panel-heading">
+    <span id="userInfo" style="color:#000000;border-bottom:1px solid #005065;font-size:0.8em;width: 95%;">
+        {% module user_info(wuserinfo, wusernum) %}
+    </span>
+</div>
+<div class="panel-body">
+
+
+    <div class="pure-form pure-form-aligned">
+        <h3 class="label">当前状态：</h3>
+
+        <form enctype="multipart/form-data" id="form_credit" action="/user/renzheng" method="post">
+
+            <legend>身份认证</legend>
+            <fieldset style="font-size: 14px">
+                <div>
+                    <label for="dddx">选择文件：</label>
+                    <label id="dddx">
+                        支持上传的类型：png,jpg,gif,jpeg
+                    </label>
+                </div>
+
+
+                <div class="pure-controls">
+
+
+                    <input id="user_touiang" type="file" name="user_touiang"
+                           onchange="tijiao(form_credit);"/>
+
+                </div>
+            </fieldset>
+        </form>
+
+        <br/><br/>
+
+
+        <div class="pfoot"></div>
+
+    </div>
+
+</div>
+
+<div class="panel-footer"
+     style=" background: #eee; border:1px solid #ddd;width: 92%; padding: 1% 2%;  margin:15px 2%;  ">
+    请确保图片清晰。图片格式为 png,jpg,gif,jpeg ，不超过 500KB 。<br/>
+    在上传过程中，如果长时间停止，请取消重传；或将图片缩小后重传。
+</div>

@@ -1,0 +1,71 @@
+<script type="text/javascript">
+    function submit_form() {
+// 模拟Form提交
+        $.ajax({
+            type: "POST",
+            url: "/admin/user_set",
+            data: "user_name=" + $("#user_name").val() + "&isvip=" + $("#isvip").val() + "&cats=" + $("#cats").val(),
+
+            success: function (msg) {
+                js_change_pass()
+            },
+            error: function () {
+                alert('原始密码错误');
+// $('#showCnt').load('/user/page_password')
+            }
+        })
+    }
+
+
+    $('#asubmit').click(function () {
+        submit_form()
+    });
+
+</script>
+
+<div class="pure-g">
+
+    <div class="pure-u-1">
+        <form id="form_find_user" action="/admin/user_set" method="post">
+
+            <legend>设置VIP： {{ uinfo.user_name }}</legend>
+            <fieldset style="font-size: 14px">
+                <input type="hidden" name="user_name" id="user_name" value="{{ uinfo.user_name }}"/>
+
+                <div class="pure-control-group">
+
+                    <label for="isvip">设置VIP</label>
+                    <input type="radio" name="isvip" id="isvip" value="1"
+                           {% if uinfo.is_vip == True %}
+                           checked
+                            {% end %}/> VIP用户
+                    <input type="radio" name="isvip" id="isvip" value="0"
+                            {% if uinfo.is_vip == False %}
+                           checked
+                            {% end %}
+                            /> 普通用户
+                </div>
+
+                <div class="pure-control-group">
+
+                    <label for="cats">分类</label>
+                    {% for uu in cats %}
+                    <label><input type="checkbox" name="cats" value="{{ uu.catid }}" id="cat_{{ uu.catid }}"
+                            {% if uu.catid in vip_cat %}
+                                  checked
+                            {% end %}
+                            />{{ uu.catname }}</label>
+                    {% end %}
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="cb" class="pure-checkbox"> </label>
+
+                    <button type="submit" class="pure-button pure-button-primary">
+                        提交
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

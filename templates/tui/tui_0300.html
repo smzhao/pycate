@@ -1,0 +1,209 @@
+<script>
+    function sub_refresh(uid, act) {
+        // alert('/tui/{{ kwd['parentid'] }}' + act);
+        var post_data1 = "def_uid=" + uid + "&yyday=" + $("#yyday_" + uid).val() + "&yyhour=" + $("#yyhour_" + uid).val() + "&yymin=" + $("#yymin_" + uid).val();
+        $.ajax({
+            type: "POST",
+            url: "/appoint/{{ kwd['parentid'] }}",
+            data: post_data1,
+
+            success: function (msg) {
+                $('#showCnt').load('/tui/{{ kwd['parentid'] }}/' + act);
+            }
+        });
+        jQuery().colorbox.close();
+    }
+
+    $(document).ready(function () {
+        $.ajaxSetup({cache: false});
+        $(".inline").colorbox({inline: true, width: "500px"});
+    });
+</script>
+
+<div class="panel-heading">
+        {% module vip_info(wuserinfo, wuservip) %}
+</div>
+
+<div class="panel-body" style="margin:10px auto;">
+
+
+    <div class="pure-g">
+        <div class="pure-u-3-5">
+            <div class="pure-menu pure-menu-open pure-menu-horizontal">
+                {% raw kwd['head_menu'] %}
+            </div>
+        </div>
+        <div class="pure-u-2-5">
+            <div class="pure-menu pure-menu-open pure-menu-horizontal">
+                <ul>
+                    <li><a href="/publish/{{ kwd['parentid'] }}/vip" class="pure-button pure-button-primary"
+                           target="_blank">VIP发布汽车推广</a></li>
+                    <li><a onclick="js_show_page('/link/add_frame/{{ kwd['parentid'] }}')" class="pure-button pure-button-primary">发布或修改侧栏广告</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    {% for post_info in user_published_infos %}
+    <div class="pure-g box-info">
+
+        <div class="pure-u-2-3 houtai_info">
+            <div class="houtai_info_title">
+                <a href="/info/{{ post_info['def_uid'] }}" target="_blank">
+                    {{ post_info['title'][0] }}
+                </a>
+            </div>
+
+            <div class="houtai_info_status">
+
+                <!-- 状态 -->
+                {% if post_info['def_banned'] == 1 %}
+                <span class="text-danger bg-danger info_status">
+                被屏蔽</span>
+                {% end %}
+
+                {% if post_info['def_valid'] == 1 %}
+                <span class="text-success bg-success info_status">
+                审核通过</span>
+                {% else %}
+                <span class="text-warning bg-warning info_status">
+                未审核</span>
+                {% end %}
+
+                {% if post_info['def_zhiding'] == 1 %}
+                <span class="text-success bg-success info_status">
+                已置顶</span>
+                {% end %}
+
+                {% if post_info['def_tuiguang'] == 1 %}
+                <span class="text-success bg-success info_status">
+                已推广</span>
+                {% end %}
+
+                {% if post_info['def_refresh'] == 1 %}
+                <span class="text-success bg-success info_status">
+                已刷新</span>
+                {% end %}
+
+                <br/>
+
+                <div class="houtai_info_footer">
+                    分类：<b class="text-info ">{{ post_info['catname'] }}</b> 发布时间：<b
+                        class="text-info ">{{ post_info['def_create_time_str'] }}</b>
+                </div>
+
+            </div>
+
+            <div class="houtai_operate">
+                <!-- 文章操作 -->
+                <a class="pure-button" href="/info/{{ post_info['def_uid'] }}" target="_blank">打开</a>
+                <a class="pure-button" href="/edit/{{ post_info['def_uid'] }}" target="_blank">修改</a>
+                <a class="pure-button"
+                   onclick="js_show_page('/delete/{% raw post_info['def_uid'] %}/{{ kwd['action'] }}')">删除</a>
+            </div>
+        </div>
+
+        <div class="pure-u-1-3" style="text-align: right;">
+            <div>
+
+
+                {% if post_info['def_refresh'] != 1 %}
+                {% if wuservip.refresh_num > 0 %}
+                <a class="btn btn-default btn-xs"
+                   onclick="js_show_page('/refresh/{{ post_info['def_uid'] }}/{{ kwd['action'] }}/{{ kwd['parentid'] }}')">VIP刷新 </a>
+                {% else %}
+                <a class="btn btn-default btn-xs" onclick="">没有刷新次数了</a>
+                {% end %}
+                {% end %}
+
+
+                {% if post_info['def_tuiguang'] != 1 %}
+                {% if wuservip.tuiguang_num > 0 %}
+                <a class="btn btn-default btn-xs"
+                   onclick="js_show_page('/tuiguang/{{ post_info['def_uid'] }}/{{ kwd['action'] }}/{{ kwd['parentid'] }}')">VIP推广</a>
+                {% else %}
+                <a class="btn btn-default btn-xs" onclick="">没有推广次数了</a>
+                {% end %}
+                {% end %}
+
+            </div>
+            <div class="panel-yuyue">
+                <a href="#inline_{{ post_info['def_uid'] }}" target="_blank"
+                   class="inline btn btn-warning btn-xs" style="margin-bottom: 5px;">
+                    预约刷新
+                </a>
+
+                <div>
+                    {% module RefreshInfo(post_info['def_uid'], kwd['action'] , kwd['parentid']) %}
+                </div>
+
+            </div>
+            <div style="display: none;margin:0px 100px 0px 100px;padding:0px 100px 0px 100px;background: rgba(0, 0, 0,0);">
+
+                <div class="yuyue_select" id="inline_{{ post_info['def_uid'] }}">
+                    <form action="/appoint/{{ post_info['def_uid'] }}/{{ kwd['action'] }}/{{ kwd['action'] }}"
+                          method="post" class="pure-form  pure-form-aligned" id="{{ post_info['def_uid'] }}">
+                        <legend>选择预约时间</legend>
+                        <fieldset>
+                            <div class="pure-control-group">
+                                <label for="yyday_{{ post_info['def_uid'] }}">选择哪一天</label>
+                                <select id="yyday_{{ post_info['def_uid'] }}" class="sel_day">
+                                    <option value="1" selected>1天后</option>
+                                    <option value="2">2天后</option>
+                                    <option value="3">3天后</option>
+                                    <option value="4">4天后</option>
+                                    <option value="5">5天后</option>
+                                    <option value="6">6天后</option>
+                                    <option value="7">7天后</option>
+                                </select>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="yyhour_{{ post_info['def_uid'] }}">选择小时</label>
+                                <select id="yyhour_{{ post_info['def_uid'] }}" class="sel_hour">
+                                    {% for x in range(24) %}
+                                    <option value="{{ x }}" selected>{{ x }}</option>
+                                    {% end %}
+                                </select>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="yymin_{{ post_info['def_uid'] }}">选择分钟</label>
+                                <select id="yymin_{{ post_info['def_uid'] }}" class="sel_min">
+                                    {% for x in range(0,60,5) %}
+                                    <option value="{{ x }}" selected>{{ x }}</option>
+                                    {% end %}
+                                </select>
+                            </div>
+
+                            <div class="pure-control-group" style="text-align: center;padding-top:30px;">
+
+                                <a class="pure-button pure-button-primary"
+                                   onclick="sub_refresh('{{ post_info['def_uid'] }}', '{{ kwd['action'] }}' )">立即预约</a>
+
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 下面是用于简历的额外信息 -->
+            {% block addtional %}
+            {% end %}
+
+        </div>
+    </div>
+
+
+    {% end %}
+
+
+</div>
+
+
+<div class="panel-footer"
+     style=" background: #eee; border:1px solid #ddd;width: 96%; padding:1% 2%; margin:15px 0;  ">
+    你可以通过信息中的相关按钮来对信息进行操作。
+</div>

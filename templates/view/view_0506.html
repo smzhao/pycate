@@ -1,0 +1,153 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">类　　别</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie16"][0] %}
+          {% if tmp_var == "1" %}
+          3G号码
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie16"][0] %}
+          {% if tmp_var == "2" %}
+          全球通
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie16"][0] %}
+          {% if tmp_var == "3" %}
+          动感地带
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie16"][0] %}
+          {% if tmp_var == "4" %}
+          神州行
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie16"][0] %}
+          {% if tmp_var == "5" %}
+          如意通
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie16"][0] %}
+          {% if tmp_var == "6" %}
+          CDMA
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie16"][0] %}
+          {% if tmp_var == "7" %}
+          情侣手机号
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie16"][0] %}
+          {% if tmp_var == "8" %}
+          4G号码
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie16"][0] %}
+          {% if tmp_var == "9" %}
+          其他
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">类　　别</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie17"][0] %}
+          {% if tmp_var == "1" %}
+          ABAB
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie17"][0] %}
+          {% if tmp_var == "2" %}
+          AABB
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie17"][0] %}
+          {% if tmp_var == "3" %}
+          ABC
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie17"][0] %}
+          {% if tmp_var == "4" %}
+          ABCD
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie17"][0] %}
+          {% if tmp_var == "5" %}
+          AAAA
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie17"][0] %}
+          {% if tmp_var == "6" %}
+          AAA
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie17"][0] %}
+          {% if tmp_var == "7" %}
+          其他
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">供需</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+         {% if post_info['extra_gongxu'][0] == "1" %}
+         转让
+         {% end %}
+         </span>
+        
+         <span class="val">
+         {% if post_info['extra_gongxu'][0] == "2" %}
+         求购
+         {% end %}
+         </span>
+        </div>
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

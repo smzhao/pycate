@@ -1,0 +1,213 @@
+{% extends "./tpl_basic.html" %}
+
+{% block headinfo %}
+
+
+<script>
+    $(document).ready(function () {
+        //元素调用Colorbox的示例
+        $(".group1").colorbox({rel: 'group1'});
+        $(".inline").colorbox({inline: true, width: "50%"});
+    });
+    function j_get(html2) {
+        // 一些刷新、置顶的操作
+        $.get(html2);
+    }
+    // function js_show_page(html2) {
+    // 一些刷新、置顶的操作
+    // $('#showCnt').load(html2);
+    // }
+
+
+    // 提交预约刷新的动作
+    function js_show_page(web_url) {
+        var post_data1 = "";
+        $.ajax({
+            url: web_url,
+            data: post_data1,
+            success: function (msg) {
+                alert('收藏成功!');
+            },
+            error: function (msg) {
+                alert('收藏失败，可能已经被收藏');
+            }
+        });
+
+    }
+
+
+    $(function () {
+        var temp = $("#view_content").text().replace(/\n/g, '<br/>');
+        $("#view_content").html(temp);
+    });
+
+    function select(html2) {
+        // 一些刷新、置顶的操作
+        $.get(html2);
+    }
+</script>
+
+
+<link href="{{ static_url('js/tplb/lunbo.css') }}" rel="stylesheet" type="text/css" media="all">
+
+<script type="text/javascript" src="{{ static_url('js/tplb/lunbo.js') }}"/>
+
+<script type="text/javascript">
+    // $("#ajax").colorbox({contentWidth: "300px", contentHeight: "195px"});
+
+    $.colorbox({html: "<h1>Welcome</h1>"});
+</script>
+{% end %}
+
+{% block typebody %}
+
+
+<div class="row">
+
+
+    <div class="col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {% module BreadCrumb(kwd['daohangstr']) %}
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading" style="text-align: center">
+
+                <h3>
+                    {% raw post_info['title'][0] %}
+                    {% if post_info['def_zhiding'] == 1 %}
+                    （已置顶）
+                    {% end %}
+                    {% if post_info['def_tuiguang'] == 1 %}
+                    （已推广）
+                    {% end %}
+                </h3>
+
+                <p>发布时间：{% raw kwd['timeit'] %} &nbsp;&nbsp;该信息 &nbsp;&nbsp;浏览： {% raw post_info['views'] %} 次
+                    {% raw kwd['oprt_str'] %}</p>
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <!-- 根据有没有图，分成两部分显示 -->
+                    <!-- 下面代码有重复部分，但为清晰起见，都保留。 -->
+                    {% if kwd['has_image'] == 1 %}
+                    <div class="col-sm-6">
+                        {% module ImgSlide(post_info) %}
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="{% if post_info['def_zhiding'] == 1 %}
+                            zhiding
+                            {% end %}
+                            {% if post_info['def_tuiguang'] == 1 %}
+                            tuijian
+                            {% end %}">
+                            {% block extrainfo %} {% end %}
+                            {% module ContactInfo(post_info) %}
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col-sm-6">
+
+                        {% block extrainfo %} {% end %}
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class=" {% if post_info['def_zhiding'] == 1 %}
+                            zhiding
+                            {% end %}
+                            {% if post_info['def_tuiguang'] == 1 %}
+                            tuijian
+                            {% end %}">
+                            {% module ContactInfo(post_info) %}
+                        </div>
+                    </div>
+                    {% end %}
+
+                </div>
+
+
+                {% if kwd['parentid'] == '0700' %}
+
+                <div class="alert alert-warning alert-dismissable">
+                    <a href="#inline_content" target="_blank" class="btn btn-primary" role="button">
+                        投简历
+                    </a>
+
+                    <div style='display:none'>
+                        {% raw kwd['jianli_str'] %}
+                    </div>
+
+                </div>
+
+
+                {% end %}
+
+                <div class="panel-default">
+                    <div class="panel-heading">
+                        信息详情
+                    </div>
+
+                    <div class="panel-body">
+                        <!--信息介绍页内广告-->
+
+                        {{ post_info['content'][0] }}
+                    </div>
+                </div>
+                <div class="panel-default">
+                    <div class="panel-heading">
+                        图片资料
+                    </div>
+                    <div class="panel-body">
+                        <div class="iga_infoaddiv" style="text-align: left;width:98%;margin:1px auto;">
+                            {% for x in post_info['mymps_img'] %}
+
+                            <a class="group1" data-rel='hi' href="{{ static_url(x) }}">
+                                <img src="{{ static_url(x) }}" width="500px" style="margin:8px 10px 8px 50px;"/></a>
+
+
+                            {% end %}
+                            <br/>
+                            <!--
+                            <p>联系我时，请说是在吉合营上看到的，谢谢！</p>
+                            -->
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel-default">
+                    <div class="panel-heading">
+                        地图位置
+                    </div>
+                    <div class="panel-body">
+                        <div class="infoaddiv" id="show_baidu_map" style="width: 400px;overflow: hidden;">
+                            {% raw post_info['baidumap'][0] %}
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="panel-footer">
+                本站所有信息均为用户自由发布，本站不对信息的真实性负任何责任，交易时请注意识别信息的真假<br/>
+                如有网站内容侵害了您的权益请联系我们删除。
+                <span id="showCnt"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-sm-3">
+
+        <div class="iga_link_img">
+            {% raw kwd['linkstr'] %}
+        </div>
+    </div>
+</div>
+
+{% end %}
+
+

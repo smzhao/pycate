@@ -1,0 +1,281 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">收入范围</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_shourufanwei"][0] %}
+          {% if tmp_var == "1" %}
+          保密
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shourufanwei"][0] %}
+          {% if tmp_var == "2" %}
+          800元以上
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shourufanwei"][0] %}
+          {% if tmp_var == "3" %}
+          1.5k元以上
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shourufanwei"][0] %}
+          {% if tmp_var == "4" %}
+          2k元以上
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shourufanwei"][0] %}
+          {% if tmp_var == "5" %}
+          3k元以上
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shourufanwei"][0] %}
+          {% if tmp_var == "6" %}
+          5k元以上
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shourufanwei"][0] %}
+          {% if tmp_var == "7" %}
+          8k元以上
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">爱　　好</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+         {% if "16" in post_info["extra_aihao"] %}
+         阅读
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "2" in post_info["extra_aihao"] %}
+         唱歌
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "4" in post_info["extra_aihao"] %}
+         电影
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "22" in post_info["extra_aihao"] %}
+         汽车
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "6" in post_info["extra_aihao"] %}
+         戏剧
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "8" in post_info["extra_aihao"] %}
+         拍托
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "20" in post_info["extra_aihao"] %}
+         购物
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "10" in post_info["extra_aihao"] %}
+         网络
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "12" in post_info["extra_aihao"] %}
+         绘画
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "18" in post_info["extra_aihao"] %}
+         旅游
+         {% end %}
+         </span>
+         
+         <span class="val">
+         {% if "14" in post_info["extra_aihao"] %}
+         雕塑
+         {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">婚姻状况</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+         {% if post_info['extra_hunyinzhuangkuang'][0] == "1" %}
+         已婚
+         {% end %}
+         </span>
+        
+         <span class="val">
+         {% if post_info['extra_hunyinzhuangkuang'][0] == "2" %}
+         未婚
+         {% end %}
+         </span>
+        </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">星　　座</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "1" %}
+          白羊座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "2" %}
+          金牛座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "3" %}
+          双子座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "4" %}
+          巨蟹座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "5" %}
+          狮子座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "6" %}
+          处女座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "7" %}
+          天秤座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "8" %}
+          天蝎座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "9" %}
+          射手座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "10" %}
+          摩羯座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "11" %}
+          水瓶座
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_xingzuo"][0] %}
+          {% if tmp_var == "12" %}
+          双鱼座
+          {% end %}
+         </span>
+         </div>
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">年　　龄</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_nianling"][0] %}
+          {% if tmp_var == "1" %}
+          25岁以下
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_nianling"][0] %}
+          {% if tmp_var == "2" %}
+          25-30岁
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_nianling"][0] %}
+          {% if tmp_var == "3" %}
+          30-35岁
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_nianling"][0] %}
+          {% if tmp_var == "4" %}
+          35-40岁
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_nianling"][0] %}
+          {% if tmp_var == "5" %}
+          40岁以上
+          {% end %}
+         </span>
+         </div>
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

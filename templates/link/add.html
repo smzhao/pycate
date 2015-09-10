@@ -1,0 +1,50 @@
+{% extends "../tpl_plain.html" %}
+
+
+{% block bodyinfo %}
+
+
+
+<div style="margin:50px auto; width:80%;text-align:left;">
+
+    <form action="/link/add" id="linkup" class="pure-form pure-form-aligned" method="post" enctype="multipart/form-data">
+        <fieldset>
+
+            <legend>添加图片外链信息</legend>
+            <input type="hidden" name="cityid1" value="{{ kwd['cityid'] }}"/>
+            <input type="hidden" name="parentid" value="{{ kwd['parentid'] }}"/>
+
+
+
+            <div class="pure-control-group">
+                <label for="linkt">上传图片：</label>
+                <label id="linkt" style="width:400px;text-align: left;">图片格式为 .png .jpg等。</label>
+            </div>
+
+
+            <div class="pure-control-group">
+                <label for="link_i"></label>
+                <label id="link_i">
+                    <input class="text" type="file" name='link_image' id="link_image"
+                           style="margin:2px 0 2px 0;height: 35px;">
+                </label>
+            </div>
+
+
+            <div class="pure-control-group">
+                <label for="link_url">链接：</label>
+                <input type="text" name="link_url" id="link_url" class="required url"/>
+            </div>
+
+
+            <div class="pure-control-group">
+                <label for="sub1"></label>
+                <input class="pure-button pure-button-primary" type="submit" id="sub1" value="提交"/>
+            </div>
+
+
+        </fieldset>
+    </form>
+</div>
+{%  end %}
+

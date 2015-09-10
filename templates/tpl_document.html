@@ -1,0 +1,73 @@
+{% extends "./tpl_basic.html" %}
+
+
+
+{% block typebody %}
+<!--头部通栏广告开始-->
+
+<div id="ad_header"></div>
+<!--头部通栏广告结束-->
+
+
+<div class="clearfix"></div>
+<div style="width:980px">
+
+    <div class="pure-g">
+
+
+        <div class="pure-u-19-24" style="font-size: 16px">
+            {% module BreadCrumb(kwd['daohangstr']) %}
+
+
+
+            <div class="clearfix"></div>
+
+            <div id="ad_interlistad_top"></div>
+
+
+            {% block docpos %}
+            {% end %}
+
+            <div id="ad_interlistad_bottom"></div>
+
+
+            <div class="clear"></div>
+
+
+        </div>
+        <div class="pure-u-5-24">
+
+            <div style="margin:2px 2px 2px 2px;">
+                {% raw kwd['linkstr'] %}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="clearfix"></div>
+
+<div id="ad_footerbanner"></div>
+
+
+<div class="clear"></div>
+
+<div class="pure-menu pure-menu-open pure-menu-horizontal" style="width: 90%;margin: 0 auto;">
+    <ul>
+        <li><a href="/document/about.html">关于我们</a></li>
+        <li><a href="/document/help.html">帮助中心</a></li>
+        <li><a href="/document/join.html">加入我们</a></li>
+        <li><a href="/document/board.html">网站公告</a></li>
+        <li><a href="/document/hr.html">招纳贤士</a></li>
+        <li><a href="/document/friend_link.html">友情链接</a></li>
+        <li><a href="/document/nav.html">网站导航</a></li>
+        <li><a href="/document/pact.html">服务协议</a></li>
+
+    </ul>
+</div>
+
+{% end %}
+
+

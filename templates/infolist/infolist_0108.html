@@ -1,0 +1,43 @@
+<div class="iga_hover">
+    <div class="pure-g">
+        <div class="pure-u-1-4">
+
+            <div class="left">
+                <a href="/view/{{ post_info['def_uid'] }}" >
+                    <img src="{{ static_url(widget_info['imgname'] ) }}" align="absmiddle"
+                         style="width: 150px;height:100px;overflow: hidden;"/></a>
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="mid">
+                <div class="listinfo_title">
+                    <a href="/info/{{ post_info['def_uid'] }}">
+                        {{ post_info['title'][0] }}{% raw widget_info['zhiding'] %}{% raw widget_info['tuiguang'] %}
+                    </a>
+                </div>
+
+                <div class="listinfo_content">
+                    <a href="/info/{{ post_info['def_uid'] }}" >
+                        <nobr> {% raw post_info['content'][0] %}</nobr>
+                    </a>
+                </div>
+                <div class="listinfo_time">
+                    发布时间: {{ post_info['def_update_time_str'] }}
+                </div>
+                <div class="listinfo_extra">
+                    <span> <span class="iga_pd_val">     {% if post_info["extra_fangwuleixing"][0] == "1" %} 写字楼 {% end %}  {% if post_info["extra_fangwuleixing"][0] == "2" %} 公寓 {% end %}  {% if post_info["extra_fangwuleixing"][0] == "3" %} 小区 {% end %}  {% if post_info["extra_fangwuleixing"][0] == "4" %} 平房 {% end %}  {% if post_info["extra_fangwuleixing"][0] == "5" %} 别墅 {% end %}  {% if post_info["extra_fangwuleixing"][0] == "6" %} 地下室 {% end %} </span><span class="iga_pd_val">    {% if post_info['extra_zuoxiang'][0] == "1" %} SCI {% end %}{% if post_info['extra_zuoxiang'][0] == "2" %} SCIE {% end %}{% if post_info['extra_zuoxiang'][0] == "3" %} 核心期刊 {% end %}{% if post_info['extra_zuoxiang'][0] == "4" %} 普通期刊 {% end %}</span><span class="iga_pd_val">     {% if post_info["extra_jushi"][0] == "1" %} 独居室 {% end %}  {% if post_info["extra_jushi"][0] == "2" %} 两室一厅 {% end %}  {% if post_info["extra_jushi"][0] == "3" %} 三室一厅 {% end %}  {% if post_info["extra_jushi"][0] == "4" %} 三室二厅 {% end %}  {% if post_info["extra_jushi"][0] == "5" %} 四室二厅 {% end %}  {% if post_info["extra_jushi"][0] == "6" %} 别墅 {% end %} </span><span class="iga_pd_val">     {% if post_info["extra_tese"][0] == "1" %} 精装修 {% end %}  {% if post_info["extra_tese"][0] == "2" %} 家电齐全 {% end %}  {% if post_info["extra_tese"][0] == "3" %} 押一付一 {% end %}  {% if post_info["extra_tese"][0] == "4" %} 单身公寓 {% end %}  {% if post_info["extra_tese"][0] == "5" %} 邻近地铁 {% end %}  {% if post_info["extra_tese"][0] == "6" %} 市政供暖 {% end %} </span><span class="iga_pd_val">     {% if post_info["extra_hangye"][0] == "1" %} 餐饮美食 {% end %}  {% if post_info["extra_hangye"][0] == "2" %} 酒吧KTV {% end %}  {% if post_info["extra_hangye"][0] == "3" %} 洗浴健身 {% end %}  {% if post_info["extra_hangye"][0] == "4" %} 美容美发 {% end %}  {% if post_info["extra_hangye"][0] == "5" %} 服装服饰 {% end %}  {% if post_info["extra_hangye"][0] == "6" %} 休闲娱乐 {% end %}  {% if post_info["extra_hangye"][0] == "7" %} 干洗店 {% end %}  {% if post_info["extra_hangye"][0] == "8" %} 汽车美容 {% end %}  {% if post_info["extra_hangye"][0] == "9" %} 其他 {% end %} </span><span class="iga_pd_val">     {% if post_info["extra_shangpuleibie"][0] == "1" %} 商业街商铺 {% end %}  {% if post_info["extra_shangpuleibie"][0] == "2" %} 社区住宅底商 {% end %}  {% if post_info["extra_shangpuleibie"][0] == "3" %} 写字楼配套 {% end %}  {% if post_info["extra_shangpuleibie"][0] == "4" %} 宾馆酒店 {% end %}  {% if post_info["extra_shangpuleibie"][0] == "5" %} 旅游点商铺 {% end %}  {% if post_info["extra_shangpuleibie"][0] == "6" %} 主题卖场 {% end %}  {% if post_info["extra_shangpuleibie"][0] == "7" %} 百货/购物中心 {% end %}  {% if post_info["extra_shangpuleibie"][0] == "8" %} 其他 {% end %} </span><span class="iga_pd_val">     {% if post_info["extra_shangpuchurangxingshi"][0] == "1" %} 商铺出租 {% end %}  {% if post_info["extra_shangpuchurangxingshi"][0] == "2" %} 商铺出售 {% end %}  {% if post_info["extra_shangpuchurangxingshi"][0] == "3" %} 全部 {% end %} </span></span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="pure-u-1-4">
+            <div class="right">
+                {% raw widget_info['html_right_top'] %} <br/>
+            </div>
+            <div class="right">
+                {% raw widget_info['html_right_bottom'] %} <br/>
+            </div>
+        </div>
+    </div>
+</div>

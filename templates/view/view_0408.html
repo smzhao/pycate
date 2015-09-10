@@ -1,0 +1,100 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">设计类别</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "1" %}
+          VI设计
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "2" %}
+          平面设计
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "3" %}
+          广告设计
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "4" %}
+          名片设计
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "5" %}
+          动画设计
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "6" %}
+          影视制作
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "7" %}
+          室内设计
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "8" %}
+          品牌策划
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "9" %}
+          广告策划
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "10" %}
+          工业设计
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_shejileibie"][0] %}
+          {% if tmp_var == "11" %}
+          其他
+          {% end %}
+         </span>
+         </div>
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

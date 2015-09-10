@@ -1,0 +1,13 @@
+<table class="pure-table">
+    <tr><th>标题</th><th>联系人</th><th>电话</th><th>QQ</th><th>提交时间</th></tr>
+    {% for x in info %}
+    
+    <tr><td><a class='' href="{{ x['jluid'] }}">{{ x['jltitle'] }}</a></td>
+    <td><span>{{ x['jlname'] }}</span></td>
+    <td><span>{{ x['jlphone'] }}</span></td>
+    <td><span>{{ x['jlqq'] }}</span></td>
+    <td><span>{{ x['jltimestr'] }}</span></td>
+        </tr>
+
+    {% end %}
+</table>

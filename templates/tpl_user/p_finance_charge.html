@@ -1,0 +1,93 @@
+<script>
+
+    // 首先使用jquery.validate.js进行验证
+    // 然后模拟提交，验证原始密码。
+    // 原始密码无问题，则模拟提交，修改密码。
+
+    // 提交修改密码的动作
+    function js_post_data() {
+        // 模拟Form提交
+        $.ajax({
+            type: "POST",
+            url: "/member/charge",
+            data: "amount=" + $("#charge_amount").val(),
+
+            success: function (msg) {
+                alert('充值成功');
+                $('#showCnt').load('/user/p_finance_charge');
+            },
+            error: function () {
+                alert('充值失败');
+                // $('#showCnt').load('/user/page_password')
+            }
+        })
+    }
+
+
+    // jquery.validate.js 验证
+    $().ready(function () {
+
+        $("#chPassForm").validate({
+            rules: {
+                charge_amount: "required"
+
+            },
+            messages: {
+                charge_amount: "<span class='red'>请输入充值金额</span>"
+            }
+        });
+
+        $('#password_submit').click(function () {
+            if ($("#chPassForm").valid()) {
+                // do some stuff
+                js_post_data()
+            }
+            else {
+                // just show validation errors, dont post
+            }
+        });
+    });
+</script>
+
+<div class="panel-heading">
+
+        {% module user_info(wuserinfo, wusernum) %}
+
+</div>
+
+<div class="panel-body">
+    <div class="pure-g" style="padding-top: 10px; width: 96%; margin: 0 auto">
+        <div class="pure-u-1">
+
+            <form id="chPassForm" method="post" class="pure-form pure-form-aligned">
+                <legend>充值表单</legend>
+                <fieldset>
+
+                    <div class="pure-control-group">
+                        <label for="charge_amount">充值金额</label>
+                        <input id="charge_amount" name="charge_amount" type="text" value=""/>
+
+                    </div>
+
+
+                    <div class="pure-controls">
+
+
+                        <a class="pure-button pure-button-primary" id="password_submit">
+                            确定充值
+                        </a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div class="panel-footer"
+     style=" background: #eee; border:1px solid #ddd;width: 92%; padding:1% 2%; margin:15px 2%;  ">
+    说明：1元人民币可以购买5元金币。一次性充值50元，为9折。一次性充值200元，为8折。
+</div>

@@ -1,0 +1,45 @@
+{% extends "../tpl_basic.html" %}
+
+{% block headinfo %}
+
+<link href="{{ static_url('tass/stylesheets/changecity.css') }}" rel="stylesheet" type="text/css"/>
+
+
+{% end %}
+
+
+{% block typebody %}
+
+
+<div class="panel panel-info" style="margin: 10px;">
+
+    <div class="panel-heading">
+        <h3>选择城市分站</h3>
+    </div>
+    <div class="panel-body">
+        <i class="lines"></i>
+
+        <div id="gblist">
+            热门城市入口：
+            <a href="/changecity/changchun" style="color:#ff3300;">进入长春站 »</a>
+            <a href="/changecity/changchun"><strong>长春</strong></a>
+            <a href="/changecity/jilin"><strong>吉林</strong></a>
+        </div>
+        <i class="lines"></i>
+        <dl id="gclist" class="gprovince">
+            <dd>
+                {% for city_info in city_infos %}
+                <a href="/changecity/{{ city_info.cityid }}" style="color:red;text-decoration:underline;">
+                    {{ city_info.cityname }}
+                </a>
+                {% end %}
+            </dd>
+            <div class="clearfix"></div>
+        </dl>
+
+
+    </div>
+</div>
+
+
+{% end %}

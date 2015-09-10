@@ -1,0 +1,100 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">类　　别</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "1" %}
+          工艺品
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "2" %}
+          小家电
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "3" %}
+          运动健康
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "4" %}
+          汽车/户外
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "5" %}
+          家居家纺
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "6" %}
+          服装
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "7" %}
+          箱包皮具
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "8" %}
+          文具本册
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "9" %}
+          杯子茶具
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "10" %}
+          数码电子
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie5"][0] %}
+          {% if tmp_var == "11" %}
+          奖杯证书
+          {% end %}
+         </span>
+         </div>
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

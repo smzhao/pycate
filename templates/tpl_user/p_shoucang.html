@@ -1,0 +1,70 @@
+<script>
+    // 提交预约刷新的动作
+    function sub_refresh(uid, act) {
+        $.ajaxSetup({cache: false});
+        // 预约刷新
+        // 模拟Form提交
+        $.ajax({
+            type: "POST",
+            url: "/operate/",
+            data: "def_uid=" + uid + "&yyday=" + $("#yyday_" + uid).val() + "&yyhour=" + $("#yyhour_" + uid).val() + "&yymin=" + $("#yymin_" + uid).val(),
+
+            success: function (msg) {
+                $('#showCnt').load('/user/list/' + act);
+            }
+        });
+        jQuery().colorbox.close();
+    }
+
+
+</script>
+
+<div class="panel-heading">
+        {% module user_info(wuserinfo, wusernum) %}
+</div>
+<div class="panel-body">
+
+
+    <div class="pbody" style="margin:10px auto;">
+
+
+        <div class="pure-u-1">
+            <div class="pure-menu pure-menu-open pure-menu-horizontal">
+
+            </div>
+        </div>
+
+        <table class="pure-table" width="96%" style="margin: 0 auto">
+            <tr>
+                <th>标题</th>
+                <th>分类</th>
+                <th>操作</th>
+            </tr>
+            {% for shoucang_rec in shoucang_info %}
+            <tr class="box-info">
+                <td>
+                    <a href="/info/{{ shoucang_rec.info_uid }}" target="_blank">
+                        {{ shoucang_rec.title }}
+                    </a>
+                </td>
+                <td>
+                    {{ shoucang_rec.catname }}
+                </td>
+                <td>
+                    <a onclick="js_show_page('/user/del_shoucang/{{ shoucang_rec.uid }}')">删除</a>
+                </td>
+            </tr>
+            {% end %}
+
+        </table>
+
+
+    </div>
+
+
+</div>
+
+<div class="panel-footer"
+     style=" background: #eee; border:1px solid #ddd;width: 92%; padding:1% 2%;  margin:15px 2%;  ">
+   你可以收藏他人所发布的信息，不可收藏自己发布的信息。
+</div>

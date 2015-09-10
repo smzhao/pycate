@@ -1,0 +1,107 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">类　　别</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "1" %}
+          酒类
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "2" %}
+          茶叶土特产
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "3" %}
+          休闲零食
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "4" %}
+          方便食品
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "5" %}
+          肉制品
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "6" %}
+          海鲜类
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "7" %}
+          果蔬类
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "8" %}
+          饮品粮油
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "9" %}
+          糖果/巧克力
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "10" %}
+          调味品营养品
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "11" %}
+          月饼
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_leibie6"][0] %}
+          {% if tmp_var == "12" %}
+          其他
+          {% end %}
+         </span>
+         </div>
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

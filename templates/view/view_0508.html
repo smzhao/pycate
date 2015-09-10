@@ -1,0 +1,135 @@
+{% extends "../tpl_view.html" %}
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+
+
+{% end %}
+{% block extrainfo %}
+
+<div id="iga_view_rec_box">
+
+    <div class="pure-u-1-4 iga_view_rec"><span class="des">回收类别</span></div>
+    <div class="pure-u-3-4 iga_view_rec">
+    
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "1" %}
+          台式电脑
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "2" %}
+          笔记本电脑
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "3" %}
+          手机通讯
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "4" %}
+          家用电器
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "5" %}
+          家具装饰
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "6" %}
+          办公耗材
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "7" %}
+          电子数码
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "8" %}
+          二手设备/机械
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "9" %}
+          废旧物品
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "10" %}
+          礼品回收
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "11" %}
+          贵金属回收
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "12" %}
+          奢侈品回收
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "13" %}
+          库存积压
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "14" %}
+          金属回收
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "15" %}
+          纺织皮革
+          {% end %}
+         </span>
+         
+         <span class="val">
+          {% set tmp_var = post_info["extra_huishouleibie"][0] %}
+          {% if tmp_var == "16" %}
+          其他
+          {% end %}
+         </span>
+         </div>
+</div>
+
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    $.ajaxSetup({cache: false});
+
+    function get_coupon() {
+        //    $.ajaxSetup({cache: false})
+        // 预约刷新
+        // 模拟Form提交
+        uu = $('#telin')[0].value;
+
+        $('#couponInfo').load('/coupon/getinfo/' + uu);
+
+
+    }
+
+
+</script>
+
+
+<form class="pure-form pure-form-aligned gform">
+
+    <legend>输入电话号码</legend>
+
+    <fieldset>
+
+        <label for="telin">输入</label>
+        <input type="text" id="telin" onkeyup="get_coupon()" value="" />
+    </fieldset>
+</form>
+
+
+<div>
+    <span id="couponInfo"></span>
+</div>

@@ -1,0 +1,141 @@
+<script>
+    // 提交预约刷新的动作
+    function sub_refresh(uid, act) {
+        // $.ajaxSetup({cache: false});
+        // 预约刷新
+        // 模拟Form提交
+        var post_data1 = "def_uid=" + uid + "&yyday=" + $("#yyday_" + uid).val() + "&yyhour=" + $("#yyhour_" + uid).val() + "&yymin=" + $("#yymin_" + uid).val();
+        $.ajax({
+            type: "POST",
+            url: "/appoint/",
+            data: post_data1,
+
+            success: function (msg) {
+                $('#showCnt').load('/filter/' + act);
+            }
+        });
+        jQuery().colorbox.close();
+    }
+
+    $(document).ready(function () {
+        // 用于预约刷新
+        // 因为Ajax的原因，不能放到 main  中。
+        $.ajaxSetup({cache: false});
+        $(".inline").colorbox({inline: true, width: "500px"});
+    });
+</script>
+
+<div class="panel-heading">
+    {% module user_info(wuserinfo, wusernum) %}
+</div>
+
+<div class="panel-body" style="margin:10px auto;">
+
+
+    <div class="pure-u-1">
+        <div class="pure-menu pure-menu-open pure-menu-horizontal">
+        </div>
+    </div>
+
+
+    {% for post_info in user_published_infos %}
+    <div class="pure-g box-info">
+
+        <div class="pure-u-2-3 houtai_info">
+            <div class="houtai_info_title">
+                <a href="/info/{{ post_info['def_uid'] }}" target="_blank">
+                    {{ post_info['title'][0] }}
+                </a>
+            </div>
+
+            <div class="houtai_info_status">
+
+                <!-- 状态 -->
+                {% if post_info['def_banned'] == 1 %}
+                <span class="text-danger bg-danger info_status">
+                被屏蔽</span>
+                {% end %}
+
+                {% if post_info['def_valid'] == 1 %}
+                <span class="text-success bg-success info_status">
+                审核通过</span>
+                {% else %}
+                <span class="text-warning bg-warning info_status">
+                未审核</span>
+                {% end %}
+
+                {% if post_info['def_zhiding'] == 1 %}
+                <span class="text-success bg-success info_status">
+                已置顶</span>
+                {% end %}
+
+                {% if post_info['def_tuiguang'] == 1 %}
+                <span class="text-success bg-success info_status">
+                已推广</span>
+                {% end %}
+
+                {% if post_info['def_refresh'] == 1 %}
+                <span class="text-success bg-success info_status">
+                已刷新</span>
+                {% end %}
+
+                <br/>
+
+                <div class="houtai_info_footer">
+                    分类：<b class="text-info ">{{ post_info['catname'] }}</b> 发布时间：<b
+                        class="text-info ">{{ post_info['def_create_time_str'] }}</b>
+                </div>
+
+            </div>
+
+            <div class="houtai_operate">
+                <!-- 文章操作 -->
+                <a href="/info/{{ post_info['def_uid'] }}" target="_blank">打开</a>
+                <a href="/edit/{{ post_info['def_uid'] }}" target="_blank">修改</a>
+                <a onclick="js_show_page('/delete/{% raw post_info['def_uid'] %}/{{ kwd['action'] }}')">删除</a>
+            </div>
+        </div>
+
+        <div class="pure-u-1-3" style="text-align: right;">
+            <div>
+                <!-- 文件属性操作 -->
+
+                {% if (post_info['def_zhiding'] != 1 and wusernum.buy_zhiding_num > 0) %}
+                <a class="btn btn-default btn-xs"
+                   onclick="js_show_page('/zhiding/{% raw post_info['def_uid'] %}/{{ kwd['action'] }}')">
+                    置顶
+                </a>
+                {% end %}
+
+                {% if post_info['def_refresh'] != 1 %}
+                {% if wusernum.free_refresh_num > 0 %}
+                <a class="btn btn-default btn-xs"
+                   onclick="js_show_page('/refresh/{% raw post_info['def_uid'] %}/{{ kwd['action'] }}')">立即刷新 </a>
+
+                {% elif wusernum.buy_refresh_num > 0 %}
+                <a class="btn btn-default btn-xs"
+                   onclick="js_show_page('/refresh/{% raw post_info['def_uid'] %}/{{ kwd['action'] }}')">购买刷新</a>
+                {% else %}
+                <a class="btn btn-default btn-xs" onclick="">没有刷新次数了</a>
+
+                {% end %}
+                {% end %}
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    {% end %}
+
+
+</div>
+
+
+<div class="panel-footer"
+     style=" background: #eee; border:1px solid #ddd;width: 96%; padding:1% 2%; margin:15px 0;  ">
+    你可以通过信息中的相关按钮来对信息进行操作。
+</div>

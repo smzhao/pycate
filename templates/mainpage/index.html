@@ -1,0 +1,224 @@
+{% extends "../tpl_basic.html" %}
+
+
+{% block headinfo %}
+
+
+{% end %}
+
+
+{% block topmenu %}
+
+{% raw topmenu %}
+
+{% end %}
+
+
+{% block header %}
+
+<h1>{{ header_text }}</h1>
+
+{% end %}
+
+
+{% block typebody %}
+
+
+<!--头部通栏广告开始-->
+<div id="ad_header"></div>
+<!--头部通栏广告结束-->
+
+
+<div class="row">
+    <div class="col-sm-3">
+        {% raw kwd['s1'] %}
+
+    </div>
+    <div class="col-sm-3">
+        {% raw kwd['s2'] %}
+    </div>
+    <div class="col-sm-3">
+        {% raw kwd['s3'] %}
+        {% raw kwd['s4'] %}
+    </div>
+    <div class="col-sm-3">
+        {% raw kwd['s5'] %}
+        {% raw kwd['s6'] %}
+    </div>
+
+</div>
+
+
+<!-- 常用服务导航start  -->
+<div class="row">
+    <div class="col-sm-3">
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <h2>交通出行</h2>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <div>
+                    <a target="_blank"
+                       href="http://map.baidu.com/?newmap=1&ie=utf-8&daddr=%20&fr=alab0&s=s%26c%3D53%0D%0A%26wd%3D%E9%95%BF%E6%98%A5">公交查询</a>
+                </div>
+                <div><a target="_blank" href="http://map.baidu.com/">在线地图</a></div>
+                <div><a target="_blank" href="http://www.huoche.com.cn">列车时刻</a></div>
+            </div>
+            <div class="col-sm-6">
+
+
+                <div><a target="_blank" href="http://www.jipiao.com.cn">特价机票</a></div>
+                <div><a target="_blank" href="http://www.jljj.cn/">交通违章</a></div>
+                <div><a target="_blank" href="http://www.trip8080.com/">长途汽车</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <h2>生活助手</h2>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+
+
+                <div><a target="_blank" href="http://live.hao123.com/">电视直播</a></div>
+                <div><a target="_blank" href="http://www.douguo.com/caipu">美食菜谱</a></div>
+                <div><a target="_blank" href="http://www.guahao.com/">医院挂号</a></div>
+            </div>
+            <div class="col-sm-6">
+
+
+                <div><a target="_blank" href="http://waimai.taobao.com/shop_list.htm">外卖订餐</a></div>
+                <div><a target="_blank" href="http://care.39.net/">健康养生</a></div>
+                <div><a target="_blank" href="http://kaoshi.jxedt.com/">驾校一点通</a></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-3">
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <h2>便民服务</h2>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+
+
+                <div><a target="_blank" href="http://app.baidu.com/app/enter?appid=101074">快递查询</a></div>
+                <div><a target="_blank"
+                        href="https://jiaofei.alipay.com/tongxun.htm?%3f_ad=c&amp;_adType=lifejf_sjcz_alipaysytop">手机充值</a>
+                </div>
+                <div><a target="_blank" href="http://www.cncn.com/paihang/">旅游景点</a></div>
+            </div>
+            <div class="col-sm-6">
+
+
+                <div><a target="_blank" href="http://wenku.baidu.com/portal/browse/exam/gwy_guojia">公务员考试</a></div>
+                <div><a target="_blank" href="http://www.dayima.com/products/index">女性安全期</a></div>
+                <div><a target="_blank" href="https://jiaofei.alipay.com/jiaofei.htm">水电煤缴费</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <h2>金融理财</h2>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+
+
+                <div><a target="_blank"
+                        href="http://baidu.lecai.com/lottery/draw/view/50?phase=2014026&agentId=5555">双色球</a>
+                </div>
+                <div><a target="_blank" href="http://quote.eastmoney.com/zs000001.html">股票行情</a></div>
+                <div><a target="_blank" href="http://gold.hexun.com/hjxh/">黄金价格</a></div>
+            </div>
+            <div class="col-sm-6">
+
+
+                <div><a target="_blank" href="http://app.baidu.com/app/enter?appid=115844">房贷计算器</a></div>
+                <div><a target="_blank" href="http://www.hao123.com/baoxian">社保查询</a></div>
+                <div><a target="_blank" href="http://www.hao123.com/haoserver/gjjcx.htm">住房公积金</a></div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- <div class="col-sm-3">
+         <h2>工具大全</h2>
+
+         <div class="col-sm-12">
+             <div class="col-sm-6">
+
+
+                 <div><a target="_blank" href="http://app.baidu.com/app/enter?appid=114629">万年历</a></div>
+                 <div><a target="_blank" href="http://www.xingming.net">八字算命</a></div>
+                 <div><a target="_blank" href="http://app.baidu.com/app/enter?appid=278234">黄道吉日</a></div>
+             </div>
+             <div class="col-sm-6">
+
+
+                 <div><a target="_blank" href="http://www.51jiemeng.com">周公解梦</a></div>
+                 <div><a target="_blank" href="http://astro.sina.com.cn/luck/">星座运势</a></div>
+                 <div><a target="_blank" href="http://lengxiaohua.com/">爱讲冷笑话</a></div>
+             </div>
+         </div>
+
+
+     </div>-->
+</div>
+<!-- 常用服务导航end  -->
+
+<div class="clear"></div>
+<!-- 页尾通栏广告开始-->
+<div id="ad_footerbanner"></div>
+
+<!-- 页尾通栏广告结束-->
+
+<!--广告处理部分开始-->
+
+<div style="display: none" id="ad_none">
+    <!--头部通栏广告-->
+
+    <!--首页分类间广告-->
+    <div class="indexcatad" id="ad_indexcatad_229_none"><a href="#" target="_blank"><FONT size="1">[AD]</FONT></a></div>
+    <div class="indexcatad" id="ad_indexcatad_154_none"><a href="#" target="_blank"><FONT size="1">[AD]</FONT></a></div>
+    <div class="indexcatad" id="ad_indexcatad_157_none"><a href="#" target="_blank"><FONT size="1">[AD]</FONT></a></div>
+    <!--栏目信息列表间广告-->
+
+
+    <!--栏目侧边广告-->
+
+    <div class="topbanner" id="ad_topbanner_none">
+    </div>
+    <!--
+    -->
+</div>
+
+<ul class="nav nav-tabs nav-justified">
+    <li><a href="/document/about.html">关于我们</a></li>
+    <li><a href="/document/help.html">帮助中心</a></li>
+    <li><a href="/document/join.html">加入我们</a></li>
+    <li><a href="/document/board.html">网站公告</a></li>
+    <li><a href="/document/hr.html">招纳贤士</a></li>
+    <li><a href="/document/friend_link.html">友情链接</a></li>
+    <li><a href="/document/nav.html">网站导航</a></li>
+    <li><a href="/document/pact.html">服务协议</a></li>
+
+</ul>
+
+
+{% end %}
+
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}

@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-Hans" lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <meta name="keywords" content="长春吉合营，一看就知道,分类信息网,免费发布信息,免费信息发布,分类信息,生活信息"/>
+    <meta name="description" content="吉合营,免费发布信息网,免费发布供求信息、租房、合租、二手房、招聘、交友、跳蚤市场、家政、培训等生活分类信息,致力成为最实用免费的分类信息服务网络平台."/>
+
+    <title>吉合营分类信息网站</title>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{{ static_url('css/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="{{ static_url('css/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css') }}">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="{{ static_url('css/bootstrap-3.3.5-dist/js/bootstrap.min.js') }}"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="{{ static_url('stylesheets/pure-min.css') }}">
+    <!--  <link rel="stylesheet" type="text/css" href="{{ static_url('tass/css/style.css') }}"/>-->
+    <style>
+
+        /* line 909, ../sass/partial/_style.sass */
+        .location .iga_bread_crumb {
+
+            overflow: hidden;
+            *zoom: 1;
+            display: inline;
+
+            font-size: 12px;
+        }
+
+        /* line 921, ../sass/partial/_style.sass */
+        .location .iga_bread_crumb .active, .location .iga_bread_crumb .iga_pagination {
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+
+
+    <script type="text/javascript" src="{{ static_url('jslib/jquery-2.1.4.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ static_url('jslib/validate/jquery.validate.min.js') }}"></script>
+    <script type="text/javascript" src="{{ static_url('jslib/validate/message_cn.js') }}"></script>
+    <script type="text/javascript">
+        $().ready(function () {
+            $("#searchForm").validate({
+                rules: {
+                    searchheader: "required"
+                },
+                messages: {
+                    searchheader: "<span class='red'>请输入关键词</span>"
+
+                }
+            });
+        });
+    </script>
+
+
+    <script type="text/javascript" src="{{ static_url('colorbox/jquery.colorbox.js') }}"></script>
+    <link href="{{ static_url('colorbox/colorbox.css') }}" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript">
+        // $().ready(function () {
+        //    $("#searchForm").validate();
+        // });
+    </script>
+    {% block headinfo %}
+
+    {% end %}
+
+
+</head>
+
+<body>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {% module Topline() %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+
+
+            <a href="/"><img src="{{ static_url('images/jhy_logo.png') }}"></a>
+        </div>
+
+
+        <div class="col-sm-6">
+            <br>
+
+            <form method="post" action="/search/" id="searchForm" target="_blank" class="form-horizontal" role="form">
+
+                <div class="col-sm-9">
+                    <input type="text" name="searchheader" id="searchheader" placeholder="请输入关键词" class="form-control"/>
+                </div>
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-primary" id="btn-search">搜索</button>
+                </div>
+
+            </form>
+
+
+        </div>
+
+        <div class="col-sm-3">
+
+            <br>
+
+            <form method="post" action="/publish/" id="seasdfrchForm" class="form-horizontal" role="form">
+
+
+                <button class="btn btn-primary" id="btn-publish">
+                    免费发布信息
+                </button>
+
+
+            </form>
+
+
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                {% if kwd['parentid'] == '0000' %}
+                <li class="active">
+                    {% else %}
+                <li>
+                    {% end %}
+                    <a href="/">首页</a></li>
+
+                {% for list in kwd['parentlist'] %}
+                {% if kwd['parentid'] == list.catid %}
+                <li class="active">
+                    {% else %}
+                <li>
+                    {% end %}
+                    <a href="/list/{{ list.catid }}">{{ list.catname }}</a></li>
+                {% end %}
+            </ul>
+        </div>
+    </div>
+    <br>
+    {% block typebody %}{% end %}
+    <br>
+
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-footer" style="text-align: center">
+
+
+                &copy; 2015 中国科学院东北地理与农业生态研究所<br>
+                吉ICP备14004848号
+
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            {% block footinfo %}{% end %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<script>
+
+    // 提交预约刷新的动作
+    function sub_refresh(uid, act) {
+        $.ajaxSetup({cache: false});
+        // 预约刷新
+        // 模拟Form提交
+        $.ajax({
+            type: "POST",
+            url: "/operate/",
+            data: "def_uid=" + uid + "&yyday=" + $("#yyday_" + uid).val() + "&yyhour=" + $("#yyhour_" + uid).val() + "&yymin=" + $("#yymin_" + uid).val(),
+
+            success: function (msg) {
+                $('#showCnt').load('/user/page_touxiang');
+
+            }
+        });
+        jQuery().colorbox.close();
+    }
+
+    $(document).ready(function () {
+        $(".inline").colorbox({inline: true, width: "50%"});
+    });
+
+
+    function tijiao(forid) {
+
+        $(forid).submit();
+        // $.load('/user/');
+    }
+
+
+</script>
+
+
+<div class="panel-heading">
+        {% module user_info(wuserinfo, wusernum) %}
+</div>
+<div class="panel-body">
+
+
+    <div class="pure-g" style="padding-top: 10px; width: 96%; margin: 0 auto">
+        <div class="pure-u-1-2">
+
+
+            <div id="user_info">
+
+                <dl>
+                    <dt>用户名</dt>
+                    <dd>{{ wuserinfo.user_name }}</dd>
+
+                    <dt>真实姓名</dt>
+                    <dd>{{ wuserinfo.cname }}　</dd>
+
+
+                    <dt>性别</dt>
+                    <dd>{% if wuserinfo.sex == 1 %}
+                        男
+                        {% else %}
+                        女
+                        {% end %}
+                    </dd>
+
+
+                    <dt>联系电话</dt>
+                    <dd>{{ wuserinfo.phone }}</dd>
+
+                    <dt>QQ</dt>
+                    <dd>{{ wuserinfo.qq }}</dd>
+
+                    <dt>E-mail</dt>
+                    <dd>{{ wuserinfo.email }}</dd>
+
+                    <dt>用户身份:</dt>
+                    <dd>{% if wuserinfo.is_credit == 1 %}
+                        已认证
+                        {% else %}
+                        未认证
+                        {% end %}
+                    </dd>
+
+                    <dt>用户角色:</dt>
+                    <dd>{% if wuserinfo.is_vip == 1 %}
+                        VIP用户
+                        {% else %}
+                        普通用户
+                        {% end %}
+                    </dd>
+
+                    <dt>积分：</dt>
+                    <dd>  <span class="red">
+{{ wusernum.def_jifen }}</span></dd>
+
+                    <dt>金币：</dt>
+                    <dd> <span class="red">
+{{ wusernum.def_jinbi }}</span></dd>
+
+                    <dt>剩余刷新次数：</dt>
+                    <dd><span class="red">
+        {{ wusernum.free_refresh_num  + wusernum.buy_refresh_num }} ( {{ wusernum.free_refresh_num }}次免费 )</span>
+                    </dd>
+
+                    <dt>剩余发布次数：</dt>
+                    <dd><span class="red">
+        {{ wusernum.free_publish_num + wusernum.buy_publish_num }} ( {{ wusernum.free_publish_num }} 次免费 )</span>
+                    </dd>
+
+                    <dt>剩余置顶次数：</dt>
+                    <dd><span class="red">
+        {{ wusernum.buy_zhiding_num }}</span></dd>
+
+
+                </dl>
+
+            </div>
+            <hr/>
+
+
+            <a href="#inline_uu" target="_blank"
+               style="margin-bottom: 5px;color: #fff"
+               class="inline pure-button btn-primary  pure-button-primary" id="Button1">
+                修改个人信息
+            </a>
+
+
+            <div style="display: none;">
+                <div id="inline_uu">
+                    <form class="pure-form pure-form-aligned" action="/user/updateinfo" method="post">
+                        <legend> 联系方式 填写完善的联系方式, 可以帮助用户更容易找到你.</legend>
+                        <fieldset>
+                            <div class="pure-control-group">
+                                <label for="uname">用户名</label>
+                                <input id=uname type="text" class="" value="{{ wuserinfo.user_name }}"
+                                       disabled="disabled"/>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="truenamet">真实姓名</label>
+                                <input id="truenamet" type="text" name="cname" class="" value="{{ wuserinfo.cname }}"/>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="xingbie">性别</label>
+                                <label id="xingbie" style="text-align: left;">
+                                    <input type="radio" value="1" name="sex" id="gender1" {% if wuserinfo.sex == 1 %}
+                                           checked="checked" {% end %}/>男
+                                    <input type="radio" value="0" name="sex" id="gender2" {% if wuserinfo.sex == 0 %}
+                                           checked="checked" {% end %}/>女</label>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="tell">联系电话</label>
+                                <input type="text" class="" name="tel" value="{{ wuserinfo.phone }}" maxlength=""
+                                       id="tell"/>
+
+                            </div>
+                            <div class="pure-control-group">
+                                <label for="qqq">QQ</label>
+                                <input type="text" class="" name="qq" value="{{ wuserinfo.qq }}" maxlength="" id="qqq"/>
+
+                            </div>
+                            <div class="pure-control-group">
+                                <label for="email">Email</label>
+
+                                <input type="text" class="email" name="email" value="gislite@live.com"
+                                       maxlength="" id="email" value="{{ wuserinfo.email }}"/>
+                            </div>
+
+
+                            <div class="pure-controls">
+                                <label for="sub_dvk" class="pure-checkbox">
+                                    <!--   <input id="cb" type="checkbox"> I've read the terms and conditions -->
+                                </label>
+
+                                <button type="submit" class="pure-button pure-button-primary" id="sub_dvk">提交更改</button>
+                            </div>
+                        </fieldset>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="pure-u-1-2">
+
+            <img src="{{ static_url(wuserinfo.img_touxiang) }}" style="height: 200px;width: 160px;"
+                 class="img_with_border"/>
+
+            <div>
+                <a href="#pop_change_touxiang" class="inline pure-button btn-primary  pure-button-primary"
+                   style="margin:10px; color: #fff" id="Button1">更换头像</a>
+            </div>
+
+            <div style="display: none;">
+                <div id="pop_change_touxiang">
+                    <form method="post" name="form1" action="/user/touxiang" enctype="multipart/form-data"
+                          class="pure-form  pure-form-aligned">
+
+
+                        <fieldset>
+                            <legend>更新用户头像</legend>
+
+                            <div class="pure-control-group">
+                                <label for="name1">选择文件：</label>
+                                <label id="name1" style="width:450px; text-align: left;">支持上传的类型：png,jpg,gif,jpeg，图片尺寸：180
+                                    *
+                                    150</label>
+                            </div>
+
+
+                            <div class="pure-control-group">
+                                <label for="litpic">选择文件：</label>
+                                <label id="litpic">
+                                    <input id="uploadImage" type="file" name="user_touiang" class="fimg1"
+                                           onchange="tijiao(form1);"/></label>
+                            </div>
+
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="panel-footer"
+     style=" background: #eee; border:1px solid #ddd;width: 92%; padding: 1% 2%;   margin:15px 2%;  ">
+    *基本信息和头像分别点击相应按钮修改。
+</div>

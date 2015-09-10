@@ -1,0 +1,83 @@
+{% extends "../tpl_add.html" %}
+
+{% block topmenu %}
+{% raw topmenu %}
+{% end %}
+
+{% block header %}
+<h1>{{ header_text }}</h1>
+{% end %}
+
+{% block extrainfo %}
+
+<div id="iga_add_rec_box">
+
+    <div class="pure-control-group">
+    <label for="extra_subject"><span style="color:red">*</span>学科</label>
+    <select id="extra_subject" name="extra_subject" class="required">
+    
+        <option value="1">海洋</option>
+        
+        <option value="2">地球物理</option>
+        
+        <option value="3">地质</option>
+        
+        <option value="4">天文</option>
+        
+        <option value="5">地理</option>
+        
+        <option value="6">大气</option>
+        
+        <option value="7">测绘</option>
+        
+        <option value="8">生态</option>
+        
+        <option value="9">农业</option>
+        
+        <option value="10">环境</option>
+        </select></div>
+    <div class="pure-control-group">
+    <label for="extra_spatial"><span style="color:red">*</span>范围</label>
+    <select id="extra_spatial" name="extra_spatial" class="required">
+    
+        <option value="1">区域级</option>
+        
+        <option value="2">国家级</option>
+        
+        <option value="3">全球区域</option>
+        </select></div>
+    <div class="pure-control-group">
+    <label for="extra_paper_type"><span style="color:red">*</span>论文类别</label>
+    <select id="extra_paper_type" name="extra_paper_type" class="required">
+    
+        <option value="1">SCI</option>
+        
+        <option value="2">SCIE</option>
+        
+        <option value="3">EI</option>
+        
+        <option value="4">会议</option>
+        
+        <option value="5">核心</option>
+        
+        <option value="6">普通</option>
+        </select></div>
+    <div class="pure-control-group">
+    <label for="extra_filetype"><span style="color:red">*</span>文件类型</label>
+    <select id="extra_filetype" name="extra_filetype" class="required">
+    
+        <option value="1">文本</option>
+        
+        <option value="2">pdf</option>
+        
+        <option value="3">扫描</option>
+        </select></div>
+    <div class="pure-control-group">
+    <label for='extra_size'><span style="color:red">*</span>文件大小</label>
+    <input id='extra_size' name="extra_size" value="" type="text" style="width:350px" class="number"> Mb
+    </div>
+</div>
+{% end %}
+{% block footer %}
+<p>{{ footer_text }}</p>
+{% end %}
