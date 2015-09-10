@@ -72,41 +72,20 @@ if hostname() == 'g':
     }
     img_base_dir = '/opt/pyweb/jihy/jihy_src/static/'
 
-if hostname() == 'bgs':
+else :
     cookie_secret = "61oET0p6;h.n/k'oi[8-8=y]hpro2kshqakjw",
     mysql = {
-        'dbname': 'jhy',
+        'dbname': 'pycate',
         'dbuser': 'root',
         'dbpass': 'g131322',
     }
 
-    postgresql = {
-        'dbname': 'jhy',
-        'dbuser': 'jhyer',
-        'dbpass': 'j131322',
-    }
     mongo = {
-        'dbname': 'jdhby',
-        'dbuser': 'bk',
-        'dbpass': 'b131322',
+        'dbname': 'pycate',
+        'dbuser': 'pycate',
+        'dbpass': 'p131322',
     }
     img_base_dir = '/opt/pyweb/jihy/jihy_src/static/'
-elif hostname() == 'fb':
-    cookie_secret = "61oETzKXQAGaYdkL5gE64yrhjnv,n.k/o'p[9-",
-
-    postgresql = {
-        'dbname': 'cmidb',
-        'dbuser': 'cmi',
-        'dbpass': 'A31hQ85F79',
-    }
-    mongo = {
-        'dbname': 'jdhby',
-        'dbuser': 'bk2',
-        'dbpass': 'b131322',
-    }
-    img_base_dir = '/home/ycb/jhy/jiheying/static/'
-else:
-    pass
 
 cookie_secret = str(cookie_secret)
 mark_img = os.path.join(img_base_dir, 'fixed/mark.png')
