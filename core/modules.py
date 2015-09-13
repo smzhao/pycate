@@ -1,11 +1,11 @@
 __author__ = 'bukun@osgeo.cn'
 
 import tornado.web
-from core import config
-from model.catalog_model import MCatalog
-from module import imgslide_module
-from module import refreshinfo_module
-from module import showjianli_module
+
+from pycate.model.catalog_model import MCatalog
+from pycate.module import imgslide_module
+from pycate.module import refreshinfo_module
+from pycate.module import showjianli_module
 
 ImgSlide = imgslide_module.ImgSlide
 RefreshInfo = refreshinfo_module.RefreshInfo

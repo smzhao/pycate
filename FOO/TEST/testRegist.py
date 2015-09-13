@@ -10,7 +10,7 @@ sys.path.append(os.getcwd())
 import requests
 
 import libs.tool
-from model.member_model import MUser
+from pycate.model import MUser
 
 import unittest
 

@@ -1,0 +1,69 @@
+{% extends "../../theme/bage.html" %}
+
+{% block head%}
+
+
+<title>云算笔记 云计算 在线计算 科学计算 工程计算</title>
+<meta name="baidu-site-verification" content="a69zyHriZP" />
+<meta name="description"
+      content="由科学家与工程师维护的，专注在线计算、云计算应用的网站，提供科学计算与工程计算应用,包括环境影响评价计算,地理学计算,数学计算,物理计算,化学计算">
+<meta name="keywords"
+      content="计算,在线计算器,云计算,在线计算,常用数据,常规数据,科学计算,工程计算,环评计算,地理计算,数学计算,物理计算,化学计算,数学公式,物理公式,建筑计算">
+
+
+{% end %}
+
+
+
+{% block head %}
+
+<title>云算笔记</title>
+<meta name="keywords" content="云算,云计算,在线计算,数学计算,环评计算"/>
+<meta name="description" content="云算,云计算,在线计算,数学计算,环评计算"/>
+
+<script type="text/javascript">
+    $().ready(function () {
+
+        $("#find_calc").validate(
+                {
+                    rules: {
+                        keyword: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        keyword: {
+                            required: "<span class='red'>请输入要查询的关键词</span>"
+                        }
+                    }
+                }
+        );
+    });
+
+</script>
+
+{% end %}
+
+
+{% block zhuti %}
+
+<div class="content">
+    <form class="pure-form pure-form-aligned" method="post" id="find_calc" action="/post/find">
+        <fieldset>
+            <legend>输入关键词对计算名称进行查找</legend>
+
+            <div class="pure-control-group">
+                <label for="keyword">输入关键词</label>
+                <input id="keyword" type="text" name="keyword" placeholder="关键词">
+            </div>
+            <div class="pure-control-group">
+                <label for="d"></label>
+                <button type="submit" id="d" name="d" class="pure-button pure-button-primary">查找</button>
+            </div>
+
+
+        </fieldset>
+    </form>
+</div>
+
+{% end %}

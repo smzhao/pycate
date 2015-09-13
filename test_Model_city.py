@@ -9,7 +9,7 @@ import sys
 import os
 sys.path.append(os.getcwd())
 # sys.path.append(os.path.join(os.getcwd(),'' )
-from model import city_model
+from pycate.model import city_model
 
 import unittest
 

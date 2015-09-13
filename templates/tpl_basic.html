@@ -1,9 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-Hans" lang="zh-Hans">
+<html lang="zh">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta http-equiv="Cache-control" content="no-cache">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <meta name="keywords" content="长春吉合营，一看就知道,分类信息网,免费发布信息,免费信息发布,分类信息,生活信息"/>
@@ -74,6 +72,9 @@
 
     {% end %}
 
+        {% block head %}
+
+    {% end %}
 
 </head>
 
@@ -132,21 +133,14 @@
     <div class="row">
         <div class="col-sm-12">
             <ul class="nav nav-tabs">
-                {% if kwd['parentid'] == '0000' %}
-                <li class="active">
-                    {% else %}
-                <li>
-                    {% end %}
-                    <a href="/">首页</a></li>
+                <li><a href="/">首页</a></li>
+                <li><a href="/list/0100">遥感</a></li>
+                <li><a href="/list/0200">GIS</a></li>
+                <li><a href="/list/0300">文档数据</a></li>
+                <li><a href="/list/0400">多媒体</a></li>
+                <li><a href="/list/0500">格式化数据</a></li>
+                <li><a href="/post/recent">文档</a></li>
 
-                {% for list in kwd['parentlist'] %}
-                {% if kwd['parentid'] == list.catid %}
-                <li class="active">
-                    {% else %}
-                <li>
-                    {% end %}
-                    <a href="/list/{{ list.catid }}">{{ list.catname }}</a></li>
-                {% end %}
             </ul>
         </div>
     </div>

@@ -1,0 +1,38 @@
+{% extends "bage.html" %}
+{% block head %}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#jsin').load('/js/{{ kwd["url"] }}_js/{{kwd["cookie_str"]}}');
+    });
+</script>
+
+{% block headinfo %}
+{% end %}
+{% end %}
+
+{% block zhuti %}
+
+<span id="jsin"></span>
+
+{% block content %}
+{% end %}
+
+<div class="panel-footer">
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <p><span class="equation_catalog">{% module equation_tags( kwd['signature']) %}</span></p>
+            <p><a href="/post/{{kwd['signature']}}.html">{{ _('View Document') }}</a></p>
+        </div>
+        <div class="pure-u-1-2">
+            <p>{% if userinfo is not None and userinfo.privilege[4] == '1' %}
+                <a href="/app/edit/{{ kwd['signature'] }}" class="pure-button pure-button-primary">{{ _('Modify') }}</a>
+                {% end %}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% end %}
+
+

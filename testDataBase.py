@@ -7,7 +7,7 @@ import os
 
 sys.path.append(os.getcwd())
 
-from model.info_model import MInfo
+from pycate.model import MInfo
 
 import unittest
 

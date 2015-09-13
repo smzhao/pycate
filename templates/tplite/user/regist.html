@@ -1,0 +1,106 @@
+{% extends "../../theme/bage.html" %}
+
+{% block head %}
+
+
+<title>云算笔记 云计算 在线计算 科学计算 工程计算</title>
+<meta name="baidu-site-verification" content="a69zyHriZP" />
+<meta name="description"
+      content="由科学家与工程师维护的，专注在线计算、云计算应用的网站，提供科学计算与工程计算应用,包括环境影响评价计算,地理学计算,数学计算,物理计算,化学计算">
+<meta name="keywords"
+      content="计算,在线计算器,云计算,在线计算,常用数据,常规数据,科学计算,工程计算,环评计算,地理计算,数学计算,物理计算,化学计算,数学公式,物理公式,建筑计算">
+
+
+{% end %}
+
+
+
+
+{% block zhuti %}
+
+<div class="panel-heading">
+</div>
+<div class="panel-body">
+
+
+    <script type="text/javascript">
+    $().ready(function () {
+        $("#form_regist").validate(
+                {
+                    rules: {
+                        user_name: {
+                            required: true,
+                            rangelength:[5,16]
+                        },
+                        user_pass: {
+                            required: true,
+                            rangelength:[6,20]
+                        },
+                        user_pass2:
+                        {
+                            required: true,
+                            equalTo:"#user_pass"
+                        },
+                        user_email:
+                        {
+                            required: true,
+                            email:true
+                        }
+                    },
+                    messages: {
+                        user_name: {
+                            required: "<span class='red'>请输入用户名</span>",
+                            rangelength: "<span class='red'>用户名最少为5位，最长为16位</span>"
+                        },
+
+                        user_pass: {
+                            required: "<span class='red'>请输入密码</span>",
+                            rangelength: "<span class='red'>密码最少为6位，最长为20位</span>"
+                        },
+                        user_pass2: {
+                            required: "<span class='red'>请输入密码</span>",
+                            equalTo: "<span class='red'>两次输入密码不一致</span>"
+                        },
+                        user_email: {
+                            required: "<span class='red'>请输入正确电子邮箱</span>",
+                            email: "<span class='red'>请输入正确的电子邮箱</span>"
+                        }
+                    }
+                }
+        );
+    });
+</script>
+
+
+<form id="form_regist" action="/user/regist" method="post" class="pure-form pure-form-aligned">
+    <fieldset>
+        <legend>用户注册：</legend>
+
+        <div class="pure-control-group">
+            <label for="user_name">用户名： </label>
+            <input id='user_name' type="text" name="user_name"></div>
+        <div class="pure-control-group">
+            <label for="user_pass">密码：</label>
+            <input id="user_pass" type="password" name="user_pass">
+        </div>
+        <div class="pure-control-group">
+            <label for="user_pass2">确认密码：</label>
+            <input id="user_pass2" type="password" name="user_pass2">
+        </div>
+        <div class="pure-control-group">
+            <label for="user_email">电子邮箱：</label>
+            <input id="user_email" type="text" name="user_email">
+        </div>
+
+        <div class="pure-control-group">
+
+            <label for="sub1"></label>
+
+            <button id="sub1" type="submit" class="pure-button pure-button-primary">提交</button>
+        </div>
+    </fieldset>
+</form>
+    </div>
+
+{% end %}
+
