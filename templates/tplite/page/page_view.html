@@ -1,0 +1,41 @@
+{% extends "../../theme/bage.html" %}
+
+
+{% block head %}
+<title>{{ view.title }}</title>
+<meta name="description" content="由科学家与工程师维护的，专注在线计算、云计算应用的网站，提供科学计算与工程计算应用。包括环境影响评价计算、地理学计算、数学计算、物理计算、化学计算">
+<meta name="keywords" content="云计算 在线计算 科学计算 工程计算 环评计算 地理计算 数学计算 物理计算 化学计算">
+
+{% end %}
+
+{% block zhuti %}
+
+<div class="panel-heading">
+
+    <h1 class="title">{{ view.title }}</h1>
+
+    <p class="info">
+        {{ view.date }}
+        <span class="split">|</span>
+        发布者: <a href="http://yunsuan.org">云算笔记</a>
+        <span class="split">|</span>
+        查看:
+        <em id="_viewnum">{{ view.view_count }}</em>
+
+        {% if kwd['editable'] == 1 %}
+        <span class="split">|</span>
+        <a href="/page/modify/{{ view.slug }}">修改</a>
+        {% end %}
+
+    </p>
+
+</div>
+
+
+<div class="panel-body">
+    <div id="wiki_cnt">
+        {% raw unescape(view.cnt_html ) %}
+    </div>
+</div>
+{% end %}
+

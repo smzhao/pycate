@@ -1,0 +1,61 @@
+{% extends "../../theme/bage.html" %}
+
+{% block head%}
+
+
+<title>云算笔记 云计算 在线计算 科学计算 工程计算</title>
+<meta name="baidu-site-verification" content="a69zyHriZP" />
+<meta name="description"
+      content="由科学家与工程师维护的，专注在线计算、云计算应用的网站，提供科学计算与工程计算应用,包括环境影响评价计算,地理学计算,数学计算,物理计算,化学计算">
+<meta name="keywords"
+      content="计算,在线计算器,云计算,在线计算,常用数据,常规数据,科学计算,工程计算,环评计算,地理计算,数学计算,物理计算,化学计算,数学公式,物理公式,建筑计算">
+
+
+{% end %}
+
+
+
+
+{% block zhuti %}
+
+<div class="content">
+    <form action="" method="post" class="pure-form pure-form-stacked">
+        <fieldset>
+            <div class="pure-control-group">
+
+
+                <label for="title">标题</label>
+                <input type="text" id="title" name="title" value="{{ view.title }}" size=58/>
+            </div>
+
+
+            <div class="pure-control-group">
+                <label for="slug">Slug</label>
+                <input type="text" id="slug" name="slug" value="{{ view.slug }}" readonly/>
+            </div>
+            <div class="pure-control-group">
+
+                <label for="cnt_md">内容</label>
+
+            <textarea rows=16 id="cnt_md" name="cnt_md" cols="76">
+                {% raw unescape( view.cnt_md ) %}
+            </textarea>
+            </div>
+
+            <div class="pure-control-group">
+
+
+                <label for="sub1"></label>
+
+
+                <input id="sub1" type="submit" value="更新数据"/>
+            </div>
+
+        </fieldset>
+
+    </form>
+</div>
+
+{% end %}
+
+

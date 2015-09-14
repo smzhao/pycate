@@ -1,0 +1,70 @@
+{% extends "../../theme/bage.html" %}
+
+{% block head %}
+
+
+<title>云算笔记 云计算 在线计算 科学计算 工程计算</title>
+<meta name="description"
+      content="由科学家与工程师维护的，专注在线计算、云计算应用的网站，提供科学计算与工程计算应用,包括环境影响评价计算,地理学计算,数学计算,物理计算,化学计算">
+<meta name="keywords"
+      content="计算,在线计算器,云计算,在线计算,常用数据,常规数据,科学计算,工程计算,环评计算,地理计算,数学计算,物理计算,化学计算,数学公式,物理公式,建筑计算">
+
+<script type="text/javascript">
+    $().ready(function () {
+        $("#form_changeinfo").validate(
+                {
+                    rules: {
+
+
+                        user_email: {
+                            required: true,
+                            email: true
+                        }
+
+                    },
+                    messages: {
+
+
+                        user_email: {
+                            required: "<span class='red'>请输入电子邮箱</span>",
+                            email: "<span class='red'>请输入正确的电子邮箱</span>"
+                        }
+
+                    }
+                }
+        );
+    });
+</script>
+{% end %}
+
+
+{% block zhuti %}
+
+<div class="panel-heading">
+    <h1>修改个人信息</h1>
+</div>
+<div class="panel-body">
+    <form class="pure-form pure-form-aligned" action="/user/changeinfo" method="post" id="form_changeinfo">
+
+        <div class="pure-control-group">
+            <label for="rawpass">密码</label>
+            <input type="text" name="rawpass" id="rawpass" class="form-control" placeholder="请输入密码"/>
+        </div>
+
+        <div class="pure-control-group">
+            <label for="user_email">电子邮箱</label>
+            <input type="text" name="user_email" id="user_email" class="form-control" placeholder="请输入新的电子邮箱"/>
+        </div>
+
+
+
+        <div class="pure-control-group">
+            <label></label>
+            <button type="submit" class="pure-button pure-button-primary">修改</button>
+
+        </div>
+    </form>
+</div>
+
+{% end %}
+

@@ -1,0 +1,31 @@
+{% extends "../../theme/bage.html" %}
+
+{% block head %}
+<title>云算笔记</title>
+<meta name="keywords" content="云算,云计算,在线计算,数学计算,环评计算"/>
+<meta name="description" content="云算,云计算,在线计算,数学计算,环评计算"/>
+{% end %}
+
+
+{% block zhuti %}
+<div class="header">
+    <h2></h2>
+</div>
+
+
+<div class="content find_equation">
+    <h3>查找结果</h3>
+    <ul>
+        {% for rec in infos %}
+        <li><a href="/post/{{ rec.uid }}.html">{{ rec.title }}</a>
+            <span class="post_catalog">{% module post_catalogs(rec.uid) %}</span>
+        </li>
+        {% end %}
+    </ul>
+</div>
+
+<div class="content find_equation">
+
+
+</div>
+{% end %}

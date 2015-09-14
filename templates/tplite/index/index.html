@@ -1,0 +1,65 @@
+{% extends "../../theme/bage.html" %}
+
+{% block head %}
+
+<script type="text/javascript">
+    $().ready(function () {
+        $("#find_calc").validate(
+                {
+                    rules: {
+                        keyword: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        keyword: {
+                            required: "<span class='red'>请输入要查询的关键词</span>"
+                        }
+                    }
+                }
+        );
+    });
+
+</script>
+
+
+<title>云算笔记 云计算 在线计算 科学计算 工程计算</title>
+
+<meta name="description"
+      content="由科学家与工程师维护的，专注在线计算、云计算应用的网站，提供科学计算与工程计算应用,包括环境影响评价计算,地理学计算,数学计算,物理计算,化学计算">
+<meta name="keywords"
+      content="计算,在线计算器,云计算,在线计算,常用数据,常规数据,科学计算,工程计算,环评计算,地理计算,数学计算,物理计算,化学计算,数学公式,物理公式,建筑计算">
+
+
+{% end %}
+
+{% block zhuti %}
+
+
+<div class="logo" style="text-align: center;">
+    <h1>云算笔记</h1>
+</div>
+
+<div class="pure-g" style="margin:10px;"></div>
+
+
+
+
+
+<div class=" content find_equation">
+    <h3>文档更新</h3>
+    <ul>
+        {% module post_recent(12 ) %}
+    </ul>
+</div>
+
+
+<div class="footer">
+
+    <div style="font-size:.8em; color:darkgray; border-top: 1px solid darkgray;">
+        <p>&copy; 2015 YunSuan.org {{ _('Copyright') }}</p>
+
+    </div>
+
+</div>
+{% end %}

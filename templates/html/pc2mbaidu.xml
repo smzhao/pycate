@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset>
+<url>
+<loc><![CDATA[http://yunsuan.org/]]></loc>
+<data>
+<display>
+<pc_url_pattern><![CDATA[http://yunsuan.org/app/(\w+)]]></pc_url_pattern>
+<html5_url_pattern><![CDATA[http://m.yunsuan.org/app/${1}]]></html5_url_pattern>
+</display>
+</data>
+</url>
+
+<url>
+<loc><![CDATA[http://yunsuan.org/]]></loc>
+<data>
+<display>
+<pc_url_pattern><![CDATA[http://yunsuan.org/post/(\w+).html]]></pc_url_pattern>
+<html5_url_pattern><![CDATA[http://m.yunsuan.org/post/${1}.html]]></html5_url_pattern>
+</display>
+</data>
+</url>
+</urlset>

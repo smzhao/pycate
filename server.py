@@ -6,18 +6,14 @@ import sys
 import tornado.autoreload
 import tornado.ioloop
 import tornado.web
-from core.urls import urls
+from urls import urls
 from core.modules import *
 from core.config import PORT
 from core.config import cookie_secret
 
-SETTINGS1 = {
-    "template_path": os.path.join(os.path.dirname(__file__), "templates"),
-    "static_path": os.path.join(os.path.dirname(__file__), "static"),
-    'debug': True,
-    "cookie_secret": cookie_secret,
-    "login_url": "/member/login",
-    'ui_modules': {'Topline': ToplineModule,
+from torlite.core.core_cfg import core_modules
+
+cur_modues = {'Topline': ToplineModule,
                    'Banner': BannerModule,
                    'BreadCrumb': BreadCrumb,
                    'ContactInfo': ContactInfo,
@@ -27,7 +23,19 @@ SETTINGS1 = {
                    'RefreshInfo': RefreshInfo,
                    'user_info': UserInfo,
                    'vip_info': VipInfo,
-    },
+    }
+
+modules =dict(core_modules, **cur_modues)
+
+
+
+SETTINGS1 = {
+    "template_path": os.path.join(os.path.dirname(__file__), "templates"),
+    "static_path": os.path.join(os.path.dirname(__file__), "static"),
+    'debug': True,
+    "cookie_secret": cookie_secret,
+    "login_url": "/user/login",
+    'ui_modules': modules,
 }
 
 if __name__ == "__main__":
