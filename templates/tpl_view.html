@@ -205,10 +205,17 @@
     </div>
 
     <div class="col-sm-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                最近文档
+            </div>
+            <ul class="list-group">
+                {% module post_recent(8) %}
+            </ul>
 
-        <div class="iga_link_img">
-            {% raw kwd['linkstr'] %}
+
         </div>
+
     </div>
 </div>
 

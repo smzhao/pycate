@@ -13,7 +13,7 @@
         });
         obj[$(span).attr('name')] = $(span).attr('value');
         span.className = "checked";
-        span.checked = true; 
+        span.checked = true;
         tt = span.value;
         select();
     }
@@ -90,8 +90,16 @@
     </div>
     <div class="col-sm-3">
 
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                最近文档
+            </div>
+            <ul class="list-group">
+                {% module post_recent(8) %}
+            </ul>
 
-        {% raw kwd['linkstr'] %}
+
+        </div>
     </div>
 
 
