@@ -1,6 +1,6 @@
 {% extends "../../theme/bage.html" %}
 
-{% block head%}
+{% block head %}
 
 
 <title>云算笔记 云计算 在线计算 科学计算 工程计算</title>
@@ -15,32 +15,40 @@
 
 
 {% block zhuti %}
-<div class="header">
 
-</div>
-
-
-<div class="content find_equation">
-
-    <h3>{{ kwd['title'] }}</h3>
-
-    <ul>
-
-
-        {% module post_recent(8) %}
-
-    </ul>
+<div class="row">
+    <div class="col-sm-9">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                {{ kwd['title'] }}
+            </div>
+            <ul class="list-group">
+                {% module post_recent(8) %}
+            </ul>
 
 
-</div>
+        </div>
 
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                随机文档
+            </div>
 
-<div class="content find_equation">
+            <ul class="list-group">
+                {% module post_random(8) %}
+            </ul>
+        </div>
+    </div>
 
-    <h3>随机文档</h3>
+    <div class="col-sm-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">文档操作</div>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="/post/add_document" class="btn btn-primary" role="button"> 添加文档</a></li>
+                <li class="list-group-item"><a href="/post/find" class="btn btn-primary" role="button">查找文档</a></li>
+            </ul>
+        </div>
 
-    <ul>
-        {% module post_random(8) %}
-    </ul>
+    </div>
 </div>
 {% end %}

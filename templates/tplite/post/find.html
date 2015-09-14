@@ -1,6 +1,6 @@
 {% extends "../../theme/bage.html" %}
 
-{% block head%}
+{% block head %}
 
 
 <title>云算笔记 云计算 在线计算 科学计算 工程计算</title>
@@ -11,7 +11,6 @@
 
 
 {% end %}
-
 
 
 {% block head %}
@@ -45,24 +44,27 @@
 
 
 {% block zhuti %}
+<div class="panel panel-info">
+    <div class="panel-heading">查找文档</div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" method="post" id="find_calc" action="/post/find">
 
-<div class="content">
-    <form class="pure-form pure-form-aligned" method="post" id="find_calc" action="/post/find">
-        <fieldset>
-            <legend>输入关键词对计算名称进行查找</legend>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="keyword">输入关键词</label>
 
-            <div class="pure-control-group">
-                <label for="keyword">输入关键词</label>
-                <input id="keyword" type="text" name="keyword" placeholder="关键词">
+                <div class="col-sm-10">
+                    <input id="keyword" type="text" name="keyword" placeholder="关键词" class="form-control">
+                </div>
             </div>
-            <div class="pure-control-group">
-                <label for="d"></label>
-                <button type="submit" id="d" name="d" class="pure-button pure-button-primary">查找</button>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="d"></label>
+
+                <div class="col-sm-10">
+                    <button type="submit" id="d" name="d" class="btn btn-primary">查找</button>
+                </div>
             </div>
 
-
-        </fieldset>
-    </form>
+        </form>
+    </div>
 </div>
-
 {% end %}

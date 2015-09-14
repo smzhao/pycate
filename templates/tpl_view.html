@@ -85,7 +85,11 @@
                 </h3>
 
                 <p>发布时间：{% raw kwd['timeit'] %} &nbsp;&nbsp;该信息 &nbsp;&nbsp;浏览： {% raw post_info['views'] %} 次
-                    {% raw kwd['oprt_str'] %}</p>
+                    {% raw kwd['oprt_str'] %}&nbsp;&nbsp;
+                    <a href="/edit/{% raw post_info['uid'][0] %}" class="btn btn-sm btn-primary">修改</a>
+                </p>
+
+
             </div>
 
             <div class="panel-body">

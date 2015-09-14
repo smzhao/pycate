@@ -1,6 +1,6 @@
 {% extends "../../theme/bage.html" %}
 
-{% block head%}
+{% block head %}
 
 
 <title>云算笔记 云计算 在线计算 科学计算 工程计算</title>
@@ -14,42 +14,39 @@
 
 
 {% block zhuti %}
-<div class="header">
+<div class="panel panel-info">
+    <div class="panel-heading">
+        用户列表
+    </div>
+
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" method="post" id="find_calc" action="/user/find">
+            <div class="col-sm-6">
+                <input id="keyword" type="text" name="keyword" placeholder="用户名" class="form-control">
+            </div>
+            <div class="col-sm-6">
+                <button type="submit" id="d" type="text" name="d" class="btn btn-primary">查找用户</button>
+            </div>
+        </form>
+        <Br><Br><Br>
+        <ul class="list-group">
+            {% for x in view %}
+
+            <li class="list-group-item">
+
+                用户名：{{ x.user_name }}&nbsp;&nbsp;&nbsp;&nbsp;当前权限：{{ x.privilege }}
+
+
+                <a class="btn btn-primary" href="/user/changeprivilege/{{ x.user_name }}"
+                   style="margin-left: 100px">修改权限</a>
+                <a class="btn btn-primary" href="/user/delete_user/{{ x.uid }}">删除用户</a>
+
+            </li>
+
+            {% end %}
+
+        </ul>
+    </div>
 
 </div>
-
-<div class="content">
-    <form class="pure-form pure-form-aligned" method="post" id="find_calc" action="/user/find">
-        <fieldset>
-
-
-            <input id="keyword" type="text" name="keyword" placeholder="用户名">
-            <button type="submit" id="d" type="text" name="d" class="pure-button pure-button-primary">查找用户</button>
-
-
-        </fieldset>
-    </form>
-</div>
-
-<div class="content">
-
-
-    {% for x in view %}
-
-    <p>用户名：{{x.user_name}}&nbsp;&nbsp;&nbsp;&nbsp;当前权限：{{ x.privilege }}
-
-
-        <a class="pure-button pure-button-primary" href="/user/changeprivilege/{{x.user_name}}"
-           style="margin-left: 100px">修改权限</a>
-        <a class="pure-button pure-button-primary" href="/user/delete_user/{{x.uid}}" >删除用户</a>
-
-    </p>
-
-    <p style="border-bottom: 1px dashed #dddddd; margin-bottom: 20px">&nbsp;</p>
-    {% end %}
-
-
-</div>
-
-
 {% end %}

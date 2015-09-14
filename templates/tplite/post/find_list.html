@@ -1,6 +1,6 @@
 {% extends "../../theme/bage.html" %}
 
-{% block head%}
+{% block head %}
 
 
 <title>云算笔记 云计算 在线计算 科学计算 工程计算</title>
@@ -13,51 +13,39 @@
 {% end %}
 
 
-
 {% block zhuti %}
-<div class="header">
+<div class="panel panel-info">
+    <div class="panel-heading">
+        文档列表
+    </div>
 
+    <div class="panel-body">
+
+        <form class="form-horizontal" role="form" method="post" id="find_calc" action="/post/find">
+            <div class="col-sm-6">
+                <input id="keyword" type="text" name="keyword" placeholder="关键词" class="form-control">
+            </div>
+            <div class="col-sm-6">
+                <button type="submit" id="d" type="text" name="d" class="btn btn-primary">查找文档</button>
+            </div>
+        </form>
+        <Br><Br><Br>
+
+
+        <ul class="list-group">
+            <li class="list-group-item active">{{ kwd['title'] }} </li>
+
+            {% for x in view %}
+
+            <li class="list-group-item"><a href="/post/{{ x.uid }}.html" title="{{ x.title }}">{{ x.title }}</a>
+                <span class="equation_catalog">{% module post_catalogs(x.uid) %}</span>
+                <em class="date">{{ x.date }}</em></li>
+            {% end %}
+
+        </ul>
+
+
+    </div>
 </div>
 
-<div class="content">
-    <form class="pure-form pure-form-aligned" method="post" id="find_calc" action="/post/find">
-        <fieldset>
-
-
-            <input id="keyword" type="text" name="keyword" placeholder="关键词">
-            <button type="submit" id="d" type="text" name="d" class="pure-button pure-button-primary">查找文档</button>
-
-
-        </fieldset>
-    </form>
-</div>
-
-<div class="content find_equation">
-
-    <h3>{{ kwd['title'] }}</h3>
-
-    <ul>
-
-
-        {% for x in view %}
-
-        <li><a href="/post/{{x.uid}}.html" title="{{x.title}}">{{x.title}}</a>
-            <span class="equation_catalog">{% module post_catalogs(x.uid) %}</span>
-            <em class="date">{{x.date}}</em></li>
-        {% end %}
-
-    </ul>
-
-
-</div>
-
-
-<div class="content find_equation">
-
-    <h3>随机文档</h3>
-
-    <ul>
-        {% module post_random(8) %}
-    </ul>
-</div>
 {% end %}

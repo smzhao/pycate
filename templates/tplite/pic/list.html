@@ -1,23 +1,22 @@
 {% extends "../../theme/picture.html" %}
 {% block content %}
 
-
-<div class="panel-heading">
- <H3>添加图片</H3>
-
+<div class="panel panel-info">
+    <div class="panel-heading">
+        图片列表
     </div>
 
 
-
-
-<div class="panel-body">
-{% for x in imgs %}
-
-<a href="{{ static_url('upload/') }}{{ x['impath'] }}" target="_blank">
-    <img src="{{ static_url('upload/') }}{{ x['impath'] }}" width="300px"/>
-    </a>
-{% end %}
+    <div class="panel-body">
+        <ul class="list-group">
+            {% for x in imgs %}
+            <li class="list-group-item">
+                <a href="{{ static_url('upload/') }}{{ x['impath'] }}" target="_blank">
+                    <img src="{{ static_url('upload/') }}{{ x['impath'] }}" width="300px"/>
+                </a></li>
+            {% end %}
+        </ul>
+    </div>
 </div>
-
 {% end %}
 

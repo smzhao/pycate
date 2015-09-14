@@ -1,6 +1,6 @@
 {% extends "../../theme/bage.html" %}
 
-{% block head%}
+{% block head %}
 
 
 <title>云算笔记 云计算 在线计算 科学计算 工程计算</title>
@@ -42,90 +42,118 @@
         );
     });
 </script>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        添加文档
+    </div>
+    <div class="panel-body">
+        <form action="" method="post" class="form-horizontal" role="form" id="form_add">
 
-<div class="header">
-    <h1>添加文档</h1>
-</div>
-<div class="content">
-    <form action="" method="post" class="pure-form pure-form-stacked" id="form_add">
 
-        <fieldset>
-            <div class="pure-g">
-                <div class="pure-u-3-5">
-                    <div class="pure-control-group">
-                        <label for="title">标题</label>
-                        <input id="title" type="text" name="title">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="title">标题</label>
+
+                        <div class="col-sm-10">
+                            <input class="form-control" id="title" type="text" name="title">
+                        </div>
                     </div>
 
-                    <div class="pure-control-group">
-                        <label for="keywords">关键词</label>
-                        <input id="keywords" name="keywords" type="text">
-                    </div>
-                    <div class="pure-control-group">
-                        <label for="tags">标签</label>
-                        <input id="tags" name="tags" type="text"/>
-                    </div>
-                    <div class="pure-control-group">
-                        <label for="src_type">文档类型</label>
-                        <select id="src_type" name="src_type">
-                            <option value="0" selected>MarkDown</option>
-                            <option value="1">RestructedText</option>
-                        </select>
-                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="keywords">关键词</label>
 
-
-                    <div class="pure-control-group">
-                        <label for="id_spec">所属专题</label>
-                        <select id="id_spec" name="id_spec">
-                            <option value="0" selected>无专题</option>
-                            {% for x in kwd['specs'] %}
-                            <option value="{{ x.uid }}">
-                                {{ x.name }}
-                            </option>
-                            {% end %}
-                        </select>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="keywords" name="keywords" type="text">
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="tags">标签</label>
 
+                        <div class="col-sm-10">
+                            <input class="form-control" id="tags" name="tags" type="text"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="src_type">文档类型</label>
 
-                    <div class="pure-control-group">
-                        <label for="logo">特色图片</label>
-                        <input id="logo" name="logo" type="text"/>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="src_type" name="src_type">
+                                <option value="0" selected>MarkDown</option>
+                                <option value="1">RestructedText</option>
+                            </select>
+                        </div>
                     </div>
 
 
-                    <div class="pure-control-group">
-                        <label for="up"></label>
-                        <label id="up"><a href="/pic/add" target="_blank">上传图片</a></label>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="id_spec">所属专题</label>
+
+                        <div class="col-sm-10">
+                            <select class="form-control" id="id_spec" name="id_spec">
+                                <option value="0" selected>无专题</option>
+                                {% for x in kwd['specs'] %}
+                                <option value="{{ x.uid }}">
+                                    {{ x.name }}
+                                </option>
+                                {% end %}
+                            </select>
+                        </div>
                     </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="logo">特色图片</label>
+
+                        <div class="col-sm-8">
+                            <input class="form-control" id="logo" name="logo" type="text"/>
+                        </div>
+                        <div class="col-sm-2">
+                            <label id="up"><a href="/pic/add" target="_blank" class="btn btn-primary"
+                                              role="button">上传图片</a></label>
+                        </div>
+                    </div>
+
+
                 </div>
 
-                <div class="pure-u-2-5">
+                <div class="col-sm-5">
                     {% for ii in range(1,6) %}
-                    <div class="pure-control-group">
-                        <label for="tag{{ii}}">分类{{ii}}</label>
-                        <select name="tag{{ii}}" id="tag1">
-                            <option value="">请选择</option>
-                            {% for taginfo in tag_infos %}
-                            <option value="{{ taginfo.uid }}">{{ taginfo.name }}
-                            </option>
-                            {% end %}
-                        </select>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="tag{{ ii }}">分类{{ ii }}</label>
+
+                        <div class="col-sm-10">
+                            <select class="form-control" name="tag{{ ii }}" id="tag1">
+                                <option value="">请选择</option>
+                                {% for taginfo in tag_infos %}
+                                <option value="{{ taginfo.uid }}">{{ taginfo.name }}
+                                </option>
+                                {% end %}
+                            </select>
+                        </div>
                     </div>
                     {% end %}
                 </div>
             </div>
 
-            <div class="pure-control-group">
-                <label for="cnt_md">内容 (下面输入内容，使用MarkDown语法)</label>
-                <textarea rows=26 id="cnt_md" name="cnt_md" cols="100"></textarea> <br/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="cnt_md">内容 (下面输入内容，使用MarkDown语法)</label>
+
+                <div class="col-sm-10">
+                    <textarea rows=26 id="cnt_md" name="cnt_md" cols="100" class="form-control"></textarea> <br/>
+                </div>
             </div>
 
-            <div class="pure-control-group">
-                <label for="sub1"></label>
-                <input id="sub1" class="pure-button pure-button-primary" type="submit" value="添加数据"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="sub1"></label>
+
+                <div class="col-sm-10">
+                    <input id="sub1" class="btn btn-primary" type="submit" value="添加数据"/>
+                </div>
             </div>
 
-        </fieldset>
-    </form>
+            </fieldset>
+        </form>
+    </div>
 </div>
 {% end %}

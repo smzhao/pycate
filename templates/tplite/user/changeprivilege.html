@@ -12,28 +12,35 @@
 
 
 {% block zhuti %}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        修改用户权限
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" action="/user/changeprivilege/{{ user_info.user_name }}" method="post"
+              id="form_changeinfo">
 
-<div class="panel-heading">
-    <h1>修改用户权限</h1>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="privilege">用户权限</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="privilege" id="privilege" class="form-control"
+                           placeholder="请输入管理权限，例10000"/>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"></label>
+
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">修改</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
-<div class="panel-body">
-    <form class="pure-form pure-form-aligned" action="/user/changeprivilege/{{ user_info.user_name}}" method="post"
-          id="form_changeinfo">
-
-
-        <div class="pure-control-group">
-            <label for="privilege">用户权限</label>
-            <input type="text" name="privilege" id="privilege" class="form-control" placeholder="请输入管理权限，例10000"/>
-        </div>
-
-
-        <div class="pure-control-group">
-            <label></label>
-            <button type="submit" class="pure-button pure-button-primary">修改</button>
-
-        </div>
-    </form>
-</div>
-
 {% end %}
 

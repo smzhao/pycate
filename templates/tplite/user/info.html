@@ -14,38 +14,38 @@
 
 
 {% block zhuti %}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        用户信息
+    </div>
+    <div class="panel-body">
 
-<div class="panel-heading">
-    <h1>用户信息</h1>
-</div>
-<div class="panel-body">
-
-    <div id="wiki_cnt">
+        <div id="wiki_cnt">
 
 
-        <ul>
-            <li>用户名：{{ user_info.user_name }}</li>
-            <li>电子邮箱：{{ user_info.user_email }}</li>
-            <li>权限：{{ user_info.privilege}}</li>
+            <ul>
+                <li>用户名：{{ user_info.user_name }}</li>
+                <li>电子邮箱：{{ user_info.user_email }}</li>
+                <li>权限：{{ user_info.privilege }}</li>
 
-        </ul>
+            </ul>
+
+
+        </div>
+        <br>
+
+        <a href="/user/changepass" class="btn btn-primary">修改密码</a>
+        <a href="/post/add_document" class="btn btn-primary">添加文档</a>
+        <a href="/user/changeinfo" class="btn btn-primary">修改个人信息</a>
+
+        {% if user_info is not None and user_info.privilege[4] == '1' %}
+        <a href="/user/find" class="btn btn-primary">查看所有用户</a>
+        {% end %}
+
+        <a href="/user/logout" class="btn btn-primary">注销</a>
 
 
     </div>
-    <br>
-
-    <a href="/user/changepass" class="pure-button pure-button-primary">修改密码</a>
-    <a href="/post/add_document" class="pure-button pure-button-primary">添加文档</a>
-    <a href="/user/changeinfo" class="pure-button pure-button-primary">修改个人信息</a>
-
-    {% if user_info is not None and user_info.privilege[4] == '1' %}
-    <a href="/user/find" class="pure-button pure-button-primary">查看所有用户</a>
-    {% end %}
-
-    <a href="/user/logout" class="pure-button pure-button-primary">注销</a>
-
-
 </div>
-
 {% end %}
 
