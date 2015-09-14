@@ -24,12 +24,12 @@ import pycate.handlers.info_handler
 urls = [
     ("/info/(.*)", pycate.handlers.info_handler.InfoHandler, dict(hinfo={})),
     ("/edit/(.*)", pycate.handlers.edit_handler.EditHandler, dict(hinfo={})),
-    ("/refresh/(.*)", pycate.handlers.info_operator.RefreshHandler, dict(hinfo={})),
+    # ("/refresh/(.*)", pycate.handlers.info_operator.RefreshHandler, dict(hinfo={})),
     ("/delete/(.*)", pycate.handlers.info_operator.DeleteHandler, dict(hinfo={})),
-    ("/zhiding/(.*)", pycate.handlers.info_operator.ZhidingHandler, dict(hinfo={})),
-    ("/tuiguang/(.*)", pycate.handlers.info_operator.TuiguangHandler, dict(hinfo={})),
-    ("/appoint/(.*)", pycate.handlers.info_operator.AppointHandler, dict(hinfo={})),
-    ("/delappoint/(.*)", pycate.handlers.info_operator.DelAppointHandler, dict(hinfo={})),
+    # ("/zhiding/(.*)", pycate.handlers.info_operator.ZhidingHandler, dict(hinfo={})),
+    # ("/tuiguang/(.*)", pycate.handlers.info_operator.TuiguangHandler, dict(hinfo={})),
+    # ("/appoint/(.*)", pycate.handlers.info_operator.AppointHandler, dict(hinfo={})),
+    # ("/delappoint/(.*)", pycate.handlers.info_operator.DelAppointHandler, dict(hinfo={})),
 
     # 分类
     ("/add/(.*)", pycate.handlers.add_handler.AddHandler, dict(hinfo={})),
@@ -45,11 +45,11 @@ urls = [
     ("/publish/(.*)", pycate.handlers.publish_handler.PublishHandler, dict(hinfo={})),
     # ("/changecity/(.*)", pycate.handlers.changecity_handler.ChangeCityHandler, dict(hinfo={})),
 
-    ("/link/(.*)", pycate.handlers.link_handler.LinkHandler, dict(hinfo={})),
+    # ("/link/(.*)", pycate.handlers.link_handler.LinkHandler, dict(hinfo={})),
     # ("/coupon/(.*)", pycate.handlers.coupon_handler.CouponHandler, dict(hinfo={})),
 
     # ("/member/(.*)", pycate.handlers.member_handler.MemberHandler, dict(hinfo={})),
-    ("/document/(.*)", pycate.handlers.document_handler.DocumentHandler, dict(hinfo={})),
-    ("/tui/(.*)", pycate.handlers.tui_handler.TuiHandler, dict(hinfo={})),
+    # ("/document/(.*)", pycate.handlers.document_handler.DocumentHandler, dict(hinfo={})),
+    # ("/tui/(.*)", pycate.handlers.tui_handler.TuiHandler, dict(hinfo={})),
     ('/', pycate.handlers.main_handler.MainHandler, dict(hinfo={})),
 ]

@@ -60,6 +60,7 @@ docs/_build/
 # PyBuilder
 target/
 
+torlite
 #  The SQLite3 database
 
 # For whoosh
