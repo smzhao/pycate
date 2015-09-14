@@ -9,12 +9,12 @@ def to_html(bl_str):
     <div class="row" style="line-height:30px;">
 
     <div class="col-sm-2">{0}</div>
-    <div class="col-sm-10"> <span  class="label label-primary"  name='{1}' onclick='change(this);' value=''>全部</span>
+    <div class="col-sm-10"> <span  class="label label-primary"  name='{1}' onclick='change(this);'  value=''>全部</span>
     '''.format(bianliang['zh'], bl_str.split('_')[1])
 
     tmp_dic = bianliang['dic']
     for key in tmp_dic.keys():
-        tmp_str = '''<span  class="label label-default"  name='{0}' onclick='change(this);' value='{1}'>{2}</span>
+        tmp_str = '''<span  class="label label-default"  name='{0}' onclick='change(this);'  value='{1}'>{2}</span>
     '''.format(bl_str.split('_')[1], key, tmp_dic[key])
         html_out += tmp_str
     html_out += '''</div></div>'''
