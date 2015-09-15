@@ -68,3 +68,7 @@ torlite
 static/upload/
 
 
+templates/add/
+templates/edit/
+templates/list/
+templates/infolist/
