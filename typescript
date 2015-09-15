@@ -1,0 +1,74 @@
+Script started on Mon 14 Sep 2015 07:42:53 AM EDT
+[1m[7m%[27m[1m[0m                                                                                ]2;lihy@localhost: ~/torlite/pycate]1;..orlite/pycate[0m[27m[24m[J[01;32m➜ [01;32m [36mpycate [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=lls[?1l>
+]2;ls --color=tty]1;lsconfig.py    LICENSE      [0m[38;5;27mscript[0m              [38;5;34mtestDemo.py[0m         typescript
+[38;5;27mcore[0m         [38;5;27m__pycache__[0m  script_init_env.py  [38;5;34mtestLogin.py[0m        urls.py
+[38;5;27mdatabase[0m     [38;5;27mpycate[0m       [38;5;34mserver.py[0m           [38;5;34mtest_Model_city.py[0m  [38;5;34muu.sh[0m
+[38;5;27mFOO[0m          README.md    [38;5;27mstatic[0m              [38;5;34mtestRegist.py[0m
+[38;5;34m__init__.py[0m  [38;5;27mresource[0m     [38;5;27mtemplates[0m           [38;5;34mtool_model_info.py[0m
+[38;5;27mlibs[0m         [38;5;34mrouter.py[0m    [38;5;34mtestDataBase.py[0m     [38;5;27mtorlite[0m
+[1m[7m%[27m[1m[0m                                                                                ]2;lihy@localhost: ~/torlite/pycate]1;..orlite/pycate[0m[27m[24m[J[01;32m➜ [01;32m [36mpycate [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=ccd scrio pt[?1l>
+]2;cd script]1;cd]7;file://localhost.localdomain/home/lihy/torlite/pycate/script[1m[7m%[27m[1m[0m                                                                                ]2;lihy@localhost: ~/torlite/pycate/script]1;..pycate/script[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=lls[?1l>
+]2;ls --color=tty]1;ls[0m[38;5;27madd_edit_view[0m
+[1m[7m%[27m[1m[0m                                                                                ]2;lihy@localhost: ~/torlite/pycate/script]1;..pycate/script[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=ccd aff  dd==  = + [0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add[0m[27m[24m[JX	��cd add[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add[K[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add[0m[27m[24m[J(	��cd add[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add[K[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add[0m[27m[24m[J[01;32m➜ [01;32m [36mscript [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mcd add_edit_view[?1l>
+]2;cd add_edit_view]1;cd]7;file://localhost.localdomain/home/lihy/torlite/pycate/script/add_edit_view[1m[7m%[27m[1m[0m                                                                                                          ]2;lihy@localhost: ~/torlite/pycate/script/add_edit_view]1;..add_edit_view[0m[27m[24m[J[01;32m➜ [01;32m [36madd_edit_view [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=lls[?1l>
+]2;ls --color=tty]1;ls[0m[38;5;34marray_add_edit_view.py[0m   [38;5;34mfunc_to_html_add_edit_view.py[0m  [38;5;34mgen_list_select_html.py[0m  [38;5;34mtpl_edit.tpl[0m
+array_add_edit_view.pyc  [38;5;34mfunc_to_html_listinfo.py[0m       [38;5;34mhtml_dic.py[0m              [38;5;34mtpl_listinfo.html[0m
+[38;5;34marray_listinfo.py[0m        [38;5;34mgen_add_edit_view_html.py[0m      [38;5;27m__pycache__[0m              [38;5;34mtpl_list.tpl[0m
+[38;5;34marray_list.py[0m            [38;5;34mgen_dics_from_xls.py[0m           [38;5;34mrun_gen_all.sh[0m           [38;5;34mtpl_view.tpl[0m
+[38;5;34mcheck_wanzheng.py[0m        [38;5;34mgen_listinfo_html.py[0m           [38;5;34mtpl_add.tpl[0m
+[1m[7m%[27m[1m[0m                                                                                                          ]2;lihy@localhost: ~/torlite/pycate/script/add_edit_view]1;..add_edit_view[0m[27m[24m[J[01;32m➜ [01;32m [36madd_edit_view [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=ssh run_gen_all.sh[?1l>
+]2;sh run_gen_all.sh]1;shmkdir: cannot create directory ‘../../templates/add’: File exists
+mkdir: cannot create directory ‘../../templates/edit’: File exists
+mkdir: cannot create directory ‘../../templates/view’: File exists
+mkdir: cannot create directory ‘../../templates/list’: File exists
+Traceback (most recent call last):
+  File "gen_add_edit_view_html.py", line 4, in <module>
+    from html_dic import *
+  File "/home/lihy/torlite/pycate/script/add_edit_view/html_dic.py", line 3
+SyntaxError: Non-ASCII character '\xe5' in file /home/lihy/torlite/pycate/script/add_edit_view/html_dic.py on line 3, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+Traceback (most recent call last):
+  File "gen_listinfo_html.py", line 2, in <module>
+    from html_dic import *
+  File "/home/lihy/torlite/pycate/script/add_edit_view/html_dic.py", line 3
+SyntaxError: Non-ASCII character '\xe5' in file /home/lihy/torlite/pycate/script/add_edit_view/html_dic.py on line 3, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+  File "gen_list_select_html.py", line 12
+SyntaxError: Non-ASCII character '\xe5' in file gen_list_select_html.py on line 13, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+[1m[7m%[27m[1m[0m                                                                                                          ]2;lihy@localhost: ~/torlite/pycate/script/add_edit_view]1;..add_edit_view[0m[27m[24m[J[01;31m➜ [27m[01;32m [36madd_edit_view [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=sh run_gen_all.sh[?1l>
+]2;sh run_gen_all.sh]1;shmkdir: cannot create directory ‘../../templates/add’: File exists
+mkdir: cannot create directory ‘../../templates/edit’: File exists
+mkdir: cannot create directory ‘../../templates/view’: File exists
+mkdir: cannot create directory ‘../../templates/list’: File exists
+Traceback (most recent call last):
+  File "gen_add_edit_view_html.py", line 4, in <module>
+    from html_dic import *
+  File "/home/lihy/torlite/pycate/script/add_edit_view/html_dic.py", line 3
+SyntaxError: Non-ASCII character '\xe5' in file /home/lihy/torlite/pycate/script/add_edit_view/html_dic.py on line 3, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+Traceback (most recent call last):
+  File "gen_listinfo_html.py", line 2, in <module>
+    from html_dic import *
+  File "/home/lihy/torlite/pycate/script/add_edit_view/html_dic.py", line 3
+SyntaxError: Non-ASCII character '\xe5' in file /home/lihy/torlite/pycate/script/add_edit_view/html_dic.py on line 3, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+  File "gen_list_select_html.py", line 12
+SyntaxError: Non-ASCII character '\xe5' in file gen_list_select_html.py on line 13, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+[1m[7m%[27m[1m[0m                                                                                                          ]2;lihy@localhost: ~/torlite/pycate/script/add_edit_view]1;..add_edit_view[0m[27m[24m[J[01;31m➜ [27m[01;32m [36madd_edit_view [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=sh run_gen_all.sh[17Dls               [15Dcd add_edit_view[16Dls              [14Dcd script[9Dls       scriptls    python server.py[16Dsource ~/envpy34g/bin/activate[30Dpycharm                       [23Dsource ~/envpy34g/bin/activate[?1l>
+]2;source ~/envpy34g/bin/activate]1;source[1m[7m%[27m[1m[0m                                                                                                          ]2;lihy@localhost: ~/torlite/pycate/script/add_edit_view]1;..add_edit_view[0m[27m[24m[J(envpy34g) [01;32m➜ [01;32m [36madd_edit_view [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=ppwd[?1l>
+]2;pwd]1;pwd/home/lihy/torlite/pycate/script/add_edit_view
+[1m[7m%[27m[1m[0m                                                                                                          ]2;lihy@localhost: ~/torlite/pycate/script/add_edit_view]1;..add_edit_view[0m[27m[24m[J(envpy34g) [01;32m➜ [01;32m [36madd_edit_view [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=pwdsource ~/envpy34g/bin/activate[30Dsh run_gen_all.sh             [13D[?1l>
+]2;sh run_gen_all.sh]1;shmkdir: cannot create directory ‘../../templates/add’: File exists
+mkdir: cannot create directory ‘../../templates/edit’: File exists
+mkdir: cannot create directory ‘../../templates/view’: File exists
+mkdir: cannot create directory ‘../../templates/list’: File exists
+[1m[7m%[27m[1m[0m                                                                                                          ]2;lihy@localhost: ~/torlite/pycate/script/add_edit_view]1;..add_edit_view[0m[27m[24m[J(envpy34g) [01;32m➜ [01;32m [36madd_edit_view [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=sh run_gen_all.sh[?1l>
+]2;sh run_gen_all.sh]1;sh[1m[7m%[27m[1m[0m                                                                                                          ]2;lihy@localhost: ~/torlite/pycate/script/add_edit_view]1;..add_edit_view[0m[27m[24m[J(envpy34g) [01;32m➜ [01;32m [36madd_edit_view [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=sh run_gen_all.sh[?1l>
+]2;sh run_gen_all.sh]1;shmkdir: cannot create directory ‘../../templates/add’: File exists
+mkdir: cannot create directory ‘../../templates/edit’: File exists
+mkdir: cannot create directory ‘../../templates/view’: File exists
+mkdir: cannot create directory ‘../../templates/list’: File exists
+[1m[7m%[27m[1m[0m                                                                                                          ]2;lihy@localhost: ~/torlite/pycate/script/add_edit_view]1;..add_edit_view[0m[27m[24m[J(envpy34g) [01;32m➜ [01;32m [36madd_edit_view [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=sh run_gen_all.sh[?1l>
+]2;sh run_gen_all.sh]1;shmkdir: cannot create directory ‘../../templates/add’: File exists
+mkdir: cannot create directory ‘../../templates/edit’: File exists
+mkdir: cannot create directory ‘../../templates/view’: File exists
+mkdir: cannot create directory ‘../../templates/list’: File exists
+[1m[7m%[27m[1m[0m                                                                                                          ]2;lihy@localhost: ~/torlite/pycate/script/add_edit_view]1;..add_edit_view[0m[27m[24m[J(envpy34g) [01;32m➜ [01;32m [36madd_edit_view [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m[K[?1h=sh run_gen_all.sh[?1l>
+]2;sh run_gen_all.sh]1;shmkdir: cannot create directory ‘../../templates/add’: File exists
+mkd

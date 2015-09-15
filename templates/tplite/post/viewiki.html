@@ -25,7 +25,7 @@
 
                     {% if userinfo is not None and userinfo.privilege[2] == '1' %}
                     <span class="split">|</span>
-                    <a href="/post/modify/{{ view.uid }}">修改</a>
+                    <a href="/post/modify/{{ view.uid }}" class="btn btn-primary btn-sm" role="button">修改</a>
                     {% end %}
 
                     <!--{% if userinfo is not None and userinfo.privilege[4] == '1' %}-->
