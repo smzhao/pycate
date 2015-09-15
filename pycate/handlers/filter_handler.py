@@ -63,15 +63,7 @@ class FilterHandler(base_handler.PycateBaseHandler):
         condition = self.get_condition(switch)
         if len(pararr) == 2:
             parentid = pararr[1]
-        #     if len(parentid) > 0:
-        #         condition['parentid'] = parentid
-        #         # print(self.vip_cat)
-        #         if parentid in self.vip_cat:
-        #             pass
-        #         else:
-        #             self.write('<span class="red">联系管理员开通此分类的VIP推广权限.</span>')
-        #             return
-        #
+
         else:
             parentid = ''
 
@@ -84,18 +76,11 @@ class FilterHandler(base_handler.PycateBaseHandler):
             'parentid': parentid,
         }
 
-        if switch == 'zhaopin':
-            self.render('tpl_user/p_list_jianli.html',
-                        user_published_infos=user_published_infos,
-                        kwd=kwd,
-                        wuserinfo=self.muser_info.get_by_username(),
-                        wusernum=self.muser_num.get_by_username(),
-                        wuservip=self.muser_vip.get_by_username(), )
-        else:
-            self.render('tpl_user/p_listcity.html',
-                        user_published_infos=user_published_infos,
-                        kwd=kwd,
-                        wuserinfo=self.muser_info.get_by_username(),
-                        wusernum=self.muser_num.get_by_username(),
-                        wuservip=self.muser_vip.get_by_username(), )
+
+        self.render('tpl_user/p_listcity.html',
+                    user_published_infos=user_published_infos,
+                    kwd=kwd,
+                    wuserinfo=self.muser_info.get_by_username(),
+                    wusernum=self.muser_num.get_by_username(),
+                    wuservip=self.muser_vip.get_by_username(), )
 

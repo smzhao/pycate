@@ -51,5 +51,5 @@ urls = [
     # ("/member/(.*)", pycate.handlers.member_handler.MemberHandler, dict(hinfo={})),
     # ("/document/(.*)", pycate.handlers.document_handler.DocumentHandler, dict(hinfo={})),
     # ("/tui/(.*)", pycate.handlers.tui_handler.TuiHandler, dict(hinfo={})),
-    ('/', pycate.handlers.main_handler.MainHandler, dict(hinfo={})),
+    ('/data/', pycate.handlers.main_handler.MainHandler, dict(hinfo={})),
 ]

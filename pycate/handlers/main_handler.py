@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 from pycate.model.catalog_model import MCatalog
-from pycate.model.coupon_model import MCoupon
+# from pycate.model.coupon_model import MCoupon
 import core.base_handler as base_handler
 
 class MainHandler(base_handler.PycateBaseHandler):

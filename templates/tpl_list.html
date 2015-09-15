@@ -43,11 +43,6 @@
 {% end %}
 
 {% block typebody %}
-<!--头部通栏广告开始-->
-
-<div id="ad_header"></div>
-<!--头部通栏广告结束-->
-
 
 <div class="row">
 
@@ -80,25 +75,30 @@
                     <span id="resultFenye"></span>
                 </div>
                 <div class="clear"></div>
-                <div>
-                    <a href="/publish/{{ kwd['catid'] }}" target="_blank" class="btn btn-primary" role="button">
-                        马上发布一条{{ kwd['catname'] }}信息&raquo;
-                    </a>
-                </div>
+
             </div>
         </div>
     </div>
     <div class="col-sm-3">
+        <div class="panel">
 
+            <div class="panel-heading">
+                数据类型
+            </div>
 
-        {% raw kwd['linkstr'] %}
+            <ul class="list-group">
+                <li class="list-group-item"><a href="/list/0100">遥感</a></li>
+                <li class="list-group-item"><a href="/list/0200">GIS</a></li>
+                <li class="list-group-item"><a href="/list/0300">文档数据</a></li>
+                <li class="list-group-item"><a href="/list/0400">多媒体</a></li>
+                <li class="list-group-item"><a href="/list/0500">格式化数据</a></li>
+            </ul>
+        </div>
+
     </div>
 
 
 </div>
-
-
-<div id="ad_footerbanner"></div>
 
 
 {% end %}

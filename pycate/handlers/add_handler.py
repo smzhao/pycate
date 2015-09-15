@@ -67,9 +67,10 @@ class AddHandler(base_handler.PycateBaseHandler):
 
     @tornado.web.authenticated
     def add(self):
-        post_data = {}
+        post_data = {'mymps_img':[],}
         for key in self.request.arguments:
             post_data[key] = self.get_arguments(key)
+
         uid = post_data['uid'][0]
         # 对uid进行判断，防止反复发布同一信息。
         uu = self.minfo.get_by_id(uid)
@@ -79,36 +80,6 @@ class AddHandler(base_handler.PycateBaseHandler):
             self.render('not_repeat.html')
             return
 
-        # 保存上传之后的图片的相对路径（ static )
-        img_path_arr = []
-
-        try:
-            file_dict_list = self.request.files['mymps_img']
-            for file_dict in file_dict_list:
-                file_up_str = libs.upload.upload_imgfile(file_dict)
-                img_path_arr.append(file_up_str)
-        except:
-            pass
-        post_data['mymps_img'] = img_path_arr
-
-        # 对面积进行处理
-        if 'extra_mianji' in post_data:
-            mianji_flt = float(post_data['extra_mianji'][0])
-            if 'extra_mianji' in post_data:
-                if mianji_flt < 20:
-                    post_data['extra_mianji1'] = [1]
-                elif mianji_flt < 40:
-                    post_data['extra_mianji1'] = [2]
-                elif mianji_flt < 60:
-                    post_data['extra_mianji1'] = [3]
-                elif mianji_flt < 90:
-                    post_data['extra_mianji1'] = [4]
-                elif mianji_flt < 120:
-                    post_data['extra_mianji1'] = [5]
-                elif mianji_flt < 200:
-                    post_data['extra_mianji1'] = [6]
-                elif mianji_flt >= 200:
-                    post_data['extra_mianji1'] = [7]
 
         ts = libs.tool.get_timestamp()
         ts_str = libs.tool.get_time_str(ts)
@@ -140,46 +111,24 @@ class AddHandler(base_handler.PycateBaseHandler):
         post_data['def_valid'] = 1
         post_data['def_banned'] = 0
 
-        if post_data['vip'][0] == '1':
-            post_data['def_tuiguang'] = 1
-            # print('>'* 80)
-            # print(parentid)
-            if self.muser_vip.get_vip_publish_num(parentid) <= 0:
-                return False
-            if self.__should_banned(post_data) == True:
-                post_data['def_banned'] = 1
-                if self.minfo.insert_data(post_data) == True:
-                    self.muser_vip.publish_num_decrease(parentid)
 
-                    self.render('banned.html')
-                else:
-                    self.render('error.html')
+        post_data['def_tuiguang'] = 0
+        # if self.muser_num.get_free_publish_num() + self.muser_num.get_buy_publish_num() <= 0:
+        #     return False
+        if self.__should_banned(post_data) == True:
+            post_data['def_banned'] = 1
+            if self.minfo.insert_data(post_data) == True:
+                # self.muser_num.publish_num_decrease()
+                self.render('banned.html')
             else:
-                if self.minfo.insert_data(post_data) == True:
-                    self.muser_vip.publish_num_decrease(parentid)
-
-                    self.muser_num.jifen_increase(num=2)
-                    self.redirect('/list/{0}'.format(post_data['catid'][0]))
-                else:
-                    self.render('error.html')
+                self.render('error.html')
         else:
-            post_data['def_tuiguang'] = 0
-            # if self.muser_num.get_free_publish_num() + self.muser_num.get_buy_publish_num() <= 0:
-            #     return False
-            if self.__should_banned(post_data) == True:
-                post_data['def_banned'] = 1
-                if self.minfo.insert_data(post_data) == True:
-                    # self.muser_num.publish_num_decrease()
-                    self.render('banned.html')
-                else:
-                    self.render('error.html')
+            if self.minfo.insert_data(post_data) == True:
+                # self.muser_num.publish_num_decrease()
+                # self.muser_num.jifen_increase(num=2)
+                self.redirect('/list/{0}'.format(post_data['catid'][0]))
             else:
-                if self.minfo.insert_data(post_data) == True:
-                    # self.muser_num.publish_num_decrease()
-                    # self.muser_num.jifen_increase(num=2)
-                    self.redirect('/list/{0}'.format(post_data['catid'][0]))
-                else:
-                    self.render('error.html')
+                self.render('error.html')
 
     def __should_banned(self, post_data):
         if libs.dfa.filter.isContain(post_data['title'][0]) == True:

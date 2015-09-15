@@ -60,55 +60,55 @@ class OpHandler(base_handler.PycateBaseHandler):
             self.muser_vip.num_decrease(sig, parentid)
 
 
-class AppointHandler(OpHandler):
-    def post(self, input=''):
-        # print(input)
-        post_data = {}
-        for key in self.request.arguments:
-            post_data[key] = self.get_arguments(key)
-        self.yuyue(input, post_data)
-
-
-    def yuyue(self, parentid, post_data):
-        # 预约
-        if self.muser_vip.get_yuyue_num() > 0:
-            uid = post_data['def_uid'][0]
-            post_data = {}
-            for key in self.request.arguments:
-                post_data[key] = self.get_arguments(key)[0]
-
-            d1 = datetime.datetime.now()
-            d3 = d1 + datetime.timedelta(hours=10)
-
-            now = int((time.time()) / (86400)) * 86400
-            secday = int(post_data['yyday']) * 24 * 3600
-            sechour = int(post_data['yyhour']) * 3600
-            setmin = int(post_data['yymin']) * 60
-            wl = now + secday + sechour + setmin
-            timeArray = time.localtime(wl)
-            otherStyleTime = time.strftime("%Y-%m-%d %H:%M", timeArray)
-            par_arr = [uid, wl, otherStyleTime]
-            if self.mrefresh.insert_data(par_arr) == True:
-                self.muser_vip.yuyue_num_decrease(parentid)
-
-
-class DelAppointHandler(OpHandler):
-    def get(self, input=''):
-        # print(input)
-        tmp_uu = input.split(r'/')
-        if len(tmp_uu) == 3:
-            pass
-        else:
-            self.render('404.html')
-            return
-        uid, action, parentid = input.split('/')
-        if len(input) > 0:
-            if self.mrefresh.del_by_id(uid) == True:
-                self.muser_vip.yuyue_num_increase(parentid)
-                self.op_redirect(input)
-        else:
-            self.render('404.html')
-        # self.redirect('/tui/{0}/{1}'.format(tmp_uu[2], tmp_uu[1]))
+# class AppointHandler(OpHandler):
+#     def post(self, input=''):
+#         # print(input)
+#         post_data = {}
+#         for key in self.request.arguments:
+#             post_data[key] = self.get_arguments(key)
+#         self.yuyue(input, post_data)
+#
+#
+#     def yuyue(self, parentid, post_data):
+#         # 预约
+#         if self.muser_vip.get_yuyue_num() > 0:
+#             uid = post_data['def_uid'][0]
+#             post_data = {}
+#             for key in self.request.arguments:
+#                 post_data[key] = self.get_arguments(key)[0]
+#
+#             d1 = datetime.datetime.now()
+#             d3 = d1 + datetime.timedelta(hours=10)
+#
+#             now = int((time.time()) / (86400)) * 86400
+#             secday = int(post_data['yyday']) * 24 * 3600
+#             sechour = int(post_data['yyhour']) * 3600
+#             setmin = int(post_data['yymin']) * 60
+#             wl = now + secday + sechour + setmin
+#             timeArray = time.localtime(wl)
+#             otherStyleTime = time.strftime("%Y-%m-%d %H:%M", timeArray)
+#             par_arr = [uid, wl, otherStyleTime]
+#             if self.mrefresh.insert_data(par_arr) == True:
+#                 self.muser_vip.yuyue_num_decrease(parentid)
+#
+#
+# class DelAppointHandler(OpHandler):
+#     def get(self, input=''):
+#         # print(input)
+#         tmp_uu = input.split(r'/')
+#         if len(tmp_uu) == 3:
+#             pass
+#         else:
+#             self.render('404.html')
+#             return
+#         uid, action, parentid = input.split('/')
+#         if len(input) > 0:
+#             if self.mrefresh.del_by_id(uid) == True:
+#                 self.muser_vip.yuyue_num_increase(parentid)
+#                 self.op_redirect(input)
+#         else:
+#             self.render('404.html')
+#         # self.redirect('/tui/{0}/{1}'.format(tmp_uu[2], tmp_uu[1]))
 
 
 class DeleteHandler(OpHandler):

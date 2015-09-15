@@ -17,8 +17,8 @@ import unittest
 class SimpleWidgetTestCase(unittest.TestCase):
     def setUp(self):
         # from model.info_model import MInfo
-        self.payload = {'user_name': 'value1', 'user_pass': 'fdfsrwe',
-                        'user_pass2': 'fdfsrwe',
+        self.payload = {'user_name': 'value1', 'user_pass': 'fdfseee',
+                        'user_pass2': 'fdfseee',
                         'xemail': 'asdf@163.com',
                         'xtel': '131321342'}
         self.muser = MUser()
