@@ -1,0 +1,86 @@
+<div class="panel-body">
+    <div class="row">
+        <div class="col-sm-3">
+            <span class="des">贡献者</span>
+        </div>
+        <div class="col-sm-9">
+            <span class="val">{% raw post_info['title'][0] %}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <span class="des">联系人</span>
+        </div>
+        <div class="col-sm-9">
+            <span class="val">{% raw post_info['contact_who'][0] %}</span>
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-sm-3">
+            <span class="des">访问方式</span>
+        </div>
+        <div class="col-sm-9">
+            <span class="val">{% raw post_info['keywords'][0] %}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <span class="des">关键词</span>
+        </div>
+        <div class="col-sm-9">
+            <span class="val">{% raw post_info['keywords'][0] %}</span>
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-sm-3">
+            <span class="des">数据引用方式及声明</span>
+        </div>
+        <div class="col-sm-9">
+            <span class="val">{% raw post_info['keywords'][0] %}</span>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-sm-3">
+            <span class="des">联系电话</span>
+        </div>
+        <div class="col-sm-9">
+    <span class="val"><b> {% raw post_info['tel'][0] %}</b>
+                                <a href="http://www.ip138.com:8080/search.asp?action=mobile&mobile={% raw post_info['tel'][0] %}"
+                                   target="_blank">查归属地</a></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <span class="des">QQ</span>
+        </div>
+        {% if post_info['qq'][0] is not None %}
+        <div class="col-sm-9">
+    <span class="val">
+
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={{ post_info['qq'][0] }}&site=qq&menu=yes">
+            <img border="0" src="http://wpa.qq.com/pa?p=2:{{ post_info['qq'][0] }}:41" alt="点击这里给我发消息"
+                 title="点击这里给我发消息"/>
+        </a>
+    </span>
+        </div>
+    </div>
+    {% end %}
+    <div class="row">
+        <div class="col-sm-3">
+            <span class="des">信息来源</span></div>
+        <div class="col-sm-9">
+    <span class="val">{{ kwd['maskip'] }}
+        <!--
+        <span style="margin-left:10px; font-size:12px; color:green">吉林省长春市电信</span>
+        -->
+    </span>
+        </div>
+    </div>
+
+    <div class="vtips">
+        <span style="color:#FF6600;">小提示：</span>联系我时请说明是在吉合营看到的，谢谢！
+    </div>
+</div>

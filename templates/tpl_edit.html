@@ -57,195 +57,238 @@
 <div id="main">
 
 
-    <div class="clearfix"></div>
+<div class="clearfix"></div>
 
 
-    <div>
-        <div style="display:none;">
-            <iframe width=0 height=0 src='' id="iframe_area" name="iframe_area"></iframe>
-            <iframe width=0 height=0 src='' id="iframe_street" name="iframe_street"></iframe>
-            <form method="post" target="iframe_area" id="form_area"></form>
+<div>
+<div style="display:none;">
+    <iframe width=0 height=0 src='' id="iframe_area" name="iframe_area"></iframe>
+    <iframe width=0 height=0 src='' id="iframe_street" name="iframe_street"></iframe>
+    <form method="post" target="iframe_area" id="form_area"></form>
+</div>
+
+<div class="row">
+<div class="col-sm-9">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        {% module BreadcrumbPublish(2) %}
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h2>修改-{{ post_info['title'][0] }}</h2>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" id="form_add_info" name="form_add_info" method="post"
+              enctype="multipart/form-data">
+
+
+            <input type='hidden' name="catid" value="{% raw kwd['catid'] %}"/>
+
+            <input type='hidden' name="parentid" value="{% raw kwd['parentid'] %}"/>
+            <input type="hidden" name="userip" value="{{ post_info['userip'][0] }}"/>
+
+            <input name="action" value="dopost" type="hidden">
+            <input name="ismember" value="0" type="hidden">
+
+            <input name="id" value="" type="hidden">
+            <input name="mixcode" value="4c9734774f6b40682d35c0ccee0b0845" type="hidden">
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">基本数据</label>
+
+                <div class="col-sm-10">
+                    {{ kwd['parentname'] }} > {{ kwd['catname'] }}
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="title"><font color=red>*</font>数据标题：</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="title" id="title"
+                           value="{{ post_info['title'][0] }}"/>
+                    <!--
+                    6-20个字，简要说明信息内容！
+                    -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="title2"><font
+                        color=red>*</font>数据内容(请详细说明)：</label>
+
+                <div class="col-sm-10" id="title2">
+
+
+                    <!--
+                    <label class="col-sm-2 control-label" id="title1" style="width:70%;">
+                        <textarea id="content" name="content"
+                                  style="width:98%;height:300px;" readonly="readonly">
+                        </textarea>
+                    </label>
+                    -->
+                    <textarea id="contentx" class="form-control" name="content">
+                        {{ post_info['content'][0] }}
+                    </textarea>
+                    <!--
+                    6-20个字，简要说明信息内容！
+                    -->
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="access">
+                    <span class="glyphicon glyphicon-star" style="color: red;font-size: xx-small;"></span>
+                    访问方式：</label>
+
+                <div class="col-sm-10">
+
+                    <select id="access" name="access" class="form-control">
+                        <option value="1">公开</option>
+                        <option value="2">在线下载</option>
+                        <option value="3">离线申请</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="keywords">
+                    <span class="glyphicon glyphicon-star" style="color: red;font-size: xx-small;"></span>
+                    关键词(英文分号分割)：</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="keywords" id="keywords"
+                           onkeyup="chuli_kw();" value="{{ post_info['keywords'][0] }}"/>
+                </div>
+
+                <div><span id="kwlist"></span></div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="statement">
+                    <span class="glyphicon glyphicon-star" style="color: red;font-size: xx-small;"></span>
+                    数据引用方式及声明：</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="statement" id="statement"
+                           value="{{ post_info['statement'][0] }}">
+                </div>
+            </div>
+
+            <hr/>
+            <!--                -->
+            {% block extrainfo %}{% end %}
+            <!--                -->
+            <hr/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    <span class="glyphicon glyphicon-star" style="color: red;font-size: xx-small;"></span>
+                    图片</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mymps_img1" name="mymps_img"
+                           value="{{ post_info['mymps_img'][0] }}">
+                    <input type="text" class="form-control" id="mymps_img2" name="mymps_img" value="">
+                    <input type="text" class="form-control" id="mymps_img3" name="mymps_img" value="">
+                    <input type="text" class="form-control" id="mymps_img4" name="mymps_img" value="">
+                </div>
+
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-4">
+                    <a href="/pic/add" target="_blank" class="btn btn-primary" role="button">上传图片</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="baidumap1">
+                    <span class="glyphicon glyphicon-star" style="color: red;font-size: xx-small;"></span>
+                    地图位置(点击图标，获取位置)
+                </label>
+
+                <div class="col-sm-10" id="baidumap1">
+                    <textarea id="baidumap" name="baidumap" class="form-control" readonly="readonly">
+                    </textarea>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="title">
+                    <span class="glyphicon glyphicon-star" style="color: red;font-size: xx-small;"></span>
+                    贡献者：
+                </label>
+
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="contributor" id="contributor" rows="4">
+                        {{ post_info['contributor'][0] }}
+                    </textarea>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="contact_who">
+                                    <span class="glyphicon glyphicon-star"
+                                          style="color: red;font-size: xx-small;"></span>
+                    联系人：</label>
+
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="contact_who" id="contact_who" rows="6">
+                        {{ post_info['contact_who'][0] }}
+                    </textarea>
+
+                </div>
+            </div>
+
+
+            <!--
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="manage_pwd"><font color=red>*</font> 管理密码：</label>
+                <input type="password" class="required" name="manage_pwd" id="manage_pwd"/>
+                必填！用于您今后修改或删除该信息
+            </div>
+            -->
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="Button1"></label>
+
+                <div class="col-sm-10">
+                    <input type="submit" name="post_submit" value="提交更改" id="Button1"
+                           class="btn btn-primary"/>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    <div class="panel-footer">
+        带<span class="red">*</span>为必填项
+    </div>
+</div>
+</div>
+<div class="col-sm-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            发布秘籍
         </div>
-
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        {% module BreadcrumbPublish(2) %}
-                    </div>
-                </div>
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h2>修改-{{ post_info['title'][0] }}</h2>
-                    </div>
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form" id="form_add_info" name="form_add_info" method="post"
-                              enctype="multipart/form-data">
-
-
-                            <input type='hidden' name="catid" value="{% raw kwd['catid'] %}"/>
-
-                            <input type='hidden' name="parentid" value="{% raw kwd['parentid'] %}"/>
-                            <input type="hidden" name="userip" value="{{ post_info['userip'][0] }}"/>
-
-                            <input name="action" value="dopost" type="hidden">
-                            <input name="ismember" value="0" type="hidden">
-
-                            <input name="id" value="" type="hidden">
-                            <input name="mixcode" value="4c9734774f6b40682d35c0ccee0b0845" type="hidden">
-
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">基本信息 </label>
-
-                                <div class="col-sm-10">
-                                   {{ kwd['parentname'] }} > {{ kwd['catname'] }}
-
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="title"><font color=red>*</font>信息标题：</label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="title" id="title"
-                                           value="{{ post_info['title'][0] }}"/>
-                                    <!--
-                                    6-20个字，简要说明信息内容！
-                                    -->
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="title2"><font
-                                        color=red>*</font>信息内容(请详细说明)：</label>
-
-                                <div class="col-sm-10" id="title2">
-
-
-                                    <!--
-                                    <label class="col-sm-2 control-label" id="title1" style="width:70%;">
-                                        <textarea id="content" name="content"
-                                                  style="width:98%;height:300px;" readonly="readonly">
-                                        </textarea>
-                                    </label>
-                                    -->
-                                    <textarea id="contentx" class="form-control" name="content">{{
-                                        post_info['content'][0]
-                                        }}</textarea>
-                                    <!--
-                                    6-20个字，简要说明信息内容！
-                                    -->
-                                </div>
-                            </div>
-
-
-                            <!--                -->
-                            {% block extrainfo %}{% end %}
-                            <!--                -->
-
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="endtime22"><font
-                                        color=red>*</font>地图位置：</label>
-
-                                <div class="col-sm-10" id="endtime22">点击图标，获取位置(<font size="2" color="#007500">
-                                    上传至少一张图片，是没图片浏览的4倍哟!!!
-                                </font>)。
-                                </div>
-
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="baidumap1"> </label>
-
-                                <div class="col-sm-10" id="baidumap1">
-                                    <textarea id="baidumap" name="baidumap" class="form-control" readonly="readonly">
-                                    </textarea>
-                                </div>
-
-                            </div>
-
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="contact_who"><font
-                                        color=red>*</font>联系人：</label>
-
-                                <div class="col-sm-10">
-                                    <input name="contact_who" type="text" class="form-control" id="contact_who"
-                                           value="{{ post_info['contact_who'][0] }}"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="qq">联系QQ：</label>
-
-                                <div class="col-sm-10">
-                                    <input id="qq" name="qq" type="text" class="form-control"
-                                           value="{{ post_info['qq'][0] }}"/>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <LABEL class="col-sm-2 control-label" for="tel"><font color=red>*</font>
-                                    联系电话：</label>
-
-                                <div class="col-sm-10">
-                                    <input name="tel" id="tel" value="{{ post_info['tel'][0] }}" class="form-control"
-                                           type="text"/> 请只填写一个电话
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="txt_Email">电子邮箱：</label>
-
-                                <div class="col-sm-10">
-                                    <input name="email" type="text" class="form-control"
-                                           value="{{  post_info['email'][0] }} "
-                                           id="txt_Email"/>
-                                </div>
-                            </div>
-                            <!--
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="manage_pwd"><font color=red>*</font> 管理密码：</label>
-                                <input type="password" class="required" name="manage_pwd" id="manage_pwd"/>
-                                必填！用于您今后修改或删除该信息
-                            </div>
-                            -->
-
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="Button1"></label>
-
-                                <div class="col-sm-10">
-                                    <input type="submit" name="post_submit" value="提交更改" id="Button1"
-                                           class="btn btn-primary"/>
-                                </div>
-                            </div>
-
-
-                        </form>
-                    </div>
-                    <div class="panel-footer">
-                        带<span class="red">*</span>为必填项
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        发布秘籍
-                    </div>
-                    <div class="panel-body">
-                        信息填写越完整详细，越能提高排名增加可信度！
-                        您的IP是：<span style="color:red">{{ post_info['userip'][0] }}</span>，请不要发布虚假信息、重复信息
-                    </div>
-                </div>
-
-            </div>
+        <div class="panel-body">
+            信息填写越完整详细，越能提高排名增加可信度！
+            您的IP是：<span style="color:red">{{ post_info['userip'][0] }}</span>，请不要发布虚假信息、重复信息
         </div>
     </div>
+
+</div>
+</div>
+</div>
 
 
 </div>

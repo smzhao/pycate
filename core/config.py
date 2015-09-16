@@ -75,15 +75,15 @@ if hostname() == 'g':
 else :
     cookie_secret = "61oET0p6;h.n/k'oi[8-8=y]hpro2kshqakjw",
     mysql = {
-        'dbname': 'pycate',
+        'dbname': 'jhy',
         'dbuser': 'root',
         'dbpass': 'g131322',
     }
 
     mongo = {
-        'dbname': 'pycate',
-        'dbuser': 'pycate',
-        'dbpass': 'p131322',
+        'dbname': 'jdhby',
+        'dbuser': 'bk',
+        'dbpass': 'b131322',
     }
     img_base_dir = '/opt/pyweb/jihy/jihy_src/static/'
 

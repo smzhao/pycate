@@ -29,10 +29,10 @@ dbtype = 2
 # dbconnect = peewee.SqliteDatabase('./database/torcms.db')
 
 
-dbconnect = peewee.MySQLDatabase(host = '127.0.0.1', user = 'root', passwd = 'g131322', database = 'pycate', )
+dbconnect = peewee.MySQLDatabase(host = '127.0.0.1', user = 'root', passwd = 'g131322', database = 'jhy', )
 
 
-template_dir_name = 'templates_a'
+template_dir_name = 'templates'
 
 smtp_cfg = {
     'host': "smtp.ym.163.com",

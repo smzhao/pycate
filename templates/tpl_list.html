@@ -7,17 +7,18 @@
     function change(span) {
         $('span[name="' + $(span).attr('name') + '"]').each(function () {
             if (this.checked && this != span) {
-                this.className = "unchecked";
+                this.className = "label label-default";
                 this.checked = false;
             }
         });
         obj[$(span).attr('name')] = $(span).attr('value');
-        span.className = "checked";
+        span.className = "label label-primary";
         span.checked = true;
         tt = span.value;
         select();
     }
     function select() {
+
         // 选择之后，将条件放到 url 中，
         var html_condition = window.location.href + '/con';
         var html_pagination = window.location.href + '/num';
@@ -26,10 +27,13 @@
                 html_condition += '/' + ii + '/' + obj[ii];
                 html_pagination += '/' + ii + '/' + obj[ii];
             }
+
         }
+
         $('#resultSpan').load(html_condition);
         $('#resultFenye').load(html_pagination);
     }
+
 </script>
 
 
@@ -39,6 +43,7 @@
         select();
     });
 </script>
+
 
 {% end %}
 
@@ -80,13 +85,12 @@
         </div>
     </div>
     <div class="col-sm-3">
-        <div class="panel">
+        <div class="panel panel-info">
 
             <div class="panel-heading">
                 数据类型
             </div>
 
-<<<<<<< HEAD
             <ul class="list-group">
                 <li class="list-group-item"><a href="/list/0100">遥感</a></li>
                 <li class="list-group-item"><a href="/list/0200">GIS</a></li>
@@ -96,7 +100,6 @@
             </ul>
         </div>
 
-=======
         <div class="panel panel-info">
             <div class="panel-heading">
                 最近文档
@@ -107,7 +110,7 @@
 
 
         </div>
->>>>>>> 398427640a1efd1fbabaf65d6dcd7048cf280497
+
     </div>
 
 

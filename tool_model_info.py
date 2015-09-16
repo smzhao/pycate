@@ -8,8 +8,8 @@ import libs.tool
 class MInfo(object):
     def __init__(self, cityid):
         con = pymongo.Connection('localhost')
-        self.db = con[config.mg_cfg['dbname']]
-        self.db.authenticate(config.mg_cfg['dbuser'], config.mg_cfg['dbpass'])
+        self.db = con['jdhby']
+        self.db.authenticate('bk', 'b131322')
         self.tab_info = self.db['jdhby_{0}'.format(cityid)]
 
     def __disable_sig__(self, def_uid, sig):
@@ -232,10 +232,10 @@ class MInfo(object):
         return  self.tab_info.find()
 
 def clear_all():
-    uu = MInfo('tonghua')
-    uu.clear_all()
-    uu = MInfo('jilin')
-    uu.clear_all()
+    # uu = MInfo('tonghua')
+    # uu.clear_all()
+    # uu = MInfo('jilin')
+    # uu.clear_all()
     uu = MInfo('changchun')
     uu.clear_all()
 
@@ -244,12 +244,12 @@ if __name__ == '__main__':
     pass
     clear_all()
 
-    uu = MInfo('changchun')
-
-    for x in uu.get_all():
-        try:
-            print(x['uid'])
-            uu.update_user(x['uid'])
-        except:
-            pass
+    # uu = MInfo('changchun')
+    #
+    # for x in uu.get_all():
+    #     try:
+    #         print(x['uid'])
+    #         uu.update_user(x['uid'])
+    #     except:
+    #         pass
 
