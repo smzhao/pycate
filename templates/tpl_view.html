@@ -154,9 +154,14 @@
                         信息详情
                     </div>
 
-                    <div class="panel-body">
+                    <div class="panel-body" style="line-height: 32px">
                         <!--信息介绍页内广告-->
+                        <div class="row">
+                            <div class="col-sm-12">
 
+                                {% raw post_info['contact_who'][0] %}
+                            </div>
+                        </div>
                         {{ post_info['content'][0] }}
                     </div>
                 </div>
@@ -168,10 +173,12 @@
                         <div class="iga_infoaddiv" style="text-align: left;width:98%;margin:1px auto;">
                             {% for x in post_info['mymps_img'] %}
 
+
+                            {% if len(x) == 58 %}
                             <a class="group1" data-rel='hi' href="{{ static_url(x) }}">
                                 <img src="{{ x }}" width="500px" style="margin:8px 10px 8px 50px;"/></a>
 
-
+                            {% end %}
                             {% end %}
                             <br/>
                             <!--

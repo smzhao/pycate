@@ -64,22 +64,13 @@ class EditHandler(base_handler.PycateBaseHandler):
         self.render('edit/edit_{0}.html'.format(catid), kwd=kwd, post_info=rec_info)
 
     def update(self, par_uid):
+
         post_data = self.minfo.get_by_id(par_uid)
+
         for key in self.request.arguments:
             post_data[key] = self.get_arguments(key)
 
 
-        img_path_arr = []
-
-        try:
-            file_dict_list = self.request.files['mymps_img']
-            for file_dict in file_dict_list:
-                file_up_str = libs.upload.upload_imgfile(file_dict)
-                img_path_arr.append(file_up_str)
-        except:
-            pass
-        post_data['mymps_img'] = img_path_arr
-        # 对面积进行处理
         if 'extra_mianji' in post_data:
             mianji_flt = float(post_data['extra_mianji'][0])
             if 'extra_mianji' in post_data:
